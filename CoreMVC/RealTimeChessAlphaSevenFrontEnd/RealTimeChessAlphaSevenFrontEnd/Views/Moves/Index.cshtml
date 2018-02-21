@@ -1,0 +1,93 @@
+﻿@model IEnumerable<RealTimeChessAlphaSevenFrontEnd.Models.Move>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PlayerTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MatchPlayerId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AlgebraicChessNotation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameClockBeginMove)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameClockEndMove)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PositionBeginMove)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PositionEndMove)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Updated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Deleted)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlayerTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MatchPlayerId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AlgebraicChessNotation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameClockBeginMove)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameClockEndMove)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PositionBeginMove)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PositionEndMove)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsDeleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Deleted)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MoveId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MoveId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MoveId })
+        </td>
+    </tr>
+}
+
+</table>

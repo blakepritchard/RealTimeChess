@@ -1,0 +1,106 @@
+﻿@model RealTimeChessAlphaSevenFrontEnd.Models.Move
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Move</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PlayerTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlayerTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MatchPlayerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatchPlayerId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlgebraicChessNotation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlgebraicChessNotation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GameClockBeginMove)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameClockBeginMove)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GameClockEndMove)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameClockEndMove)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PositionBeginMove)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PositionBeginMove)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PositionEndMove)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PositionEndMove)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDeleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Updated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Updated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deleted)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MoveId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

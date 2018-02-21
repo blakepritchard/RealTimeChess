@@ -1,0 +1,5 @@
+C:\Users\Blake\source\repos\scratch\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Debug\netcoreapp2.0\RealTimeChessAlphaSeven.csprojResolveAssemblyReference.cache
+C:\Users\Blake\source\repos\scratch\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Debug\netcoreapp2.0\RealTimeChessAlphaSeven.csproj.CoreCompileInputs.cache
+C:\Users\Blake\source\repos\scratch\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\Blake\source\repos\scratch\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Debug\netcoreapp2.0\RealTimeChessAlphaSeven.AssemblyInfoInputs.cache
+C:\Users\Blake\source\repos\scratch\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Debug\netcoreapp2.0\RealTimeChessAlphaSeven.AssemblyInfo.cs
