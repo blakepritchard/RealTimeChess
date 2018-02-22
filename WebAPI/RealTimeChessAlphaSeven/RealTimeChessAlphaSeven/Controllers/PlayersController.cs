@@ -15,12 +15,16 @@ namespace RealTimeChessAlphaSeven.Controllers
     {
         private readonly RealTimeChessDbContext _context;
 
+        /// <summary>
+        /// Creates a PlayerController.
+        /// </summary>
         public PlayersController(RealTimeChessDbContext context)
         {
             _context = context;
         }
 
         // GET: api/Players
+        /// <response code="200">Players returned OK</response>
         [HttpGet]
         public IEnumerable<Player> GetPlayers()
         {
@@ -28,7 +32,9 @@ namespace RealTimeChessAlphaSeven.Controllers
         }
 
         // GET: api/Players/5
+        /// <response code="200">Players returned OK</response>
         [HttpGet("{id}")]
+        [ProducesResponseType(typeof(IEnumerable<Player>), 200)]
         public async Task<IActionResult> GetPlayer([FromRoute] int id)
         {
             if (!ModelState.IsValid)
@@ -47,6 +53,7 @@ namespace RealTimeChessAlphaSeven.Controllers
         }
 
         // PUT: api/Players/5
+        /// <response code="204">Players Updates OK</response>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPlayer([FromRoute] int id, [FromBody] Player player)
         {
@@ -82,6 +89,7 @@ namespace RealTimeChessAlphaSeven.Controllers
         }
 
         // POST: api/Players
+        /// <response code="201">Players Created OK</response>
         [HttpPost]
         public async Task<IActionResult> PostPlayer([FromBody] Player player)
         {
@@ -97,6 +105,7 @@ namespace RealTimeChessAlphaSeven.Controllers
         }
 
         // DELETE: api/Players/5
+        /// <response code="200">Player Deleted OK</response>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePlayer([FromRoute] int id)
         {

@@ -13,10 +13,14 @@ using RealTimeChessAlphaSeven.Models;
 using RealTimeChessAlphaSeven.Services;
 using RealTimeChessAlphaSeven.Models.RealTimeChessModels;
 using Swashbuckle.AspNetCore.Swagger;
-
+using System.IO;
+using Microsoft.Extensions.PlatformAbstractions;
 
 namespace RealTimeChessAlphaSeven
 {
+    /// <summary>
+    /// Startup
+    /// </summary>
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -26,7 +30,9 @@ namespace RealTimeChessAlphaSeven
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        /// This method gets called by the runtime. Use this method to add services to the container.
+        /// </summary>
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddDbContext<ApplicationDbContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -49,10 +55,16 @@ namespace RealTimeChessAlphaSeven
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "RealTimeChess API", Version = "V1" });
+
+                // var pathBase = PlatformServices.Default.Application.ApplicationBasePath;
+                // var pathXML = Path.Combine(pathBase, "SwaggerProject.xml");
+                // c.IncludeXmlComments(pathXML);
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// </summary>
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -70,6 +82,13 @@ namespace RealTimeChessAlphaSeven
 
             app.UseAuthentication();
 
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
+
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
@@ -80,12 +99,7 @@ namespace RealTimeChessAlphaSeven
             });
 
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+
 
         }
     }

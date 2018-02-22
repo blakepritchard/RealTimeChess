@@ -5,6 +5,10 @@
     <UserSecretsId>aspnet-RealTimeChessAlphaSeven-3BC6EEDD-6489-4796-BC8A-3B2BF1059525</UserSecretsId>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp2.0\RealTimeChessAlphaSeven.xml</DocumentationFile>
+  </PropertyGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />

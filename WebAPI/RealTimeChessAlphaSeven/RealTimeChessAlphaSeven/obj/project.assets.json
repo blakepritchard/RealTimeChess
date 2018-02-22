@@ -13248,11 +13248,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Blake\\source\\repos\\scratch\\WebAPI\\RealTimeChessAlphaSeven\\RealTimeChessAlphaSeven\\RealTimeChessAlphaSeven.csproj",
+      "projectUniqueName": "C:\\Users\\Blake\\source\\repos\\git\\RealTimeChess\\WebAPI\\RealTimeChessAlphaSeven\\RealTimeChessAlphaSeven\\RealTimeChessAlphaSeven.csproj",
       "projectName": "RealTimeChessAlphaSeven",
-      "projectPath": "C:\\Users\\Blake\\source\\repos\\scratch\\WebAPI\\RealTimeChessAlphaSeven\\RealTimeChessAlphaSeven\\RealTimeChessAlphaSeven.csproj",
+      "projectPath": "C:\\Users\\Blake\\source\\repos\\git\\RealTimeChess\\WebAPI\\RealTimeChessAlphaSeven\\RealTimeChessAlphaSeven\\RealTimeChessAlphaSeven.csproj",
       "packagesPath": "C:\\Users\\Blake\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Blake\\source\\repos\\scratch\\WebAPI\\RealTimeChessAlphaSeven\\RealTimeChessAlphaSeven\\obj\\",
+      "outputPath": "C:\\Users\\Blake\\source\\repos\\git\\RealTimeChess\\WebAPI\\RealTimeChessAlphaSeven\\RealTimeChessAlphaSeven\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",

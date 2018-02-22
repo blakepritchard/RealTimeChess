@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RealTimeChessAlphaSeven</name>
+    </assembly>
+    <members>
+        <member name="M:RealTimeChessAlphaSeven.Controllers.PlayersController.#ctor(RealTimeChessAlphaSeven.Models.RealTimeChessModels.RealTimeChessDbContext)">
+            <summary>
+            Creates a PlayerController.
+            </summary>
+        </member>
+        <member name="M:RealTimeChessAlphaSeven.Controllers.PlayersController.GetPlayers">
+            <response code="200">Players returned OK</response>
+        </member>
+        <member name="M:RealTimeChessAlphaSeven.Controllers.PlayersController.GetPlayer(System.Int32)">
+            <response code="200">Players returned OK</response>
+        </member>
+        <member name="M:RealTimeChessAlphaSeven.Controllers.PlayersController.PutPlayer(System.Int32,RealTimeChessAlphaSeven.Models.RealTimeChessModels.Player)">
+            <response code="204">Players Updates OK</response>
+        </member>
+        <member name="M:RealTimeChessAlphaSeven.Controllers.PlayersController.PostPlayer(RealTimeChessAlphaSeven.Models.RealTimeChessModels.Player)">
+            <response code="201">Players Created OK</response>
+        </member>
+        <member name="M:RealTimeChessAlphaSeven.Controllers.PlayersController.DeletePlayer(System.Int32)">
+            <response code="200">Player Deleted OK</response>
+        </member>
+        <member name="T:RealTimeChessAlphaSeven.Startup">
+            <summary>
+            Startup
+            </summary>
+        </member>
+        <member name="M:RealTimeChessAlphaSeven.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+        </member>
+        <member name="M:RealTimeChessAlphaSeven.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+        </member>
+    </members>
+</doc>
