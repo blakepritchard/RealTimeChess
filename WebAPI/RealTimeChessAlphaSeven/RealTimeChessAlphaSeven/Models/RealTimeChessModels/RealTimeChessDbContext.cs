@@ -10,7 +10,7 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
     {
         public DbSet<ChessMatch> Matches { get; set; }
         public DbSet<Player> Players { get; set; }
-        public DbSet<PlayerType> PlayerTypess { get; set; }
+        public DbSet<PlayerType> PlayerTypes { get; set; }
         public DbSet<Move> Moves { get; set; }
         public DbSet<MatchPlayer> MatchPlayers { get; set; }
 

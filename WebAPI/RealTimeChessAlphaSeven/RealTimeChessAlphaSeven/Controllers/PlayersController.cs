@@ -115,6 +115,9 @@ namespace RealTimeChessAlphaSeven.Controllers
         // DELETE: api/Players/5
         /// <response code="200">Player Deleted OK</response>
         [HttpDelete("{id}")]
+        [ProducesResponseType(typeof(IActionResult), 200)]
+        [ProducesResponseType(typeof(IActionResult), 400)]
+        [ProducesResponseType(typeof(IActionResult), 404)]
         public async Task<IActionResult> DeletePlayer([FromRoute] int id)
         {
             if (!ModelState.IsValid)

@@ -29,6 +29,7 @@ namespace RealTimeChessAlphaSeven.Controllers
 
         // GET: api/MatchPlayers/5
         [HttpGet("{id}")]
+        [ProducesResponseType(typeof(MatchPlayer), 200)]
         public async Task<IActionResult> GetMatchPlayer([FromRoute] int id)
         {
             if (!ModelState.IsValid)
@@ -48,6 +49,10 @@ namespace RealTimeChessAlphaSeven.Controllers
 
         // PUT: api/MatchPlayers/5
         [HttpPut("{id}")]
+        [ProducesResponseType(typeof(IActionResult), 200)]
+        [ProducesResponseType(typeof(IActionResult), 204)]
+        [ProducesResponseType(typeof(IActionResult), 400)]
+        [ProducesResponseType(typeof(IActionResult), 404)]
         public async Task<IActionResult> PutMatchPlayer([FromRoute] int id, [FromBody] MatchPlayer matchPlayer)
         {
             if (!ModelState.IsValid)
@@ -83,6 +88,8 @@ namespace RealTimeChessAlphaSeven.Controllers
 
         // POST: api/MatchPlayers
         [HttpPost]
+        [ProducesResponseType(typeof(IActionResult), 201)]
+        [ProducesResponseType(typeof(IActionResult), 400)]
         public async Task<IActionResult> PostMatchPlayer([FromBody] MatchPlayer matchPlayer)
         {
             if (!ModelState.IsValid)
@@ -98,6 +105,9 @@ namespace RealTimeChessAlphaSeven.Controllers
 
         // DELETE: api/MatchPlayers/5
         [HttpDelete("{id}")]
+        [ProducesResponseType(typeof(IActionResult), 200)]
+        [ProducesResponseType(typeof(IActionResult), 400)]
+        [ProducesResponseType(typeof(IActionResult), 404)]
         public async Task<IActionResult> DeleteMatchPlayer([FromRoute] int id)
         {
             if (!ModelState.IsValid)

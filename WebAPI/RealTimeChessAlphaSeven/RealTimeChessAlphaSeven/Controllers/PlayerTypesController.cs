@@ -22,13 +22,14 @@ namespace RealTimeChessAlphaSeven.Controllers
 
         // GET: api/PlayerTypes
         [HttpGet]
-        public IEnumerable<PlayerType> GetPlayerTypess()
+        public IEnumerable<PlayerType> GetPlayerTypes()
         {
-            return _context.PlayerTypess;
+            return _context.PlayerTypes;
         }
 
         // GET: api/PlayerTypes/5
         [HttpGet("{id}")]
+        [ProducesResponseType(typeof(PlayerType), 200)]
         public async Task<IActionResult> GetPlayerType([FromRoute] int id)
         {
             if (!ModelState.IsValid)
@@ -36,7 +37,7 @@ namespace RealTimeChessAlphaSeven.Controllers
                 return BadRequest(ModelState);
             }
 
-            var playerType = await _context.PlayerTypess.SingleOrDefaultAsync(m => m.PlayerTypeId == id);
+            var playerType = await _context.PlayerTypes.SingleOrDefaultAsync(m => m.PlayerTypeId == id);
 
             if (playerType == null)
             {
@@ -48,6 +49,10 @@ namespace RealTimeChessAlphaSeven.Controllers
 
         // PUT: api/PlayerTypes/5
         [HttpPut("{id}")]
+        [ProducesResponseType(typeof(IActionResult), 200)]
+        [ProducesResponseType(typeof(IActionResult), 204)]
+        [ProducesResponseType(typeof(IActionResult), 400)]
+        [ProducesResponseType(typeof(IActionResult), 404)]
         public async Task<IActionResult> PutPlayerType([FromRoute] int id, [FromBody] PlayerType playerType)
         {
             if (!ModelState.IsValid)
@@ -83,6 +88,8 @@ namespace RealTimeChessAlphaSeven.Controllers
 
         // POST: api/PlayerTypes
         [HttpPost]
+        [ProducesResponseType(typeof(IActionResult), 201)]
+        [ProducesResponseType(typeof(IActionResult), 400)]
         public async Task<IActionResult> PostPlayerType([FromBody] PlayerType playerType)
         {
             if (!ModelState.IsValid)
@@ -90,7 +97,7 @@ namespace RealTimeChessAlphaSeven.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.PlayerTypess.Add(playerType);
+            _context.PlayerTypes.Add(playerType);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetPlayerType", new { id = playerType.PlayerTypeId }, playerType);
@@ -98,6 +105,9 @@ namespace RealTimeChessAlphaSeven.Controllers
 
         // DELETE: api/PlayerTypes/5
         [HttpDelete("{id}")]
+        [ProducesResponseType(typeof(IActionResult), 200)]
+        [ProducesResponseType(typeof(IActionResult), 400)]
+        [ProducesResponseType(typeof(IActionResult), 404)]
         public async Task<IActionResult> DeletePlayerType([FromRoute] int id)
         {
             if (!ModelState.IsValid)
@@ -105,13 +115,13 @@ namespace RealTimeChessAlphaSeven.Controllers
                 return BadRequest(ModelState);
             }
 
-            var playerType = await _context.PlayerTypess.SingleOrDefaultAsync(m => m.PlayerTypeId == id);
+            var playerType = await _context.PlayerTypes.SingleOrDefaultAsync(m => m.PlayerTypeId == id);
             if (playerType == null)
             {
                 return NotFound();
             }
 
-            _context.PlayerTypess.Remove(playerType);
+            _context.PlayerTypes.Remove(playerType);
             await _context.SaveChangesAsync();
 
             return Ok(playerType);
@@ -119,7 +129,7 @@ namespace RealTimeChessAlphaSeven.Controllers
 
         private bool PlayerTypeExists(int id)
         {
-            return _context.PlayerTypess.Any(e => e.PlayerTypeId == id);
+            return _context.PlayerTypes.Any(e => e.PlayerTypeId == id);
         }
     }
 }
