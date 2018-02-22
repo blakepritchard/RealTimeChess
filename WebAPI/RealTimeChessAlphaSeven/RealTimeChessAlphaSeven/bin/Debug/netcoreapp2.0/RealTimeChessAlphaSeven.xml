@@ -16,10 +16,10 @@
             <response code="200">Players returned OK</response>
         </member>
         <member name="M:RealTimeChessAlphaSeven.Controllers.PlayersController.PutPlayer(System.Int32,RealTimeChessAlphaSeven.Models.RealTimeChessModels.Player)">
-            <response code="204">Players Updates OK</response>
+            <response code="204">Players Updated OK</response>
         </member>
         <member name="M:RealTimeChessAlphaSeven.Controllers.PlayersController.PostPlayer(RealTimeChessAlphaSeven.Models.RealTimeChessModels.Player)">
-            <response code="201">Players Created OK</response>
+            <response code="201">201 OK</response>
         </member>
         <member name="M:RealTimeChessAlphaSeven.Controllers.PlayersController.DeletePlayer(System.Int32)">
             <response code="200">Player Deleted OK</response>
@@ -27,6 +27,11 @@
         <member name="T:RealTimeChessAlphaSeven.Startup">
             <summary>
             Startup
+            </summary>
+        </member>
+        <member name="M:RealTimeChessAlphaSeven.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Creates a Startup Class
             </summary>
         </member>
         <member name="M:RealTimeChessAlphaSeven.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">

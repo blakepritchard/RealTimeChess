@@ -23,6 +23,9 @@ namespace RealTimeChessAlphaSeven
     /// </summary>
     public class Startup
     {
+        /// <summary>
+        /// Creates a Startup Class
+        /// </summary>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;

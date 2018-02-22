@@ -48,41 +48,15 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Player playerFound = GetPlayerById((int)id);
+            Player player = FindPlayerById((int)id);
 
-            if (playerFound == null)
+            if (player == null)
             {
                 return HttpNotFound();
             }
-            return View(playerFound);
+            return View(player);
 
         }
-
-        public Player GetPlayerById(int intPlayerId)
-        {
-            //apiChess.ApiPlayersByIdGetEx(intPlayerId);
-            Task<HttpOperationResponse> taskGet = apiChess.ApiPlayersByIdGetAsyncEx(intPlayerId);
-            HttpOperationResponse _result = taskGet.Result;
-            HttpResponseMessage _httpResponse = _result.Response;
-            HttpStatusCode _statusCode = _httpResponse.StatusCode;
-            string _responseContent = null;
-            Player playerReturn = null;
-
-            if ((int)_statusCode == 200)
-            {
-                _responseContent = _httpResponse.Content.AsString();
-                try
-                {
-                    playerReturn = SafeJsonConvert.DeserializeObject<Player>(_responseContent, apiChess.DeserializationSettings);
-                }
-                catch (JsonException ex)
-                {
-                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
-                }
-            }
-            return playerReturn;
-        }
-
 
 
         // GET: Players/Create
@@ -98,14 +72,18 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "PlayerId,AuthenticationId,FirstName,LastName,NumWins,NumLosses,IsActive,IsDeleted,Created,Updated,Deleted")] Player player)
         {
+            /*
             if (ModelState.IsValid)
             {
                 db.Players.Add(player);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            */
 
-            return View(player);
+            apiChess.ApiPlayersPost(player);
+            return RedirectToAction("Index");
+
         }
 
         // GET: Players/Edit/5
@@ -115,7 +93,10 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Player player = db.Players.Find(id);
+
+            //Player player = db.Players.Find(id);
+            Player player = FindPlayerById((int)id);
+
             if (player == null)
             {
                 return HttpNotFound();
@@ -132,8 +113,9 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(player).State = EntityState.Modified;
-                db.SaveChanges();
+                // db.Entry(player).State = EntityState.Modified;
+                // db.SaveChanges();
+                apiChess.ApiPlayersByIdPut((int)player.PlayerId, player);
                 return RedirectToAction("Index");
             }
             return View(player);
@@ -146,12 +128,16 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Player player = db.Players.Find(id);
+
+            //Player player = db.Players.Find(id);
+            Player player = FindPlayerById((int)id);
+
             if (player == null)
             {
                 return HttpNotFound();
             }
             return View(player);
+
         }
 
         // POST: Players/Delete/5
@@ -159,10 +145,19 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Player player = db.Players.Find(id);
-            db.Players.Remove(player);
-            db.SaveChanges();
+            //Player player = db.Players.Find(id);
+            //db.Players.Remove(player);
+            //db.SaveChanges();
+
+            Player player = FindPlayerById((int)id);
             return RedirectToAction("Index");
+
+        }
+
+        protected Player FindPlayerById(int id)
+        {
+            Player players = (Player)apiChess.ApiPlayersByIdGet((int)id);
+            return players;
         }
 
         protected override void Dispose(bool disposing)

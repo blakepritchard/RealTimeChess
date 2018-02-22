@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RealTimeChessAlphaSeven.Models.RealTimeChessModels;
+using Swashbuckle.AspNetCore;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace RealTimeChessAlphaSeven.Controllers
 {
@@ -34,7 +36,7 @@ namespace RealTimeChessAlphaSeven.Controllers
         // GET: api/Players/5
         /// <response code="200">Players returned OK</response>
         [HttpGet("{id}")]
-        [ProducesResponseType(typeof(IEnumerable<Player>), 200)]
+        [ProducesResponseType(typeof(Player), 200)]
         public async Task<IActionResult> GetPlayer([FromRoute] int id)
         {
             if (!ModelState.IsValid)
@@ -53,8 +55,12 @@ namespace RealTimeChessAlphaSeven.Controllers
         }
 
         // PUT: api/Players/5
-        /// <response code="204">Players Updates OK</response>
+        /// <response code="204">Players Updated OK</response>
         [HttpPut("{id}")]
+        [ProducesResponseType(typeof(IActionResult), 200)]
+        [ProducesResponseType(typeof(IActionResult), 204)]
+        [ProducesResponseType(typeof(IActionResult), 400)]
+        [ProducesResponseType(typeof(IActionResult), 404)]
         public async Task<IActionResult> PutPlayer([FromRoute] int id, [FromBody] Player player)
         {
             if (!ModelState.IsValid)
@@ -89,8 +95,10 @@ namespace RealTimeChessAlphaSeven.Controllers
         }
 
         // POST: api/Players
-        /// <response code="201">Players Created OK</response>
+        /// <response code="201">201 OK</response>
         [HttpPost]
+        [ProducesResponseType(typeof(IActionResult), 201)]
+        [ProducesResponseType(typeof(IActionResult), 400)]
         public async Task<IActionResult> PostPlayer([FromBody] Player player)
         {
             if (!ModelState.IsValid)
