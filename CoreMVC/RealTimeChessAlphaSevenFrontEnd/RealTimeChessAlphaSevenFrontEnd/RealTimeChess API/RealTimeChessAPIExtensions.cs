@@ -1478,9 +1478,9 @@ namespace RealTimeChessAlphaSevenFrontEnd
             /// </param>
             /// <param name='player'>
             /// </param>
-            public static void ApiPlayersByIdPut(this IRealTimeChessAPI operations, int id, Player player = default(Player))
+            public static object ApiPlayersByIdPut(this IRealTimeChessAPI operations, int id, Player player = default(Player))
             {
-                Task.Factory.StartNew(s => ((IRealTimeChessAPI)s).ApiPlayersByIdPutAsync(id, player), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+                return Task.Factory.StartNew(s => ((IRealTimeChessAPI)s).ApiPlayersByIdPutAsync(id, player), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
             }
 
             /// <param name='operations'>
@@ -1493,9 +1493,12 @@ namespace RealTimeChessAlphaSevenFrontEnd
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task ApiPlayersByIdPutAsync(this IRealTimeChessAPI operations, int id, Player player = default(Player), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<object> ApiPlayersByIdPutAsync(this IRealTimeChessAPI operations, int id, Player player = default(Player), CancellationToken cancellationToken = default(CancellationToken))
             {
-                await operations.ApiPlayersByIdPutWithHttpMessagesAsync(id, player, null, cancellationToken).ConfigureAwait(false);
+                using (var _result = await operations.ApiPlayersByIdPutWithHttpMessagesAsync(id, player, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <param name='operations'>

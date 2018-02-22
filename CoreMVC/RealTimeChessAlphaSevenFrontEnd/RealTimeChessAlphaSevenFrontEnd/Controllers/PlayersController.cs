@@ -1,17 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 using Microsoft.Rest;
-using Microsoft.Rest.Serialization;
-using Newtonsoft.Json;
+
 using RealTimeChessAlphaSevenFrontEnd.Models;
 
 namespace RealTimeChessAlphaSevenFrontEnd.Controllers
@@ -149,7 +142,7 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
             //db.Players.Remove(player);
             //db.SaveChanges();
 
-            Player player = FindPlayerById((int)id);
+            apiChess.ApiPlayersByIdDelete(id);
             return RedirectToAction("Index");
 
         }
