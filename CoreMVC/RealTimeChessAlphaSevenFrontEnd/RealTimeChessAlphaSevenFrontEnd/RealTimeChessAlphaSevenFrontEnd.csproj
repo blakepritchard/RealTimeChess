@@ -201,6 +201,7 @@
     <Compile Include="Controllers\MatchPlayersController.cs" />
     <Compile Include="Controllers\MovesController.cs" />
     <Compile Include="Controllers\PlayersController.cs" />
+    <Compile Include="Controllers\PlayerTypesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -296,6 +297,11 @@
     <Content Include="Views\Moves\Details.cshtml" />
     <Content Include="Views\Moves\Edit.cshtml" />
     <Content Include="Views\Moves\Index.cshtml" />
+    <Content Include="Views\PlayerTypes\Create.cshtml" />
+    <Content Include="Views\PlayerTypes\Delete.cshtml" />
+    <Content Include="Views\PlayerTypes\Details.cshtml" />
+    <Content Include="Views\PlayerTypes\Edit.cshtml" />
+    <Content Include="Views\PlayerTypes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -7,17 +7,36 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using RealTimeChessAlphaSevenFrontEnd.Models;
+using Microsoft.Rest;
+using System.Configuration;
+using System.Web.Configuration;
 
 namespace RealTimeChessAlphaSevenFrontEnd.RealTimeChess_API.Models
 {
     public class ChessMatchesController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private Uri baseUri;
+        private static BasicAuthenticationCredentials authCredsBasic;
+        private RealTimeChessAPI apiChess;
+        private Configuration rootWebConfig1;
+        private KeyValueConfigurationElement configRealTimeChessUri;
+
+        public ChessMatchesController()
+        {
+            rootWebConfig1 = WebConfigurationManager.OpenWebConfiguration(null);
+            configRealTimeChessUri = rootWebConfig1.AppSettings.Settings["RealTimeChessUri"];
+            string strRealTimeChessUri = configRealTimeChessUri.Value;
+
+            baseUri = new Uri(strRealTimeChessUri);
+            authCredsBasic = new BasicAuthenticationCredentials();
+            apiChess = new RealTimeChessAPI(baseUri, authCredsBasic);
+        }
 
         // GET: ChessMatches
         public ActionResult Index()
         {
-            return View(db.ChessMatches.ToList());
+            List<ChessMatch> lstMatches = apiChess.ApiChessMatchesGet().ToList<ChessMatch>();
+            return View(lstMatches);
         }
 
         // GET: ChessMatches/Details/5
@@ -27,7 +46,8 @@ namespace RealTimeChessAlphaSevenFrontEnd.RealTimeChess_API.Models
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChessMatch chessMatch = db.ChessMatches.Find(id);
+            //ChessMatch chessMatch = db.ChessMatches.Find(id);
+            ChessMatch chessMatch = (ChessMatch)apiChess.ApiChessMatchesByIdGet((int)id);
             if (chessMatch == null)
             {
                 return HttpNotFound();
@@ -48,13 +68,7 @@ namespace RealTimeChessAlphaSevenFrontEnd.RealTimeChess_API.Models
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ChessMatchId,PlayerTypeName,MatchStartTime,MatchEndTime,IsActive,IsDeleted,Created,Updated,Deleted")] ChessMatch chessMatch)
         {
-            if (ModelState.IsValid)
-            {
-                db.ChessMatches.Add(chessMatch);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
+            apiChess.ApiChessMatchesPost(chessMatch);
             return View(chessMatch);
         }
 
@@ -65,7 +79,7 @@ namespace RealTimeChessAlphaSevenFrontEnd.RealTimeChess_API.Models
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChessMatch chessMatch = db.ChessMatches.Find(id);
+            ChessMatch chessMatch = (ChessMatch)apiChess.ApiChessMatchesByIdGet((int)id);
             if (chessMatch == null)
             {
                 return HttpNotFound();
@@ -80,13 +94,8 @@ namespace RealTimeChessAlphaSevenFrontEnd.RealTimeChess_API.Models
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ChessMatchId,PlayerTypeName,MatchStartTime,MatchEndTime,IsActive,IsDeleted,Created,Updated,Deleted")] ChessMatch chessMatch)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(chessMatch).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(chessMatch);
+            apiChess.ApiChessMatchesByIdPut((int)chessMatch.ChessMatchId, chessMatch);
+            return RedirectToAction("Index");
         }
 
         // GET: ChessMatches/Delete/5
@@ -96,7 +105,7 @@ namespace RealTimeChessAlphaSevenFrontEnd.RealTimeChess_API.Models
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChessMatch chessMatch = db.ChessMatches.Find(id);
+            ChessMatch chessMatch = (ChessMatch)apiChess.ApiChessMatchesByIdGet((int)id);
             if (chessMatch == null)
             {
                 return HttpNotFound();
@@ -109,19 +118,9 @@ namespace RealTimeChessAlphaSevenFrontEnd.RealTimeChess_API.Models
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ChessMatch chessMatch = db.ChessMatches.Find(id);
-            db.ChessMatches.Remove(chessMatch);
-            db.SaveChanges();
+            apiChess.ApiChessMatchesByIdDelete((int)id);
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }

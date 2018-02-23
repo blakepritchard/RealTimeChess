@@ -37,5 +37,7 @@ namespace RealTimeChessAlphaSevenFrontEnd.Models
         public System.Data.Entity.DbSet<RealTimeChessAlphaSevenFrontEnd.Models.MatchPlayer> MatchPlayers { get; set; }
 
         public System.Data.Entity.DbSet<RealTimeChessAlphaSevenFrontEnd.Models.Move> Moves { get; set; }
+
+        public System.Data.Entity.DbSet<RealTimeChessAlphaSevenFrontEnd.Models.PlayerType> PlayerTypes { get; set; }
     }
 }

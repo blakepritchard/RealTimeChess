@@ -11,10 +11,6 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
 {
     public class PlayersController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
-
-
-        // private TokenCredentials authTokenCreds = new TokenCredentials("<bearer token>");
         private Uri baseUri;
         private static BasicAuthenticationCredentials authCredsBasic;
         private RealTimeChessAPI apiChess;
@@ -48,7 +44,6 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
                 return HttpNotFound();
             }
             return View(player);
-
         }
 
 
@@ -104,14 +99,8 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "PlayerId,AuthenticationId,FirstName,LastName,NumWins,NumLosses,IsActive,IsDeleted,Created,Updated,Deleted")] Player player)
         {
-            if (ModelState.IsValid)
-            {
-                // db.Entry(player).State = EntityState.Modified;
-                // db.SaveChanges();
                 apiChess.ApiPlayersByIdPut((int)player.PlayerId, player);
                 return RedirectToAction("Index");
-            }
-            return View(player);
         }
 
         // GET: Players/Delete/5
@@ -153,13 +142,5 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
             return players;
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }

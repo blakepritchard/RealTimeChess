@@ -6,18 +6,38 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Configuration;
+using System.Web.Configuration;
 using RealTimeChessAlphaSevenFrontEnd.Models;
+using Microsoft.Rest;
 
 namespace RealTimeChessAlphaSevenFrontEnd.Controllers
 {
     public class MatchPlayersController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        //private ApplicationDbContext db = new ApplicationDbContext();
+        private Uri baseUri;
+        private static BasicAuthenticationCredentials authCredsBasic;
+        private RealTimeChessAPI apiChess;
+        private Configuration rootWebConfig1;
+        private KeyValueConfigurationElement configRealTimeChessUri;
+
+        public MatchPlayersController()
+        {
+            rootWebConfig1 = WebConfigurationManager.OpenWebConfiguration(null);
+            configRealTimeChessUri = rootWebConfig1.AppSettings.Settings["RealTimeChessUri"];
+            string strRealTimeChessUri = configRealTimeChessUri.Value;
+
+            baseUri = new Uri(strRealTimeChessUri);
+            authCredsBasic = new BasicAuthenticationCredentials();
+            apiChess = new RealTimeChessAPI(baseUri, authCredsBasic);
+        }
 
         // GET: MatchPlayers
         public ActionResult Index()
         {
-            return View(db.MatchPlayers.ToList());
+            List<MatchPlayer> lstMatches = apiChess.ApiMatchPlayersGet().ToList<MatchPlayer>();
+            return View(lstMatches);
         }
 
         // GET: MatchPlayers/Details/5
@@ -27,7 +47,7 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MatchPlayer matchPlayer = db.MatchPlayers.Find(id);
+            MatchPlayer matchPlayer = apiChess.ApiMatchPlayersByIdGet((int)id);
             if (matchPlayer == null)
             {
                 return HttpNotFound();
@@ -48,13 +68,7 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MatchPlayerId,ChessMatchId,PlayerId,PlayerTypeId,IsDeleted,Created,Updated,Deleted")] MatchPlayer matchPlayer)
         {
-            if (ModelState.IsValid)
-            {
-                db.MatchPlayers.Add(matchPlayer);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
+            apiChess.ApiMatchPlayersPost(matchPlayer);
             return View(matchPlayer);
         }
 
@@ -65,7 +79,7 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MatchPlayer matchPlayer = db.MatchPlayers.Find(id);
+            MatchPlayer matchPlayer = apiChess.ApiMatchPlayersByIdGet((int)id);
             if (matchPlayer == null)
             {
                 return HttpNotFound();
@@ -80,13 +94,8 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "MatchPlayerId,ChessMatchId,PlayerId,PlayerTypeId,IsDeleted,Created,Updated,Deleted")] MatchPlayer matchPlayer)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(matchPlayer).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(matchPlayer);
+            apiChess.ApiMatchPlayersByIdPut((int)matchPlayer.ChessMatchId, matchPlayer);
+            return RedirectToAction("Index");
         }
 
         // GET: MatchPlayers/Delete/5
@@ -96,7 +105,7 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MatchPlayer matchPlayer = db.MatchPlayers.Find(id);
+            MatchPlayer matchPlayer = apiChess.ApiMatchPlayersByIdGet((int)id);
             if (matchPlayer == null)
             {
                 return HttpNotFound();
@@ -109,19 +118,8 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            MatchPlayer matchPlayer = db.MatchPlayers.Find(id);
-            db.MatchPlayers.Remove(matchPlayer);
-            db.SaveChanges();
+            apiChess.ApiMatchPlayersByIdDelete((int)id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }
