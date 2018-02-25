@@ -212,6 +212,7 @@
     <Compile Include="Controllers\ChessMatchesController.cs" />
     <Compile Include="RealTimeChess API\IRealTimeChessAPI.cs" />
     <Compile Include="RealTimeChess API\Models\ChessMatch.cs" />
+    <Compile Include="RealTimeChess API\Models\ChessPiece.cs" />
     <Compile Include="RealTimeChess API\Models\MatchPlayer.cs" />
     <Compile Include="RealTimeChess API\Models\Move.cs" />
     <Compile Include="RealTimeChess API\Models\Player.cs" />
@@ -302,6 +303,7 @@
     <Content Include="Views\PlayerTypes\Details.cshtml" />
     <Content Include="Views\PlayerTypes\Edit.cshtml" />
     <Content Include="Views\PlayerTypes\Index.cshtml" />
+    <Content Include="Views\ChessMatches\Game.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

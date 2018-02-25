@@ -21,10 +21,10 @@ namespace RealTimeChessAlphaSevenFrontEnd.Models
         /// <summary>
         /// Initializes a new instance of the ChessMatch class.
         /// </summary>
-        public ChessMatch(int? chessMatchId = default(int?), string playerTypeName = default(string), DateTime? matchStartTime = default(DateTime?), DateTime? matchEndTime = default(DateTime?), bool? isActive = default(bool?), bool? isDeleted = default(bool?), DateTime? created = default(DateTime?), DateTime? updated = default(DateTime?), DateTime? deleted = default(DateTime?), IList<MatchPlayer> matchPlayers = default(IList<MatchPlayer>))
+        public ChessMatch(int? chessMatchId = default(int?), int? numPlayers = default(int?), DateTime? matchStartTime = default(DateTime?), DateTime? matchEndTime = default(DateTime?), bool? isActive = default(bool?), bool? isDeleted = default(bool?), DateTime? created = default(DateTime?), DateTime? updated = default(DateTime?), DateTime? deleted = default(DateTime?), IList<MatchPlayer> matchPlayers = default(IList<MatchPlayer>))
         {
             ChessMatchId = chessMatchId;
-            PlayerTypeName = playerTypeName;
+            NumPlayers = numPlayers;
             MatchStartTime = matchStartTime;
             MatchEndTime = matchEndTime;
             IsActive = isActive;
@@ -42,8 +42,8 @@ namespace RealTimeChessAlphaSevenFrontEnd.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "playerTypeName")]
-        public string PlayerTypeName { get; set; }
+        [JsonProperty(PropertyName = "numPlayers")]
+        public int? NumPlayers { get; set; }
 
         /// <summary>
         /// </summary>

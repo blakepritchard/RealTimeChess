@@ -69,7 +69,6 @@ C:\Users\Blake\source\repos\scratch\CoreMVC\RealTimeChessAlphaSevenFrontEnd\Real
 C:\Users\Blake\source\repos\scratch\CoreMVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\obj\Debug\RealTimeChessAlphaSevenFrontEnd.csproj.CoreCompileInputs.cache
 C:\Users\Blake\source\repos\scratch\CoreMVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\obj\Debug\RealTimeChessAlphaSevenFrontEnd.dll
 C:\Users\Blake\source\repos\scratch\CoreMVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\obj\Debug\RealTimeChessAlphaSevenFrontEnd.pdb
-C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\obj\Debug\RealTimeChessAlphaSevenFrontEnd.csproj.CoreCompileInputs.cache
 C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\bin\ApplicationInsights.config
 C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\bin\RealTimeChessAlphaSevenFrontEnd.dll.config
 C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\bin\RealTimeChessAlphaSevenFrontEnd.dll
@@ -138,5 +137,7 @@ C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\RealTimeChessAlphaSevenFro
 C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\bin\Microsoft.AI.Web.xml
+C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\obj\Debug\RealTimeChessAlphaSevenFrontEnd.csprojResolveAssemblyReference.cache
+C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\obj\Debug\RealTimeChessAlphaSevenFrontEnd.csproj.CoreCompileInputs.cache
 C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\obj\Debug\RealTimeChessAlphaSevenFrontEnd.dll
 C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\obj\Debug\RealTimeChessAlphaSevenFrontEnd.pdb

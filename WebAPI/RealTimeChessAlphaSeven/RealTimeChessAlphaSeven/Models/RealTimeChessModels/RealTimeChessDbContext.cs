@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using RealTimeChessAlphaSeven.Models.RealTimeChessModels;
 
 namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
 {
@@ -38,6 +39,16 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
 
             modelBuilder.Entity<ChessMatch>().ToTable("tblChessMatches");
             modelBuilder.Entity<ChessMatch>().HasKey(b => b.ChessMatchId).HasName("PK_ChessMatches");
+
+            modelBuilder.Entity<ChessPieceType>().ToTable("tblChessPieceTypes");
+            modelBuilder.Entity<ChessPieceType>().HasKey(b => b.ChessPieceTypeId).HasName("PK_ChessPieceTypes");
+
+            modelBuilder.Entity<ChessPiece>().ToTable("tblChessPieces");
+            modelBuilder.Entity<ChessPiece>().HasKey(b => b.ChessPieceId).HasName("PK_ChessPieces");
         }
+
+        public DbSet<RealTimeChessAlphaSeven.Models.RealTimeChessModels.ChessPieceType> ChessPieceType { get; set; }
+
+        public DbSet<RealTimeChessAlphaSeven.Models.RealTimeChessModels.ChessPiece> ChessPiece { get; set; }
     }
 }

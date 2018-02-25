@@ -9,7 +9,7 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
     public class ChessMatch
     {
         public int ChessMatchId { get; set; }
-        public string PlayerTypeName { get; set; }
+        public int NumPlayers{ get; set; }
 
         public DateTime MatchStartTime { get; set; }
         public DateTime MatchEndTime { get; set; }

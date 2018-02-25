@@ -11,9 +11,10 @@ using System;
 namespace RealTimeChessAlphaSeven.Migrations
 {
     [DbContext(typeof(RealTimeChessDbContext))]
-    partial class RealTimeChessDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180225202902_ModelChessPieces")]
+    partial class ModelChessPieces
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,7 +38,7 @@ namespace RealTimeChessAlphaSeven.Migrations
 
                     b.Property<DateTime>("MatchStartTime");
 
-                    b.Property<int>("NumPlayers");
+                    b.Property<string>("PlayerTypeName");
 
                     b.Property<DateTime>("Updated");
 

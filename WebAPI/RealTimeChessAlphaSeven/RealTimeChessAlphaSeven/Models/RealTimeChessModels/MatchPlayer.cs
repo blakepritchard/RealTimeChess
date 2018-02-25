@@ -19,5 +19,6 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
         public DateTime? Deleted { get; set; }
 
         public List<Move> Moves { get; set; }
+        public List<ChessPiece> Pieces { get; set; }
     }
 }
