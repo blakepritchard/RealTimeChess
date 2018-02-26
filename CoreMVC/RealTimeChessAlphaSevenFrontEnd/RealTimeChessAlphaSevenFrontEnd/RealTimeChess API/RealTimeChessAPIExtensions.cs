@@ -685,6 +685,266 @@ namespace RealTimeChessAlphaSevenFrontEnd
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
+            public static IList<ChessPiece> ApiChessPiecesGet(this IRealTimeChessAPI operations)
+            {
+                return Task.Factory.StartNew(s => ((IRealTimeChessAPI)s).ApiChessPiecesGetAsync(), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<IList<ChessPiece>> ApiChessPiecesGetAsync(this IRealTimeChessAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ApiChessPiecesGetWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='chessPiece'>
+            /// </param>
+            public static object ApiChessPiecesPost(this IRealTimeChessAPI operations, ChessPiece chessPiece = default(ChessPiece))
+            {
+                return Task.Factory.StartNew(s => ((IRealTimeChessAPI)s).ApiChessPiecesPostAsync(chessPiece), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='chessPiece'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> ApiChessPiecesPostAsync(this IRealTimeChessAPI operations, ChessPiece chessPiece = default(ChessPiece), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ApiChessPiecesPostWithHttpMessagesAsync(chessPiece, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='id'>
+            /// </param>
+            public static ChessPiece ApiChessPiecesByIdGet(this IRealTimeChessAPI operations, int id)
+            {
+                return Task.Factory.StartNew(s => ((IRealTimeChessAPI)s).ApiChessPiecesByIdGetAsync(id), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='id'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ChessPiece> ApiChessPiecesByIdGetAsync(this IRealTimeChessAPI operations, int id, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ApiChessPiecesByIdGetWithHttpMessagesAsync(id, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='id'>
+            /// </param>
+            /// <param name='chessPiece'>
+            /// </param>
+            public static object ApiChessPiecesByIdPut(this IRealTimeChessAPI operations, int id, ChessPiece chessPiece = default(ChessPiece))
+            {
+                return Task.Factory.StartNew(s => ((IRealTimeChessAPI)s).ApiChessPiecesByIdPutAsync(id, chessPiece), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='id'>
+            /// </param>
+            /// <param name='chessPiece'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> ApiChessPiecesByIdPutAsync(this IRealTimeChessAPI operations, int id, ChessPiece chessPiece = default(ChessPiece), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ApiChessPiecesByIdPutWithHttpMessagesAsync(id, chessPiece, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='id'>
+            /// </param>
+            public static object ApiChessPiecesByIdDelete(this IRealTimeChessAPI operations, int id)
+            {
+                return Task.Factory.StartNew(s => ((IRealTimeChessAPI)s).ApiChessPiecesByIdDeleteAsync(id), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='id'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> ApiChessPiecesByIdDeleteAsync(this IRealTimeChessAPI operations, int id, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ApiChessPiecesByIdDeleteWithHttpMessagesAsync(id, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            public static IList<ChessPieceType> ApiChessPieceTypesGet(this IRealTimeChessAPI operations)
+            {
+                return Task.Factory.StartNew(s => ((IRealTimeChessAPI)s).ApiChessPieceTypesGetAsync(), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<IList<ChessPieceType>> ApiChessPieceTypesGetAsync(this IRealTimeChessAPI operations, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ApiChessPieceTypesGetWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='chessPieceType'>
+            /// </param>
+            public static object ApiChessPieceTypesPost(this IRealTimeChessAPI operations, ChessPieceType chessPieceType = default(ChessPieceType))
+            {
+                return Task.Factory.StartNew(s => ((IRealTimeChessAPI)s).ApiChessPieceTypesPostAsync(chessPieceType), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='chessPieceType'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> ApiChessPieceTypesPostAsync(this IRealTimeChessAPI operations, ChessPieceType chessPieceType = default(ChessPieceType), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ApiChessPieceTypesPostWithHttpMessagesAsync(chessPieceType, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='id'>
+            /// </param>
+            public static ChessPieceType ApiChessPieceTypesByIdGet(this IRealTimeChessAPI operations, int id)
+            {
+                return Task.Factory.StartNew(s => ((IRealTimeChessAPI)s).ApiChessPieceTypesByIdGetAsync(id), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='id'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<ChessPieceType> ApiChessPieceTypesByIdGetAsync(this IRealTimeChessAPI operations, int id, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ApiChessPieceTypesByIdGetWithHttpMessagesAsync(id, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='id'>
+            /// </param>
+            /// <param name='chessPieceType'>
+            /// </param>
+            public static object ApiChessPieceTypesByIdPut(this IRealTimeChessAPI operations, int id, ChessPieceType chessPieceType = default(ChessPieceType))
+            {
+                return Task.Factory.StartNew(s => ((IRealTimeChessAPI)s).ApiChessPieceTypesByIdPutAsync(id, chessPieceType), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='id'>
+            /// </param>
+            /// <param name='chessPieceType'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> ApiChessPieceTypesByIdPutAsync(this IRealTimeChessAPI operations, int id, ChessPieceType chessPieceType = default(ChessPieceType), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ApiChessPieceTypesByIdPutWithHttpMessagesAsync(id, chessPieceType, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='id'>
+            /// </param>
+            public static object ApiChessPieceTypesByIdDelete(this IRealTimeChessAPI operations, int id)
+            {
+                return Task.Factory.StartNew(s => ((IRealTimeChessAPI)s).ApiChessPieceTypesByIdDeleteAsync(id), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='id'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> ApiChessPieceTypesByIdDeleteAsync(this IRealTimeChessAPI operations, int id, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ApiChessPieceTypesByIdDeleteWithHttpMessagesAsync(id, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
             public static void ManageIndexGet(this IRealTimeChessAPI operations)
             {
                 Task.Factory.StartNew(s => ((IRealTimeChessAPI)s).ManageIndexGetAsync(), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();

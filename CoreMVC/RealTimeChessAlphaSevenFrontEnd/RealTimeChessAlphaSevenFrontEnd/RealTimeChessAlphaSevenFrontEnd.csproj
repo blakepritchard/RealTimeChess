@@ -210,15 +210,6 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\ChessMatchesController.cs" />
-    <Compile Include="RealTimeChess API\IRealTimeChessAPI.cs" />
-    <Compile Include="RealTimeChess API\Models\ChessMatch.cs" />
-    <Compile Include="RealTimeChess API\Models\ChessPiece.cs" />
-    <Compile Include="RealTimeChess API\Models\MatchPlayer.cs" />
-    <Compile Include="RealTimeChess API\Models\Move.cs" />
-    <Compile Include="RealTimeChess API\Models\Player.cs" />
-    <Compile Include="RealTimeChess API\Models\PlayerType.cs" />
-    <Compile Include="RealTimeChess API\RealTimeChessAPI.cs" />
-    <Compile Include="RealTimeChess API\RealTimeChessAPIExtensions.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

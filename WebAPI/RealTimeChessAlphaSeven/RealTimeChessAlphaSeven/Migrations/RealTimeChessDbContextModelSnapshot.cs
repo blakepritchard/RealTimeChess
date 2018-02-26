@@ -33,7 +33,7 @@ namespace RealTimeChessAlphaSeven.Migrations
 
                     b.Property<bool>("IsDeleted");
 
-                    b.Property<DateTime>("MatchEndTime");
+                    b.Property<DateTime?>("MatchEndTime");
 
                     b.Property<DateTime>("MatchStartTime");
 

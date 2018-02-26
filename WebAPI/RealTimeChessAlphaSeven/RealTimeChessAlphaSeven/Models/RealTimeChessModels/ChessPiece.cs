@@ -17,6 +17,12 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
         public float PositionY { get; set; }
         public float Velocity { get; set; }
         public float Heading { get; set; }
-        
+
+        public ChessPiece(int matchPlayerId, int chessPieceTypeId, string location)
+        {
+            MatchPlayerId = matchPlayerId;
+            ChessPieceTypeId = chessPieceTypeId;
+            Location = location;
+        }
     }
 }

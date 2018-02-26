@@ -12,7 +12,7 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
         public int NumPlayers{ get; set; }
 
         public DateTime MatchStartTime { get; set; }
-        public DateTime MatchEndTime { get; set; }
+        public DateTime? MatchEndTime { get; set; }
         public bool IsActive { get; set; }
 
         public bool IsDeleted { get; set; }
@@ -21,5 +21,18 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
         public DateTime? Deleted { get; set; }
 
         public List<MatchPlayer> MatchPlayers { get; set; }
+
+        public bool SetUpChessBoard(int BoardWidth, int BoardHeight)
+        {
+            bool bSuccess = true;
+            foreach(MatchPlayer matchPlayer in this.MatchPlayers)
+            {
+                bSuccess = matchPlayer.SetUpChessPieces(this.NumPlayers); ;
+            }
+            return bSuccess;
+        }
+
     }
+
+
 }
