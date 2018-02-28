@@ -22,12 +22,13 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
 
         public List<MatchPlayer> MatchPlayers { get; set; }
 
-        public bool SetUpChessBoard(int BoardWidth, int BoardHeight)
+        public bool SetUpChessBoard(RealTimeChessDbContext context, int nBoardWidth, int nBoardHeight)
         {
             bool bSuccess = true;
             foreach(MatchPlayer matchPlayer in this.MatchPlayers)
             {
-                bSuccess = matchPlayer.SetUpChessPieces(this.NumPlayers); ;
+                bSuccess = matchPlayer.SetUpChessPieces(context, this.NumPlayers, nBoardWidth, nBoardHeight);
+                context.Entry(matchPlayer).Collection(p => p.Pieces).Load();
             }
             return bSuccess;
         }

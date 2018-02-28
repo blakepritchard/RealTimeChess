@@ -131,5 +131,30 @@ namespace RealTimeChessAlphaSeven.Controllers
         {
             return _context.Matches.Any(e => e.ChessMatchId == id);
         }
+
+
+
+        // POST: api/ChessMatches
+        [HttpPost("{id}/Setup")]
+        [ProducesResponseType(typeof(IActionResult), 201)]
+        [ProducesResponseType(typeof(IActionResult), 400)]
+        public async Task<IActionResult> Setup([FromRoute] int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var chessMatch = await _context.Matches.SingleOrDefaultAsync(m => m.ChessMatchId == id);
+
+            if (chessMatch == null)
+            {
+                return NotFound();
+            }
+            _context.Entry(chessMatch).Collection(m => m.MatchPlayers).Load();
+            chessMatch.SetUpChessBoard(_context, 8, 8);
+
+            return Ok(chessMatch);
+        }
     }
 }
