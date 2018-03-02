@@ -10,26 +10,55 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
         public int ChessPieceId { get; set; }
         public int MatchPlayerId { get; set; }
         public int ChessPieceTypeId { get; set; }
-
-
-        public string LocationCoordinates { get; set; }
+       
+        public bool IsCaptured { get; set; }
         public int LocationRankNum { get; set; }
-        public string LocationFileLetter { get; set; }
-        
+        public int LocationFileNum { get; set; }
+
         public bool IsMoving { get; set; }
+        public DateTime DepartureTime { get; set; }
         public float PositionX { get; set; }
         public float PositionY { get; set; }
         public float Velocity { get; set; }
         public float Heading { get; set; }
+        public float HeadingSin { get; set; }
+        public float HeadingCos { get; set; }
+
+        public DateTime ArrivalTime { get; set; }
+        public int DestinationRankNum { get; set; }
+        public int DestinationFileNum { get; set; }
+
         public string DestinationCoordinates { get; set; }
 
-        public ChessPiece(int nMatchPlayerId, int nChessPieceTypeId, int nLocationRank, string strLocationFile)
+        public ChessPiece()
+        {
+            IsCaptured = false;
+        }
+
+        public ChessPiece(int nMatchPlayerId, int nChessPieceTypeId, int nLocationRank, int nLocationFile)
         {
             MatchPlayerId = nMatchPlayerId;
             ChessPieceTypeId = nChessPieceTypeId;
             LocationRankNum = nLocationRank;
-            LocationFileLetter = strLocationFile;
-            LocationCoordinates = string.Format("%%", strLocationFile, nLocationRank) ;
+            LocationFileNum = nLocationFile;
+            IsCaptured = false;
         }
+
+        public string LocationFileChar()
+        {
+            char c = 'a';
+            for(int i = 0; i<LocationFileNum; i++)
+            {
+                c++;
+            }
+            return c.ToString();
+
+        }
+
+        public string LocationCoordinates()
+        {
+            return string.Format("%%", LocationFileChar(), LocationRankNum);
+        }
+
     }
 }

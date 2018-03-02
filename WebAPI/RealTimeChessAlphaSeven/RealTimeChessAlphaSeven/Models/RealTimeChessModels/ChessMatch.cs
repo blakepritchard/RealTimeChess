@@ -13,6 +13,8 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
 
         public DateTime MatchStartTime { get; set; }
         public DateTime? MatchEndTime { get; set; }
+        public bool IsSetup { get; set; }
+        public bool HasStarted { get; set; }
         public bool IsActive { get; set; }
 
         public bool IsDeleted { get; set; }
@@ -22,13 +24,29 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
 
         public List<MatchPlayer> MatchPlayers { get; set; }
 
+        public ChessMatch()
+        {
+            IsActive = false;
+            HasStarted = false;
+            IsSetup = false;
+        }
+
         public bool SetUpChessBoard(RealTimeChessDbContext context, int nBoardWidth, int nBoardHeight)
         {
             bool bSuccess = true;
-            foreach(MatchPlayer matchPlayer in this.MatchPlayers)
+            if (false == IsSetup)
             {
-                bSuccess = matchPlayer.SetUpChessPieces(context, this.NumPlayers, nBoardWidth, nBoardHeight);
-                context.Entry(matchPlayer).Collection(p => p.Pieces).Load();
+                foreach (MatchPlayer matchPlayer in this.MatchPlayers)
+                {
+                    IsSetup = matchPlayer.SetUpChessPieces(context, this.NumPlayers, nBoardWidth, nBoardHeight);
+                    //context.Entry(matchPlayer).Collection(p => p.Pieces).Load();
+                }
+                IsSetup = true;
+                context.SaveChanges();
+            }
+            else
+            {
+                bSuccess = false;
             }
             return bSuccess;
         }

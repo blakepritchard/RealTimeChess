@@ -29,9 +29,13 @@ namespace RealTimeChessAlphaSeven.Migrations
 
                     b.Property<DateTime?>("Deleted");
 
+                    b.Property<bool>("HasStarted");
+
                     b.Property<bool>("IsActive");
 
                     b.Property<bool>("IsDeleted");
+
+                    b.Property<bool>("IsSetup");
 
                     b.Property<DateTime?>("MatchEndTime");
 
@@ -52,17 +56,29 @@ namespace RealTimeChessAlphaSeven.Migrations
                     b.Property<int>("ChessPieceId")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<DateTime>("ArrivalTime");
+
                     b.Property<int>("ChessPieceTypeId");
+
+                    b.Property<DateTime>("DepartureTime");
 
                     b.Property<string>("DestinationCoordinates");
 
+                    b.Property<int>("DestinationFileNum");
+
+                    b.Property<int>("DestinationRankNum");
+
                     b.Property<float>("Heading");
+
+                    b.Property<float>("HeadingCos");
+
+                    b.Property<float>("HeadingSin");
+
+                    b.Property<bool>("IsCaptured");
 
                     b.Property<bool>("IsMoving");
 
-                    b.Property<string>("LocationCoordinates");
-
-                    b.Property<string>("LocationFileLetter");
+                    b.Property<int>("LocationFileNum");
 
                     b.Property<int>("LocationRankNum");
 

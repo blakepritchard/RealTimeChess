@@ -37,7 +37,8 @@ namespace RealTimeChessAlphaSeven.Controllers
                 return BadRequest(ModelState);
             }
 
-            var chessMatch = await _context.Matches.SingleOrDefaultAsync(m => m.ChessMatchId == id);
+            ChessMatch chessMatch = await _context.Matches.SingleOrDefaultAsync(m => m.ChessMatchId == id);
+            _context.Entry(chessMatch).Collection(m => m.MatchPlayers).Load();
 
             if (chessMatch == null)
             {
