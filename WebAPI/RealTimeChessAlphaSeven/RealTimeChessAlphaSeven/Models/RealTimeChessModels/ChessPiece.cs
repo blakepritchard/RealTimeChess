@@ -60,5 +60,23 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
             return string.Format("%%", LocationFileChar(), LocationRankNum);
         }
 
+        public void BeginMove(int nDestinationX, int nDestinationY)
+        {
+            IsMoving = true;
+            LocationRankNum = 0;
+            LocationFileNum = 0;
+            DestinationRankNum = nDestinationX;
+            DestinationFileNum = nDestinationY;
+        }
+
+        public void EndMove(int nDestinationX, int nDestinationY)
+        {
+            IsMoving = false;
+            LocationRankNum = nDestinationX;
+            LocationFileNum = nDestinationY;
+            DestinationRankNum = 0;
+            DestinationFileNum = 0;
+        }
+
     }
 }

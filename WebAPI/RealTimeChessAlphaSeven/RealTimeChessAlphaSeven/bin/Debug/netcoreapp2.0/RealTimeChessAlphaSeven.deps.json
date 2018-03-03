@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "a7df9f6ed1ed7dfa344c9465fc9d6501087438b6"
+    "signature": "693dce8ee3d179c5ac2f0d98877056bfabcffb44"
   },
   "compilationOptions": {
     "defines": [
@@ -23,6 +23,11 @@
     ".NETCoreApp,Version=v2.0": {
       "RealTimeChessAlphaSeven/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNet.WebHooks.Common": "1.2.1",
+          "Microsoft.AspNet.WebHooks.Custom": "1.2.1",
+          "Microsoft.AspNet.WebHooks.Custom.Api": "1.2.1",
+          "Microsoft.AspNet.WebHooks.Custom.Mvc": "1.2.1",
+          "Microsoft.AspNet.WebHooks.Custom.SqlStorage": "1.2.1",
           "Microsoft.AspNetCore.All": "2.0.5",
           "Microsoft.EntityFrameworkCore.Tools": "2.0.1",
           "Microsoft.NETCore.App": "2.0.0",
@@ -34,6 +39,16 @@
         },
         "compile": {
           "RealTimeChessAlphaSeven.dll": {}
+        }
+      },
+      "EntityFramework/6.1.1": {
+        "runtime": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
+        },
+        "compile": {
+          "lib/net45/EntityFramework.SqlServer.dll": {},
+          "lib/net45/EntityFramework.dll": {}
         }
       },
       "Libuv/1.10.0": {
@@ -121,6 +136,132 @@
         },
         "compile": {
           "lib/netstandard1.6/Microsoft.AI.DependencyCollector.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Mvc/5.2.2": {
+        "dependencies": {
+          "Microsoft.AspNet.Razor": "3.2.2",
+          "Microsoft.AspNet.WebPages": "3.2.2"
+        },
+        "runtime": {
+          "lib/net45/System.Web.Mvc.dll": {}
+        },
+        "compile": {
+          "lib/net45/System.Web.Mvc.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Razor/3.2.2": {
+        "runtime": {
+          "lib/net45/System.Web.Razor.dll": {}
+        },
+        "compile": {
+          "lib/net45/System.Web.Razor.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.Client/5.2.2": {
+        "runtime": {
+          "lib/net45/System.Net.Http.Formatting.dll": {}
+        },
+        "compile": {
+          "lib/net45/System.Net.Http.Formatting.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.Core/5.2.2": {
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Client": "5.2.2"
+        },
+        "runtime": {
+          "lib/net45/System.Web.Http.dll": {}
+        },
+        "compile": {
+          "lib/net45/System.Web.Http.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebHooks.Common/1.2.1": {
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Core": "5.2.2"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.AspNet.WebHooks.Common.dll": {}
+        },
+        "compile": {
+          "lib/net45/Microsoft.AspNet.WebHooks.Common.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebHooks.Custom/1.2.1": {
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Core": "5.2.2",
+          "Microsoft.AspNet.WebHooks.Common": "1.2.1",
+          "Microsoft.Tpl.Dataflow": "4.5.24"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.AspNet.WebHooks.Custom.dll": {}
+        },
+        "compile": {
+          "lib/net45/Microsoft.AspNet.WebHooks.Custom.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebHooks.Custom.Api/1.2.1": {
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Core": "5.2.2",
+          "Microsoft.AspNet.WebHooks.Common": "1.2.1",
+          "Microsoft.AspNet.WebHooks.Custom": "1.2.1"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.AspNet.WebHooks.Custom.Api.dll": {}
+        },
+        "compile": {
+          "lib/net45/Microsoft.AspNet.WebHooks.Custom.Api.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebHooks.Custom.Mvc/1.2.1": {
+        "dependencies": {
+          "Microsoft.AspNet.Mvc": "5.2.2",
+          "Microsoft.AspNet.WebApi.Core": "5.2.2",
+          "Microsoft.AspNet.WebHooks.Common": "1.2.1",
+          "Microsoft.AspNet.WebHooks.Custom": "1.2.1"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.AspNet.WebHooks.Custom.Mvc.dll": {}
+        },
+        "compile": {
+          "lib/net45/Microsoft.AspNet.WebHooks.Custom.Mvc.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebHooks.Custom.SqlStorage/1.2.1": {
+        "dependencies": {
+          "EntityFramework": "6.1.1",
+          "Microsoft.AspNet.WebApi.Core": "5.2.2",
+          "Microsoft.AspNet.WebHooks.Common": "1.2.1",
+          "Microsoft.AspNet.WebHooks.Custom": "1.2.1",
+          "Microsoft.AspNetCore.DataProtection": "2.0.1",
+          "Microsoft.Extensions.Configuration": "2.0.0",
+          "Microsoft.Extensions.DependencyInjection": "2.0.0",
+          "Microsoft.Extensions.PlatformAbstractions": "1.1.0"
+        },
+        "runtime": {
+          "lib/net451/Microsoft.AspNet.WebHooks.Custom.SqlStorage.dll": {}
+        },
+        "compile": {
+          "lib/net451/Microsoft.AspNet.WebHooks.Custom.SqlStorage.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebPages/3.2.2": {
+        "dependencies": {
+          "Microsoft.AspNet.Razor": "3.2.2",
+          "Microsoft.Web.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "lib/net45/System.Web.Helpers.dll": {},
+          "lib/net45/System.Web.WebPages.Deployment.dll": {},
+          "lib/net45/System.Web.WebPages.Razor.dll": {},
+          "lib/net45/System.Web.WebPages.dll": {}
+        },
+        "compile": {
+          "lib/net45/System.Web.Helpers.dll": {},
+          "lib/net45/System.Web.WebPages.Deployment.dll": {},
+          "lib/net45/System.Web.WebPages.Razor.dll": {},
+          "lib/net45/System.Web.WebPages.dll": {}
         }
       },
       "Microsoft.AspNetCore/2.0.1": {
@@ -2308,6 +2449,7 @@
           "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.Azure.dll": {}
         }
       },
+      "Microsoft.Tpl.Dataflow/4.5.24": {},
       "Microsoft.VisualStudio.Web.BrowserLink/2.0.1": {
         "dependencies": {
           "Microsoft.AspNetCore.Hosting.Abstractions": "2.0.1",
@@ -2416,6 +2558,14 @@
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll": {}
+        }
+      },
+      "Microsoft.Web.Infrastructure/1.0.0": {
+        "runtime": {
+          "lib/net40/Microsoft.Web.Infrastructure.dll": {}
+        },
+        "compile": {
+          "lib/net40/Microsoft.Web.Infrastructure.dll": {}
         }
       },
       "Microsoft.Win32.Primitives/4.3.0": {
@@ -4298,6 +4448,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "EntityFramework/6.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FdXtqmcaIMLnjS46aQjpQGKaV0PuPhAIYAVHN6vB7UMjMr4iLZsMIz4Nk7m31iUvh+hNPF9t7tZkW0CczGNr6A==",
+      "path": "entityframework/6.1.1",
+      "hashPath": "entityframework.6.1.1.nupkg.sha512"
+    },
     "Libuv/1.10.0": {
       "type": "package",
       "serviceable": true,
@@ -4325,6 +4482,76 @@
       "sha512": "sha512-RWxdX90MY6tNF8S5lwRvJcHiBMIWwVLCxd4TGIEl3X0yAKaolY2vs4zTCvyCIVkEAMs1aInTgWkYwOjzYvAHWw==",
       "path": "microsoft.applicationinsights.dependencycollector/2.4.1",
       "hashPath": "microsoft.applicationinsights.dependencycollector.2.4.1.nupkg.sha512"
+    },
+    "Microsoft.AspNet.Mvc/5.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Vnsfn55dNV46Eo8Cj649Ywws/YWgCUM6SgiqmJMJHJf2DyIGZdQkZSnx7JTyXEqBpXCMCh79Mg1ApA8ssW/q0A==",
+      "path": "microsoft.aspnet.mvc/5.2.2",
+      "hashPath": "microsoft.aspnet.mvc.5.2.2.nupkg.sha512"
+    },
+    "Microsoft.AspNet.Razor/3.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-enW7/Ye7F+5ZQGEzj0AQFyweSXhjpGg7QTnyTDFmJL39SP6Tql//4Sr5tFZkANLxMVjnkTSGu4unJHI8X+eAMg==",
+      "path": "microsoft.aspnet.razor/3.2.2",
+      "hashPath": "microsoft.aspnet.razor.3.2.2.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebApi.Client/5.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YVq+s0WeXrPxJk57CoElbtMYf95j76uJcW6nue3Cs4eIer9sgUp4rasSo0gALX3ls1Zf2jMceOLik9X/sJyrwA==",
+      "path": "microsoft.aspnet.webapi.client/5.2.2",
+      "hashPath": "microsoft.aspnet.webapi.client.5.2.2.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebApi.Core/5.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-P5boFqqGDq1XF7PVz1U4ju85wQLT0Pb5BbuiWy72cOmWXJKCCNqL+av6omi30knp62hpmfw+3rSCm+Nmt5zRgQ==",
+      "path": "microsoft.aspnet.webapi.core/5.2.2",
+      "hashPath": "microsoft.aspnet.webapi.core.5.2.2.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebHooks.Common/1.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yfMqvr63VSvCZmwvF8mdN6pYD5z7B1FRxOfM6OHlZQO140LfhgyabeSJCarf6LAkpCYYQ9BUaa543i1FbU1O9A==",
+      "path": "microsoft.aspnet.webhooks.common/1.2.1",
+      "hashPath": "microsoft.aspnet.webhooks.common.1.2.1.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebHooks.Custom/1.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hRfrMPv+RZh7NxESA80F/mwzDmtFMJM6KEEuOjUcTopuRLITDWckcPd8nOpW7ZYFKC88rNWhrszLgpQOAkHanw==",
+      "path": "microsoft.aspnet.webhooks.custom/1.2.1",
+      "hashPath": "microsoft.aspnet.webhooks.custom.1.2.1.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebHooks.Custom.Api/1.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lO/7NCOfmODkDkAwu577SijXKDzBKOdsEwjTHAHGPBsUU/BlKsGE77MhhNmbYJbQE2uBX+GjDw62Yj2XQApAwA==",
+      "path": "microsoft.aspnet.webhooks.custom.api/1.2.1",
+      "hashPath": "microsoft.aspnet.webhooks.custom.api.1.2.1.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebHooks.Custom.Mvc/1.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/v4/cZ/3wQlFenqndRA/ZabCdgbGWkE/NQP3qJGaAhgwuG47WpEh/+buxpFAjrq1MBG8pxbhOxzwaMRxwMPsPw==",
+      "path": "microsoft.aspnet.webhooks.custom.mvc/1.2.1",
+      "hashPath": "microsoft.aspnet.webhooks.custom.mvc.1.2.1.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebHooks.Custom.SqlStorage/1.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9pbmqt/wlQhswK42cv2zTW4GkhVtMIhUcS7lz7+exbw8tMwN9JdblMVOFPwwoGhnjZJg3T8INazUEbzTkKWpgA==",
+      "path": "microsoft.aspnet.webhooks.custom.sqlstorage/1.2.1",
+      "hashPath": "microsoft.aspnet.webhooks.custom.sqlstorage.1.2.1.nupkg.sha512"
+    },
+    "Microsoft.AspNet.WebPages/3.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1IrFfEC0RBlsJvPgRAkKY7TPc20pY+Kd5pjaCYD0awnzyGLsMRFA4Tdr9jVWH9p7CvfoaOVD3vcn97cXkGGUBw==",
+      "path": "microsoft.aspnet.webpages/3.2.2",
+      "hashPath": "microsoft.aspnet.webpages.3.2.2.nupkg.sha512"
     },
     "Microsoft.AspNetCore/2.0.1": {
       "type": "package",
@@ -5425,6 +5652,13 @@
       "path": "microsoft.rest.clientruntime.azure/3.3.7",
       "hashPath": "microsoft.rest.clientruntime.azure.3.3.7.nupkg.sha512"
     },
+    "Microsoft.Tpl.Dataflow/4.5.24": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6BE4Vu74+dkv5AkJd+UxW1sFMepMZOVlUoMZDUKqhc4Bf7pe7yySzCj6QrowUZbCqcDPwOiQsAgz3nXiLQSyMw==",
+      "path": "microsoft.tpl.dataflow/4.5.24",
+      "hashPath": "microsoft.tpl.dataflow.4.5.24.nupkg.sha512"
+    },
     "Microsoft.VisualStudio.Web.BrowserLink/2.0.1": {
       "type": "package",
       "serviceable": true,
@@ -5487,6 +5721,13 @@
       "sha512": "sha512-+H5eqw+SiEZvTzKDJXSUVSQvH/wYN0iSfftA0UL6OgJw+zLfPt6HQ5BZNSrCOBBobDSD/6eBC6PTMzZgsZTUmA==",
       "path": "microsoft.visualstudio.web.codegenerators.mvc/2.0.2",
       "hashPath": "microsoft.visualstudio.web.codegenerators.mvc.2.0.2.nupkg.sha512"
+    },
+    "Microsoft.Web.Infrastructure/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FNmvLn5m2LTU/Rs2KWVo0SIIh9Ek+U0ojex7xeDaSHw/zgEP77A8vY5cVWgUtBGS8MJfDGNn8rpXJWEIQaPwTg==",
+      "path": "microsoft.web.infrastructure/1.0.0",
+      "hashPath": "microsoft.web.infrastructure.1.0.0.nupkg.sha512"
     },
     "Microsoft.Win32.Primitives/4.3.0": {
       "type": "package",
