@@ -10,8 +10,6 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
 {
     public class Move
     {
-
-
         public int MoveId { get; set; }
 
         public int ChessPieceId { get; set; }

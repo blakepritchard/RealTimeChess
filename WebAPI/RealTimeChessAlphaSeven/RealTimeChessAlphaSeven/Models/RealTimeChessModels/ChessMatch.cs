@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
 {
+    
+
     public class ChessMatch
     {
         public int ChessMatchId { get; set; }
@@ -23,6 +26,9 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
         public DateTime? Deleted { get; set; }
 
         public List<MatchPlayer> MatchPlayers { get; set; }
+
+        [NotMapped]
+        public static double ChessPieceVelocity = 1.0;
 
         public ChessMatch()
         {

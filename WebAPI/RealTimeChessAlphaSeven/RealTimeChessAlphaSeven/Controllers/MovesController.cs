@@ -103,6 +103,27 @@ namespace RealTimeChessAlphaSeven.Controllers
             return CreatedAtAction("GetMove", new { id = move.MoveId }, move);
         }
 
+
+        // POST: api/Moves
+        [HttpPost("BeginMove")]
+        [ProducesResponseType(typeof(IActionResult), 201)]
+        [ProducesResponseType(typeof(IActionResult), 400)]
+        public async Task<IActionResult> BeginMove([FromQuery] int PieceId,  [FromQuery] int DestinationX, [FromQuery] int DestinationY)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            Move move = new Move(PieceId, DestinationX, DestinationY, ChessMatch.ChessPieceVelocity);
+            _context.Moves.Add(move);
+
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetMove", new { id = move.MoveId }, move);
+        }
+
+
         // DELETE: api/Moves/5
         [HttpDelete("{id}")]
         [ProducesResponseType(typeof(IActionResult), 200)]
