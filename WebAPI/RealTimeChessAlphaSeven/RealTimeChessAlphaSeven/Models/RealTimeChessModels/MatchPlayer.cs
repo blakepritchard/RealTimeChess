@@ -12,8 +12,6 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
         public MatchPlayer()
         {
             Pieces = new List<ChessPiece>();
-            Moves = new List<Move>();
-
         }
 
         public int MatchPlayerId { get; set; }
@@ -22,7 +20,7 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
         public int PlayerTypeId { get; set; }
 
         public List<ChessPiece> Pieces { get; set; }
-        public List<Move> Moves { get; set; }
+        // public List<Move> Moves { get; set; }
 
         public bool IsDeleted { get; set; }
         public DateTime Created { get; set; }

@@ -131,5 +131,37 @@ namespace RealTimeChessAlphaSeven.Controllers
         {
             return _context.Moves.Any(e => e.MoveId == id);
         }
+
+
+        /*
+         * 
+         *         // POST: api/ChessMatches
+        [HttpPost("{ChessMatchId}/MovePiece/{PieceId}")]
+        [ProducesResponseType(typeof(IActionResult), 201)]
+        [ProducesResponseType(typeof(IActionResult), 400)]
+        public async Task<IActionResult> MovePiece([FromRoute] int ChessMatchId, [FromRoute] int PieceId, [FromQuery] int DestinationX, [FromQuery] int DestinationY )
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+
+            ChessMatch chessMatch = await _context.Matches.SingleOrDefaultAsync(m => m.ChessMatchId == ChessMatchId);
+            ChessPiece pieceMoved = await _context.ChessPiece.SingleOrDefaultAsync(p => p.ChessPieceId == PieceId);
+            if (null == chessMatch || null == pieceMoved)
+            {
+                return NotFound();
+            }
+
+
+            //pieceMoved.BeginMove(DestinationX, DestinationY);
+            await _context.SaveChangesAsync();
+            // Timer timerMovePiece = new Timer();
+
+            return Ok(chessMatch);
+        }
+         * 
+         */
     }
 }

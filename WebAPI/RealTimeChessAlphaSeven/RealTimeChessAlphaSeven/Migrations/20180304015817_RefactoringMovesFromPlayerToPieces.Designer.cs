@@ -11,9 +11,10 @@ using System;
 namespace RealTimeChessAlphaSeven.Migrations
 {
     [DbContext(typeof(RealTimeChessDbContext))]
-    partial class RealTimeChessDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180304015817_RefactoringMovesFromPlayerToPieces")]
+    partial class RefactoringMovesFromPlayerToPieces
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -56,17 +57,39 @@ namespace RealTimeChessAlphaSeven.Migrations
                     b.Property<int>("ChessPieceId")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<DateTime>("ArrivalTime");
+
                     b.Property<int>("ChessPieceTypeId");
+
+                    b.Property<DateTime>("DepartureTime");
+
+                    b.Property<string>("DestinationCoordinates");
+
+                    b.Property<int>("DestinationFileNum");
+
+                    b.Property<int>("DestinationRankNum");
+
+                    b.Property<float>("Heading");
+
+                    b.Property<float>("HeadingCos");
+
+                    b.Property<float>("HeadingSin");
 
                     b.Property<bool>("IsCaptured");
 
                     b.Property<bool>("IsMoving");
 
-                    b.Property<int>("LocationX");
+                    b.Property<int>("LocationFileNum");
 
-                    b.Property<int>("LocationY");
+                    b.Property<int>("LocationRankNum");
 
                     b.Property<int>("MatchPlayerId");
+
+                    b.Property<float>("PositionX");
+
+                    b.Property<float>("PositionY");
+
+                    b.Property<float>("Velocity");
 
                     b.HasKey("ChessPieceId")
                         .HasName("PK_ChessPieces");
@@ -139,37 +162,19 @@ namespace RealTimeChessAlphaSeven.Migrations
 
                     b.Property<DateTime?>("Deleted");
 
-                    b.Property<double?>("Distance");
+                    b.Property<DateTime>("GameClockBeginMove");
 
-                    b.Property<DateTime?>("GameClockBeginMove");
-
-                    b.Property<DateTime?>("GameClockEndMove");
-
-                    b.Property<float?>("Heading");
-
-                    b.Property<float?>("HeadingCos");
-
-                    b.Property<float?>("HeadingSin");
+                    b.Property<DateTime>("GameClockEndMove");
 
                     b.Property<bool>("IsDeleted");
 
-                    b.Property<int?>("PositionBeginX");
+                    b.Property<string>("PlayerTypeName");
 
-                    b.Property<int?>("PositionBeginY");
+                    b.Property<string>("PositionBeginMove");
 
-                    b.Property<float?>("PositionCurrentX");
-
-                    b.Property<float?>("PositionCurrentY");
-
-                    b.Property<int>("PositionEndX");
-
-                    b.Property<int>("PositionEndY");
-
-                    b.Property<TimeSpan?>("TravelTime");
+                    b.Property<string>("PositionEndMove");
 
                     b.Property<DateTime>("Updated");
-
-                    b.Property<double?>("Velocity");
 
                     b.HasKey("MoveId")
                         .HasName("PK_Moves");
