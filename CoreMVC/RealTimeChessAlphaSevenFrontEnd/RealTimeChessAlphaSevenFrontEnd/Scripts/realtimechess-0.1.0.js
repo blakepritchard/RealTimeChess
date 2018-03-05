@@ -7,6 +7,7 @@
 
 
 var canvas = document.getElementById('canvas'),
+    model = document.getElementById('model')
     context = canvas.getContext('2d'),
     nFontHeight = 15,
 
@@ -47,24 +48,24 @@ function drawBackground() {
     context.lineWidth = "1";
     context.strokeStyle = "black";
 
-    console.log("Cell Size Y=" + nCellSizeY);
-    console.log("Cell Size X=" + nCellSizeX);
+    //console.log("Cell Size Y=" + nCellSizeY);
+    //console.log("Cell Size X=" + nCellSizeX);
 
     var bCellColor = false
     var nCellPositionY = nMarginY;
     for (var y = 0; y < nCellCountY; y++)
     {
-        console.log("PositionY=" + nCellPositionY);
+        //console.log("PositionY=" + nCellPositionY);
 
         var nCellPositionX = nMarginX;
         for (var x = 0; x < nCellCountX; x++)
         {
-            context.fillStyle = (bCellColor == true) ?  "darkgray" : "lightblue";
+            context.fillStyle = (true === bCellColor) ?  "darkgray" : "lightblue";
 
-            console.log("PositionX=" + nCellPositionX);
+            //console.log("PositionX=" + nCellPositionX);
 
             context.beginPath();
-            console.log("Drawing Rectangle, PosX:" + nCellPositionX + ", PosY:" + nCellPositionY);
+            //console.log("Drawing Rectangle, PosX:" + nCellPositionX + ", PosY:" + nCellPositionY);
             context.rect(nCellPositionX, nCellPositionY, nCellSizeX, nCellSizeY);
 
             context.fill();
@@ -79,8 +80,51 @@ function drawBackground() {
 }
 
 
+function drawPieces($)
+{
+    debugger;
+
+    //var players = [];
+    //getJson("https://localhost:44373/api/ChessMatches/3", function(responseGameState) { players = responseGameState.Players; });
+
+
+
+    // $.ajax("https://localhost:44373/api/ChessMatches/3")
+    // console.log(players.toString());
+
+    
+
+    var options = {};
+    // options.url = "/api/customerservice/" + $("#customerid").val();
+
+    /*
+    options.url = "https://localhost:44373/api/ChessMatches/3";
+    options.type = "GET";
+    options.contentType = "application/json";
+    options.dataType = "html";
+    options.success = function (msg) {
+        $("#msg").html(msg);
+    };
+    options.error = function (a, b, c) {
+        alert(c);
+        $("#msg").html("Error while calling the Web API!");
+    };
+
+    */
+
+    //var response = $.ajax(options);
+
+
+    
+    console.log(model.toString());
+
+
+}
+
+
 // Initialization................................................
 context.font = nFontHeight + 'px Arial';
 drawBackground();
+drawPieces();
 
 //loop = setInterval(drawClock, 1000);
