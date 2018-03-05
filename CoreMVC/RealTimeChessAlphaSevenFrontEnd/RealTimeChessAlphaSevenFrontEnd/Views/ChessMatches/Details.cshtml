@@ -11,11 +11,11 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.PlayerTypeName)
+            @Html.DisplayNameFor(model => model.NumPlayers)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PlayerTypeName)
+            @Html.DisplayFor(model => model.NumPlayers)
         </dd>
 
         <dt>
@@ -32,6 +32,22 @@
 
         <dd>
             @Html.DisplayFor(model => model.MatchEndTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsSetup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsSetup)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HasStarted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HasStarted)
         </dd>
 
         <dt>

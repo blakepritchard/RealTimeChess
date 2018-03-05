@@ -1,28 +1,31 @@
-﻿@model RealTimeChessAlphaSevenFrontEnd.Models.ChessMatch
+﻿<!DOCTYPE html>
+    <head>
+        <title>Sprite sheets</title>
+        <style>
+            body {
+                background: #dddddd;
+            }
 
-@{
-    ViewBag.Title = "GameView";
-}
+            #canvas {
+                position: absolute;
+                left: 0px;
+                top: 20px;
+                margin: 20px;
+                background: #ffffff;
+                border: thin inset rgba(100,150,230,0.5);
+                cursor: pointer;
+            }
 
-<h2>Details</h2>
-
-<div>
-    <h4>GameView</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.PlayerTypeName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PlayerTypeName)
-        </dd>
-
-
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ChessMatchId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+            #readout {
+                margin-top: 10px;
+                margin-left: 15px;
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div id='readout'></div>
+        <canvas id='canvas' width='600' height='600'> Canvas not supported </canvas>
+        <script src='~/Scripts/realtimechess-0.1.0.js'></script>
+    </body> 
+</html>

@@ -18,10 +18,10 @@
         @Html.HiddenFor(model => model.ChessMatchId)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PlayerTypeName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.NumPlayers, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PlayerTypeName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PlayerTypeName, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.NumPlayers, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NumPlayers, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -38,6 +38,26 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.MatchEndTime, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.MatchEndTime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsSetup, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.IsSetup)
+                    @Html.ValidationMessageFor(model => model.IsSetup, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HasStarted, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.HasStarted)
+                    @Html.ValidationMessageFor(model => model.HasStarted, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
 

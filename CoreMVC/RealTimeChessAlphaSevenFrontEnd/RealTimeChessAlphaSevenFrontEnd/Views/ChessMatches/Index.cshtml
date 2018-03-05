@@ -12,13 +12,19 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.PlayerTypeName)
+            @Html.DisplayNameFor(model => model.NumPlayers)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.MatchStartTime)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.MatchEndTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsSetup)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HasStarted)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.IsActive)
@@ -41,13 +47,19 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.PlayerTypeName)
+            @Html.DisplayFor(modelItem => item.NumPlayers)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.MatchStartTime)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.MatchEndTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsSetup)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HasStarted)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IsActive)

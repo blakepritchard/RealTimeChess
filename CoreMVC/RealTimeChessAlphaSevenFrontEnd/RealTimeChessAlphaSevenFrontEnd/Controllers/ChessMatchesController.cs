@@ -23,9 +23,11 @@ namespace RealTimeChessAlphaSevenFrontEnd.RealTimeChess_API.Models
 
         public ChessMatchesController()
         {
-            rootWebConfig1 = WebConfigurationManager.OpenWebConfiguration(null);
-            configRealTimeChessUri = rootWebConfig1.AppSettings.Settings["RealTimeChessUri"];
-            string strRealTimeChessUri = configRealTimeChessUri.Value;
+            // rootWebConfig1 = WebConfigurationManager.OpenWebConfiguration(null);
+            // configRealTimeChessUri = rootWebConfig1.AppSettings.Settings["RealTimeChessUri"];            
+            // string strRealTimeChessUri = configRealTimeChessUri.Value;
+
+            string strRealTimeChessUri = WebConfigurationManager.AppSettings["RealTimeChessUri"];
 
             baseUri = new Uri(strRealTimeChessUri);
             authCredsBasic = new BasicAuthenticationCredentials();
@@ -41,6 +43,40 @@ namespace RealTimeChessAlphaSevenFrontEnd.RealTimeChess_API.Models
 
         // GET: ChessMatches/Details/5
         public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            //ChessMatch chessMatch = db.ChessMatches.Find(id);
+            ChessMatch chessMatch = (ChessMatch)apiChess.ApiChessMatchesByIdGet((int)id);
+            if (chessMatch == null)
+            {
+                return HttpNotFound();
+            }
+            return View(chessMatch);
+        }
+
+        // GET: ChessMatches/Details/5
+        [HttpGet]
+        public ActionResult Game(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            //ChessMatch chessMatch = db.ChessMatches.Find(id);
+            ChessMatch chessMatch = (ChessMatch)apiChess.ApiChessMatchesByIdGet((int)id);
+            if (chessMatch == null)
+            {
+                return HttpNotFound();
+            }
+            return View(chessMatch);
+        }
+
+        // GET: ChessMatches/Details/5
+        [HttpGet]
+        public ActionResult Clock(int? id)
         {
             if (id == null)
             {

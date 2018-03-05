@@ -119,6 +119,7 @@ namespace RealTimeChessAlphaSeven.Controllers
             _context.Moves.Add(move);
 
             await _context.SaveChangesAsync();
+            move.Begin(_context);
 
             return CreatedAtAction("GetMove", new { id = move.MoveId }, move);
         }
