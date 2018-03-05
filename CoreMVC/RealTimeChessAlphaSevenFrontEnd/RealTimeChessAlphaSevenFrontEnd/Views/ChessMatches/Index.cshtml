@@ -77,9 +77,10 @@
             @Html.DisplayFor(modelItem => item.Deleted)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ChessMatchId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ChessMatchId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ChessMatchId })
+            @Html.ActionLink("Edit", "Edit", new { id = item.ChessMatchId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ChessMatchId }) |
+            @Html.ActionLink("Game", "Game", new { id = item.ChessMatchId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ChessMatchId })
         </td>
     </tr>
 }

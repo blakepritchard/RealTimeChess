@@ -1,8 +1,8 @@
-﻿// Sample Code From:
-// Title:HTML5-Canvas
-// Author: David Geary
-// Publisher: PrenticeHall
-// Link: https://www.pdfdrive.net/core-html5-canvas-d4208966.html
+﻿// Sample Code From: http://corehtml5canvas.com/
+// Title:       HTML5-Canvas
+// Author:      David Geary
+// Publisher:   PrenticeHall
+// Link:        https://www.pdfdrive.net/core-html5-canvas-d4208966.html
 
 
 
