@@ -140,3 +140,4 @@ C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\RealTimeChessAlphaSevenFro
 C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\obj\Debug\RealTimeChessAlphaSevenFrontEnd.csproj.CoreCompileInputs.cache
 C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\obj\Debug\RealTimeChessAlphaSevenFrontEnd.dll
 C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\obj\Debug\RealTimeChessAlphaSevenFrontEnd.pdb
+C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\obj\Debug\RealTimeChessAlphaSevenFrontEnd.csprojResolveAssemblyReference.cache

@@ -7,8 +7,9 @@
 
 
 var canvas = document.getElementById('canvas'),
-    model = document.getElementById('model')
+    model = document.getElementById('model'),
     context = canvas.getContext('2d'),
+    somedata = doc.getElementById('somedata'),
     nFontHeight = 15,
 
     nCellCountX = 8,
@@ -51,7 +52,7 @@ function drawBackground() {
     //console.log("Cell Size Y=" + nCellSizeY);
     //console.log("Cell Size X=" + nCellSizeX);
 
-    var bCellColor = false
+    var bCellColor = false;
     var nCellPositionY = nMarginY;
     for (var y = 0; y < nCellCountY; y++)
     {
@@ -82,8 +83,6 @@ function drawBackground() {
 
 function drawPieces($)
 {
-    debugger;
-
     //var players = [];
     //getJson("https://localhost:44373/api/ChessMatches/3", function(responseGameState) { players = responseGameState.Players; });
 
@@ -116,7 +115,7 @@ function drawPieces($)
 
 
     
-    console.log(model.toString());
+    console.log(somedata.toString());
 
 
 }
