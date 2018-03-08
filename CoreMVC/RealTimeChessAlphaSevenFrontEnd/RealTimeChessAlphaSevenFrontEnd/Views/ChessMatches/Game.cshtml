@@ -116,9 +116,10 @@
             for (var i = 0; i < player.Pieces.length; i++) {
                 piece = player.Pieces[i];
 
-                var centerX = piece.LocationX * nCellSizeX;
-                var centerY = piece.LocationY * nCellSizeY;
+                var centerX = ((piece.LocationX * nCellSizeX) - (nCellSizeX/2));
+                var centerY = ((piece.LocationY * nCellSizeY) - (nCellSizeY/2));
                 drawCircle(centerX, centerY, radius);
+                context.fillText(piece.ChessPieceType.ChessPieceTypeName, centerX, centerY);
                 console.log(piece.ChessPieceId + ", X:" + piece.LocationX + ", Y:" + piece.LocationY + ", Radius:" + radius);
 
             }
