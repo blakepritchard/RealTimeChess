@@ -11,9 +11,10 @@ using System;
 namespace RealTimeChessAlphaSeven.Migrations
 {
     [DbContext(typeof(RealTimeChessDbContext))]
-    partial class RealTimeChessDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180308220040_LinkChessPieceTypeToChessPieces")]
+    partial class LinkChessPieceTypeToChessPieces
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -229,7 +230,7 @@ namespace RealTimeChessAlphaSeven.Migrations
 
             modelBuilder.Entity("RealTimeChessAlphaSeven.Models.RealTimeChessModels.ChessPiece", b =>
                 {
-                    b.HasOne("RealTimeChessAlphaSeven.Models.RealTimeChessModels.ChessPieceType", "ChessPieceType")
+                    b.HasOne("RealTimeChessAlphaSeven.Models.RealTimeChessModels.ChessPieceType")
                         .WithMany("ChessPieces")
                         .HasForeignKey("ChessPieceTypeId")
                         .OnDelete(DeleteBehavior.Cascade);

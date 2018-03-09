@@ -21,13 +21,13 @@ namespace RealTimeChessAlphaSevenFrontEnd.Models
         /// <summary>
         /// Initializes a new instance of the MatchPlayer class.
         /// </summary>
-        public MatchPlayer(int? matchPlayerId = default(int?), int? chessMatchId = default(int?), int? playerId = default(int?), int? playerTypeId = default(int?), IList<ChessPiece> pieces = default(IList<ChessPiece>), bool? isDeleted = default(bool?), DateTime? created = default(DateTime?), DateTime? updated = default(DateTime?), DateTime? deleted = default(DateTime?))
+        public MatchPlayer(int? matchPlayerId = default(int?), int? chessMatchId = default(int?), int? playerId = default(int?), int? playerTypeId = default(int?), IList<ChessPiece> chessPieces = default(IList<ChessPiece>), bool? isDeleted = default(bool?), DateTime? created = default(DateTime?), DateTime? updated = default(DateTime?), DateTime? deleted = default(DateTime?))
         {
             MatchPlayerId = matchPlayerId;
             ChessMatchId = chessMatchId;
             PlayerId = playerId;
             PlayerTypeId = playerTypeId;
-            Pieces = pieces;
+            ChessPieces = chessPieces;
             IsDeleted = isDeleted;
             Created = created;
             Updated = updated;
@@ -56,8 +56,8 @@ namespace RealTimeChessAlphaSevenFrontEnd.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "pieces")]
-        public IList<ChessPiece> Pieces { get; set; }
+        [JsonProperty(PropertyName = "chessPieces")]
+        public IList<ChessPiece> ChessPieces { get; set; }
 
         /// <summary>
         /// </summary>

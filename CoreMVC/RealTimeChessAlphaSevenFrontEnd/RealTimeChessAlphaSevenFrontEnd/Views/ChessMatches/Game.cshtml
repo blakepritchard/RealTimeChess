@@ -110,17 +110,23 @@
     function drawPieces() {
         var lstPlayers = @Html.Raw(Json.Encode(Model.MatchPlayers));
         var radius = canvas.width / 20;
+
+
         for (var p = 0; p < lstPlayers.length; p++) {
             player = lstPlayers[p];
 
-            for (var i = 0; i < player.Pieces.length; i++) {
-                piece = player.Pieces[i];
+            for (var i = 0; i < player.ChessPieces.length; i++) {
+                piece = player.ChessPieces[i];
 
                 var centerX = ((piece.LocationX * nCellSizeX) - (nCellSizeX/2));
                 var centerY = ((piece.LocationY * nCellSizeY) - (nCellSizeY/2));
+
                 drawCircle(centerX, centerY, radius);
+
+                context.strokeStyle = "black";
+                context.fillStyle = "black";
                 context.fillText(piece.ChessPieceType.ChessPieceTypeName, centerX, centerY);
-                console.log(piece.ChessPieceId + ", X:" + piece.LocationX + ", Y:" + piece.LocationY + ", Radius:" + radius);
+                // console.log(piece.ChessPieceId + ", X:" + piece.LocationX + ", Y:" + piece.LocationY + ", Radius:" + radius);
 
             }
             

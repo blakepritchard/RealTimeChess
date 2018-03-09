@@ -21,11 +21,12 @@ namespace RealTimeChessAlphaSevenFrontEnd.Models
         /// <summary>
         /// Initializes a new instance of the ChessPiece class.
         /// </summary>
-        public ChessPiece(int? chessPieceId = default(int?), int? matchPlayerId = default(int?), int? chessPieceTypeId = default(int?), int? locationX = default(int?), int? locationY = default(int?), bool? isCaptured = default(bool?), bool? isMoving = default(bool?), IList<Move> moves = default(IList<Move>))
+        public ChessPiece(int? chessPieceId = default(int?), int? matchPlayerId = default(int?), int? chessPieceTypeId = default(int?), ChessPieceType chessPieceType = default(ChessPieceType), int? locationX = default(int?), int? locationY = default(int?), bool? isCaptured = default(bool?), bool? isMoving = default(bool?), IList<Move> moves = default(IList<Move>))
         {
             ChessPieceId = chessPieceId;
             MatchPlayerId = matchPlayerId;
             ChessPieceTypeId = chessPieceTypeId;
+            ChessPieceType = chessPieceType;
             LocationX = locationX;
             LocationY = locationY;
             IsCaptured = isCaptured;
@@ -47,6 +48,11 @@ namespace RealTimeChessAlphaSevenFrontEnd.Models
         /// </summary>
         [JsonProperty(PropertyName = "chessPieceTypeId")]
         public int? ChessPieceTypeId { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "chessPieceType")]
+        public ChessPieceType ChessPieceType { get; set; }
 
         /// <summary>
         /// </summary>

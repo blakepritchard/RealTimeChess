@@ -14,6 +14,8 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
         public int Velocity { get; set; }
         public string ImagePath { get; set; }
 
+        // public List<ChessPiece> ChessPieces { get; set; }
+
         [NotMapped]
         public Func<Array> LegalMoves { get; set; }
 

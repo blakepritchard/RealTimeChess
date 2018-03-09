@@ -11,9 +11,10 @@ using System;
 namespace RealTimeChessAlphaSeven.Migrations
 {
     [DbContext(typeof(RealTimeChessDbContext))]
-    partial class RealTimeChessDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180309041055_FullyDefiningRelationshipToChessPieceType")]
+    partial class FullyDefiningRelationshipToChessPieceType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 using RealTimeChessAlphaSeven.Models.RealTimeChessModels;
 
 namespace RealTimeChessAlphaSeven.Controllers
@@ -37,10 +38,7 @@ namespace RealTimeChessAlphaSeven.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            ChessMatch chessMatch = await _context.Matches.Include(match => match.MatchPlayers).ThenInclude(matchPlayer => matchPlayer.Pieces).SingleOrDefaultAsync(m => m.ChessMatchId == id);
-            //_context.Entry(chessMatch).Collection(m => m.MatchPlayers).Load();
-            
+            ChessMatch chessMatch = await _context.Matches.Include("MatchPlayers.ChessPieces.ChessPieceType").SingleOrDefaultAsync(m => m.ChessMatchId == id);
 
             if (chessMatch == null)
             {
