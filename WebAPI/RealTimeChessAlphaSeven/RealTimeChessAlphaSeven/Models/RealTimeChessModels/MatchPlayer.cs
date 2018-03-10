@@ -17,6 +17,8 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
         public int MatchPlayerId { get; set; }
         public int ChessMatchId { get; set; }
         public int PlayerId { get; set; }
+
+        public PlayerType PlayerType { get; set; }
         public int PlayerTypeId { get; set; }
 
         public List<ChessPiece> ChessPieces { get; set; }
@@ -65,7 +67,7 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
             int nTypeIdKing = context.ChessPieceType.SingleOrDefault(t => t.ChessPieceTypeName == "King").ChessPieceTypeId;
             int nTypeIdQueen = context.ChessPieceType.SingleOrDefault(t => t.ChessPieceTypeName == "Queen").ChessPieceTypeId;
             int nTypeIdBishop = context.ChessPieceType.SingleOrDefault(t => t.ChessPieceTypeName == "Bishop").ChessPieceTypeId;
-            int nKTypeIdKnight = context.ChessPieceType.SingleOrDefault(t => t.ChessPieceTypeName == "King").ChessPieceTypeId;
+            int nKTypeIdKnight = context.ChessPieceType.SingleOrDefault(t => t.ChessPieceTypeName == "Knight").ChessPieceTypeId;
             int nTypeIdRook = context.ChessPieceType.SingleOrDefault(t => t.ChessPieceTypeName == "Rook").ChessPieceTypeId;
 
             context.ChessPiece.Add(new ChessPiece(MatchPlayerId, nTypeIdRook, nRankNumber, 8));
@@ -84,7 +86,7 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
             int nTypeIdKing = ( context.ChessPieceType.SingleOrDefault(t => t.ChessPieceTypeName == "King")).ChessPieceTypeId;
             int nTypeIdQueen = ( context.ChessPieceType.SingleOrDefault(t => t.ChessPieceTypeName == "Queen")).ChessPieceTypeId;
             int nTypeIdBishop = ( context.ChessPieceType.SingleOrDefault(t => t.ChessPieceTypeName == "Bishop")).ChessPieceTypeId;
-            int nKTypeIdKnight = ( context.ChessPieceType.SingleOrDefault(t => t.ChessPieceTypeName == "King")).ChessPieceTypeId;
+            int nKTypeIdKnight = ( context.ChessPieceType.SingleOrDefault(t => t.ChessPieceTypeName == "Knight")).ChessPieceTypeId;
             int nTypeIdRook = ( context.ChessPieceType.SingleOrDefault(t => t.ChessPieceTypeName == "Rook")).ChessPieceTypeId;
 
             context.ChessPiece.Add(new ChessPiece(MatchPlayerId, nTypeIdRook, 8, nFileNum));       // ChessPiece RookLeft

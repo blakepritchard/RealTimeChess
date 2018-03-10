@@ -33,7 +33,7 @@
 
 <div id='readout'></div>
 <canvas id='canvas' width='600' height='600'> Canvas not supported </canvas>
-<div id="somedata">SomeDataHere</div>
+
 <!-- <script src="~/Scripts/realtimechess-0.1.0.js"></script> -->
 <script type="text/javascript">
 
@@ -121,9 +121,11 @@
                 var centerX = ((piece.LocationX * nCellSizeX) - (nCellSizeX/2));
                 var centerY = ((piece.LocationY * nCellSizeY) - (nCellSizeY/2));
 
+                strColor = player.PlayerType.PlayerTypeName;
+                context.strokeStyle = strColor;
                 drawCircle(centerX, centerY, radius);
 
-                context.strokeStyle = "black";
+                
                 context.fillStyle = "black";
                 context.fillText(piece.ChessPieceType.ChessPieceTypeName, centerX, centerY);
                 // console.log(piece.ChessPieceId + ", X:" + piece.LocationX + ", Y:" + piece.LocationY + ", Radius:" + radius);

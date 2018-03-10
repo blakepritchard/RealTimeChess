@@ -12,6 +12,7 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
         public string PlayerTypeName { get; set; }
         public int TurnOrder { get; set; }
 
-        public List<MatchPlayer> MatchPlayers { get; set; }
+        // This collection may be causing a circular reference error
+        //public List<MatchPlayer> MatchPlayers { get; set; }
     }
 }

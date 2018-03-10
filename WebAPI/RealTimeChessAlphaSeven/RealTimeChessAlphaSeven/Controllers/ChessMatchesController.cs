@@ -38,14 +38,26 @@ namespace RealTimeChessAlphaSeven.Controllers
             {
                 return BadRequest(ModelState);
             }
-            ChessMatch chessMatch = await _context.Matches.Include("MatchPlayers.ChessPieces.ChessPieceType").SingleOrDefaultAsync(m => m.ChessMatchId == id);
 
-            if (chessMatch == null)
+
+            //ChessMatch chessMatch = await _context.Matches.Include("MatchPlayers.ChessPieces.ChessPieceType").SingleOrDefaultAsync(m => m.ChessMatchId == id);
+
+            ChessMatch matchPopulated = 
+                await _context.Matches
+                                .Include(chessMatch => chessMatch.MatchPlayers)
+                                    .ThenInclude(matchPlayer => matchPlayer.ChessPieces)
+                                        .ThenInclude(chessPiece => chessPiece.ChessPieceType)
+                                 .Include(chessMatch => chessMatch.MatchPlayers)
+                                    .ThenInclude(matchPlayer => matchPlayer.PlayerType)
+                                .SingleOrDefaultAsync(m => m.ChessMatchId == id);
+
+
+            if (matchPopulated == null)
             {
                 return NotFound();
             }
 
-            return Ok(chessMatch);
+            return Ok(matchPopulated);
         }
 
         // PUT: api/ChessMatches/5
