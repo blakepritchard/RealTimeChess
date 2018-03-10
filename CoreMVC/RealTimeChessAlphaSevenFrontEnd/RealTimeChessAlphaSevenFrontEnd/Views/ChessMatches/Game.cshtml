@@ -57,20 +57,23 @@
     canvas.addEventListener('mousedown', function (event) {
         dragStart = getMousePosition(event);
         isDragging = true;
-        context.moveTo(dragStart.x, dragStart.y);
+        //context.moveTo(dragStart.x, dragStart.y);
+        context.beginPath();
     })
 
     canvas.addEventListener('mousemove', function (event) {
         if (isDragging)
         {
             dragEnd = getMousePosition(event);
-            context.lineTo(dragEnd.x, dragEnd.y);
-            context.stroke();
+            //context.lineTo(dragEnd.x, dragEnd.y);
+
         }
     })
 
     canvas.addEventListener('mouseup', function (event) {
         isDragging = false;
+        context.closePath();
+        context.stroke();
     })
 
 
@@ -128,7 +131,7 @@
 
             var nCellPositionX = nMarginX;
             for (var x = 0; x < nCellCountX; x++) {
-                context.fillStyle = (true === bCellColor) ? "darkgray" : "lightblue";
+                context.fillStyle = (true === bCellColor) ? "gray" : "darkgray";
 
                 //console.log("PositionX=" + nCellPositionX);
 
