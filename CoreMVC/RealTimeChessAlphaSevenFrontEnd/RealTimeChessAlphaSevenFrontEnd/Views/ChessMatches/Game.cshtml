@@ -50,8 +50,48 @@
         nCellSizeX = (canvas.width - (2 * nMarginX)) / nCellCountX,
         nCellSizeY = (canvas.height - (2 * nMarginY)) / nCellCountY;
 
+    var isDragging = false;
+    var dragStart;
+    var dragEnd;
+
+    canvas.addEventListener('mousedown', function (event) {
+        dragStart = getMousePosition(event);
+        isDragging = true;
+        context.moveTo(dragStart.x, dragStart.y);
+    })
+
+    canvas.addEventListener('mousemove', function (event) {
+        if (isDragging)
+        {
+            dragEnd = getMousePosition(event);
+            context.lineTo(dragEnd.x, dragEnd.y);
+            context.stroke();
+        }
+    })
+
+    canvas.addEventListener('mouseup', function (event) {
+        isDragging = false;
+    })
+
 
     // Functions..........................................................
+    function drawPointer() {
+    }
+
+    function clear() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function getMousePosition(event) {
+        var rect = canvas.getBoundingClientRect();
+        return {
+            x: event.clientX - rect.left,
+            y: event.clientY - rect.top
+        }
+    }
+
+
+    
     function drawCircle(centerX, centerY, radius) {
         context.beginPath();
         context.arc(centerX, centerY, radius, 0, Math.PI * 2, true);
