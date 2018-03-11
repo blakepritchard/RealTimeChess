@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+//using AttributeRouting.Web.Http;
 using RealTimeChessAlphaSevenFrontEnd.Models;
 using Microsoft.Rest;
 using System.Configuration;
@@ -57,20 +58,22 @@ namespace RealTimeChessAlphaSevenFrontEnd.RealTimeChess_API.Models
             return View(chessMatch);
         }
 
-        // GET: ChessMatches/Details/5
+        // GET: ChessMatches/Game/3
         [HttpGet]
-        public ActionResult Game(int? id)
+        public ActionResult Game(int Id, int? MatchPlayerId)
         {
-            if (id == null)
+            if (Id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             //ChessMatch chessMatch = db.ChessMatches.Find(id);
-            ChessMatch chessMatch = (ChessMatch)apiChess.ApiChessMatchesByIdGet((int)id);
+            ChessMatch chessMatch = (ChessMatch)apiChess.ApiChessMatchesByIdGet(Id);
             if (chessMatch == null)
             {
                 return HttpNotFound();
             }
+
+            ViewData["MatchPlayerId"] = MatchPlayerId;
             return View(chessMatch);
         }
 

@@ -1,5 +1,6 @@
 ﻿@model RealTimeChessAlphaSevenFrontEnd.Models.ChessMatch
 
+
 <title>Sprite sheets</title>
 <style>
     body {
@@ -56,6 +57,9 @@
 
     canvas.addEventListener('mousedown', function (event) {
         dragStart = getMousePosition(event);
+        chessMoveStart = getMouseGameLocation(event);
+        highlightCell(chessMoveStart.x, chessMoveStart.y);
+        var selectedPiece = selectChessPiece(chessMoveStart.x, chessMoveStart.y);
         isDragging = true;
         //context.moveTo(dragStart.x, dragStart.y);
         context.beginPath();
@@ -93,8 +97,15 @@
         }
     }
 
+    function getMouseGameLocation(event) {
+        var coordinates = getMousePosition(event);
+        return {
+            x: Math.floor(coordinates.x / nCellSizeX),
+            y: Math.floor(coordinates.y / nCellSizeY)
+        }
+    }
 
-    
+
     function drawCircle(centerX, centerY, radius) {
         context.beginPath();
         context.arc(centerX, centerY, radius, 0, Math.PI * 2, true);
@@ -113,7 +124,42 @@
         });
     }
 
+    function selectChessPiece(nLocationX, nLocationY) {
+        var nMatchPlayerId = (int) @ViewData["MatchPlayerId"];
 
+        var jsonMatchPlayer = @Html.Raw(Json.Encode(Model.MatchPlayers.SingleOrDefault(mp => mp.MatchPlayerId == (int)ViewData["MatchPlayerId"])));
+        var pieces = @Html.Raw(Json.Encode(Model.MatchPlayers.SingleOrDefault(mp => mp.MatchPlayerId == (int)ViewData["MatchPlayerId"]).ChessPieces));
+
+        var pieceSelected = findPieceAtLocation(pieces, nLocationX, nLocationY);
+        if (null != pieceSelected) {
+            var typeSelected = pieceSelected.ChessPieceType.ChessPieceTypeName;
+            console.log("MatchPlayerId=" + nMatchPlayerId + " Selected a: " + typeSelected);
+        }
+        else {
+            console.log("MatchPlayerId=" + nMatchPlayerId + " Could Not Find ChessPiece at Location" + nLocationX + "." + nLocationY);
+        }
+
+
+
+    }
+
+    function findPieceAtLocation(arrayPieces, nLocationX, nLocationY) {
+
+    }
+
+    function highlightCell(nCellPositionX, nCellPositionY) {
+        // context.clearRect(0, 0, canvas.width, canvas.height);
+
+        // context.lineWidth = "1";
+        // context.strokeStyle = "black";
+
+        context.fillStyle = "lightgreen";
+        context.beginPath();
+        //console.log("Drawing Rectangle, PosX:" + nCellPositionX + ", PosY:" + nCellPositionY);
+        context.rect(nCellPositionX * nCellSizeX, nCellPositionY * nCellSizeY, nCellSizeX, nCellSizeY);
+        context.fill();
+
+    }
 
     function drawBackground() {
         context.clearRect(0, 0, canvas.width, canvas.height);
@@ -140,7 +186,7 @@
                 context.rect(nCellPositionX, nCellPositionY, nCellSizeX, nCellSizeY);
 
                 context.fill();
-                //context.stroke();     
+                //context.stroke();
 
                 nCellPositionX += nCellSizeX;
                 bCellColor = !bCellColor;
@@ -168,13 +214,13 @@
                 context.strokeStyle = strColor;
                 drawCircle(centerX, centerY, radius);
 
-                
+
                 context.fillStyle = "black";
                 context.fillText(piece.ChessPieceType.ChessPieceTypeName, centerX, centerY);
                 // console.log(piece.ChessPieceId + ", X:" + piece.LocationX + ", Y:" + piece.LocationY + ", Radius:" + radius);
 
             }
-            
+
         }
     }
 
