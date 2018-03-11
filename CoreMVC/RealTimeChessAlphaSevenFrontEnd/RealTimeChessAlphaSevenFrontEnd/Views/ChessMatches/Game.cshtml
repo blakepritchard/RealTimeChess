@@ -100,8 +100,8 @@
     function getMouseGameLocation(event) {
         var coordinates = getMousePosition(event);
         return {
-            x: Math.floor(coordinates.x / nCellSizeX),
-            y: Math.floor(coordinates.y / nCellSizeY)
+            x: Math.floor(coordinates.x / nCellSizeX) + 1,
+            y: Math.floor(coordinates.y / nCellSizeY) + 1
         }
     }
 
@@ -125,9 +125,7 @@
     }
 
     function selectChessPiece(nLocationX, nLocationY) {
-        var nMatchPlayerId = (int) @ViewData["MatchPlayerId"];
-
-        var jsonMatchPlayer = @Html.Raw(Json.Encode(Model.MatchPlayers.SingleOrDefault(mp => mp.MatchPlayerId == (int)ViewData["MatchPlayerId"])));
+        var nMatchPlayerId =  @ViewData["MatchPlayerId"];
         var pieces = @Html.Raw(Json.Encode(Model.MatchPlayers.SingleOrDefault(mp => mp.MatchPlayerId == (int)ViewData["MatchPlayerId"]).ChessPieces));
 
         var pieceSelected = findPieceAtLocation(pieces, nLocationX, nLocationY);
@@ -139,12 +137,20 @@
             console.log("MatchPlayerId=" + nMatchPlayerId + " Could Not Find ChessPiece at Location" + nLocationX + "." + nLocationY);
         }
 
-
-
     }
 
-    function findPieceAtLocation(arrayPieces, nLocationX, nLocationY) {
 
+    // Brute Force Search.
+    // There Must Be A Better Way
+    function findPieceAtLocation(arrayPieces, nLocationX, nLocationY) {
+        var pieceSelected = null;
+        for (var i = 0; i<arrayPieces.length; i++) {
+            chessPiece = arrayPieces[i];
+            if (chessPiece.LocationX == nLocationX && chessPiece.LocationY == nLocationY) {
+                pieceSelected = chessPiece;
+            }
+        }
+        return pieceSelected;
     }
 
     function highlightCell(nCellPositionX, nCellPositionY) {
@@ -156,7 +162,7 @@
         context.fillStyle = "lightgreen";
         context.beginPath();
         //console.log("Drawing Rectangle, PosX:" + nCellPositionX + ", PosY:" + nCellPositionY);
-        context.rect(nCellPositionX * nCellSizeX, nCellPositionY * nCellSizeY, nCellSizeX, nCellSizeY);
+        context.rect(((nCellPositionX -1)* nCellSizeX), ((nCellPositionY - 1) * nCellSizeY), nCellSizeX, nCellSizeY);
         context.fill();
 
     }
