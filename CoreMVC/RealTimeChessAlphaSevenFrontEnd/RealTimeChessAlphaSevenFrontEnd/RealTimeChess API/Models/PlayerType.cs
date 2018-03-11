@@ -21,12 +21,11 @@ namespace RealTimeChessAlphaSevenFrontEnd.Models
         /// <summary>
         /// Initializes a new instance of the PlayerType class.
         /// </summary>
-        public PlayerType(int? playerTypeId = default(int?), string playerTypeName = default(string), int? turnOrder = default(int?), IList<MatchPlayer> matchPlayers = default(IList<MatchPlayer>))
+        public PlayerType(int? playerTypeId = default(int?), string playerTypeName = default(string), int? turnOrder = default(int?))
         {
             PlayerTypeId = playerTypeId;
             PlayerTypeName = playerTypeName;
             TurnOrder = turnOrder;
-            MatchPlayers = matchPlayers;
         }
 
         /// <summary>
@@ -43,11 +42,6 @@ namespace RealTimeChessAlphaSevenFrontEnd.Models
         /// </summary>
         [JsonProperty(PropertyName = "turnOrder")]
         public int? TurnOrder { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "matchPlayers")]
-        public IList<MatchPlayer> MatchPlayers { get; set; }
 
     }
 }

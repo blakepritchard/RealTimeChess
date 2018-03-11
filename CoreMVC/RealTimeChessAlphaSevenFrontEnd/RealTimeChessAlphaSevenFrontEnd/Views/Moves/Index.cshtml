@@ -12,10 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.PlayerTypeName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MatchPlayerId)
+            @Html.DisplayNameFor(model => model.ChessPieceId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.AlgebraicChessNotation)
@@ -27,10 +24,40 @@
             @Html.DisplayNameFor(model => model.GameClockEndMove)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PositionBeginMove)
+            @Html.DisplayNameFor(model => model.PositionBeginX)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PositionEndMove)
+            @Html.DisplayNameFor(model => model.PositionBeginY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PositionEndX)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PositionEndY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PositionCurrentX)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PositionCurrentY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Distance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Velocity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TravelTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Heading)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HeadingSin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HeadingCos)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.IsDeleted)
@@ -50,10 +77,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.PlayerTypeName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MatchPlayerId)
+            @Html.DisplayFor(modelItem => item.ChessPieceId)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.AlgebraicChessNotation)
@@ -65,10 +89,40 @@
             @Html.DisplayFor(modelItem => item.GameClockEndMove)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PositionBeginMove)
+            @Html.DisplayFor(modelItem => item.PositionBeginX)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PositionEndMove)
+            @Html.DisplayFor(modelItem => item.PositionBeginY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PositionEndX)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PositionEndY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PositionCurrentX)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PositionCurrentY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Distance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Velocity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TravelTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Heading)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HeadingSin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HeadingCos)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IsDeleted)

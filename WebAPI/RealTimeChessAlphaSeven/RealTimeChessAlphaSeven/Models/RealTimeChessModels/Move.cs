@@ -15,11 +15,11 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
         public int ChessPieceId { get; set; }
 
         public string AlgebraicChessNotation { get; set; }
-        public DateTime? GameClockBeginMove { get; set; }
+        public DateTime GameClockBeginMove { get; set; }
         public DateTime? GameClockEndMove { get; set; }
 
-        public int? PositionBeginX { get; set; }
-        public int? PositionBeginY { get; set; }
+        public int PositionBeginX { get; set; }
+        public int PositionBeginY { get; set; }
 
         public int PositionEndX { get; set; }
         public int PositionEndY { get; set; }
@@ -35,9 +35,9 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
         public float? HeadingSin { get; set; }
         public float? HeadingCos { get; set; }
 
-        public bool IsDeleted { get; set; }
-        public DateTime Created { get; set; }
-        public DateTime Updated { get; set; }
+        public bool? IsDeleted { get; set; }
+        public DateTime? Created { get; set; }
+        public DateTime? Updated { get; set; }
         public DateTime? Deleted { get; set; }
 
         [NotMapped]

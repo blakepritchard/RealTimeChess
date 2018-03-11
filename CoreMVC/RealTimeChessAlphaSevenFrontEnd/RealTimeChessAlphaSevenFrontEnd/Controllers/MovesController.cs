@@ -1,43 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
-using System.Web.Configuration;
 using System.Web.Mvc;
-using Microsoft.Rest;
 using RealTimeChessAlphaSevenFrontEnd.Models;
 
 namespace RealTimeChessAlphaSevenFrontEnd.Controllers
 {
     public class MovesController : Controller
     {
-        //private ApplicationDbContext db = new ApplicationDbContext();
-        private Uri baseUri;
-        private static BasicAuthenticationCredentials authCredsBasic;
-        private RealTimeChessAPI apiChess;
-        private Configuration rootWebConfig1;
-        private KeyValueConfigurationElement configRealTimeChessUri;
-
-        public MovesController()
-        {
-            rootWebConfig1 = WebConfigurationManager.OpenWebConfiguration(null);
-            configRealTimeChessUri = rootWebConfig1.AppSettings.Settings["RealTimeChessUri"];
-            string strRealTimeChessUri = configRealTimeChessUri.Value;
-
-            baseUri = new Uri(strRealTimeChessUri);
-            authCredsBasic = new BasicAuthenticationCredentials();
-            apiChess = new RealTimeChessAPI(baseUri, authCredsBasic);
-        }
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Moves
         public ActionResult Index()
         {
-            List<Move> lstMoves = apiChess.ApiMovesGet().ToList<Move>();
-            return View(lstMoves);
+            return View(db.Moves.ToList());
         }
 
         // GET: Moves/Details/5
@@ -47,7 +27,7 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Move move = apiChess.ApiMovesByIdGet((int)id);
+            Move move = db.Moves.Find(id);
             if (move == null)
             {
                 return HttpNotFound();
@@ -66,9 +46,15 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MoveId,PlayerTypeName,MatchPlayerId,AlgebraicChessNotation,GameClockBeginMove,GameClockEndMove,PositionBeginMove,PositionEndMove,IsDeleted,Created,Updated,Deleted")] Move move)
+        public ActionResult Create([Bind(Include = "MoveId,ChessPieceId,AlgebraicChessNotation,GameClockBeginMove,GameClockEndMove,PositionBeginX,PositionBeginY,PositionEndX,PositionEndY,PositionCurrentX,PositionCurrentY,Distance,Velocity,TravelTime,Heading,HeadingSin,HeadingCos,IsDeleted,Created,Updated,Deleted")] Move move)
         {
-            apiChess.ApiMovesPost(move);
+            if (ModelState.IsValid)
+            {
+                db.Moves.Add(move);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
             return View(move);
         }
 
@@ -79,7 +65,7 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Move move = apiChess.ApiMovesByIdGet((int)id);
+            Move move = db.Moves.Find(id);
             if (move == null)
             {
                 return HttpNotFound();
@@ -92,10 +78,15 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MoveId,PlayerTypeName,MatchPlayerId,AlgebraicChessNotation,GameClockBeginMove,GameClockEndMove,PositionBeginMove,PositionEndMove,IsDeleted,Created,Updated,Deleted")] Move move)
+        public ActionResult Edit([Bind(Include = "MoveId,ChessPieceId,AlgebraicChessNotation,GameClockBeginMove,GameClockEndMove,PositionBeginX,PositionBeginY,PositionEndX,PositionEndY,PositionCurrentX,PositionCurrentY,Distance,Velocity,TravelTime,Heading,HeadingSin,HeadingCos,IsDeleted,Created,Updated,Deleted")] Move move)
         {
-            apiChess.ApiMovesByIdPut((int)move.MoveId, move);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                db.Entry(move).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(move);
         }
 
         // GET: Moves/Delete/5
@@ -105,7 +96,7 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Move move = apiChess.ApiMovesByIdGet((int)id);
+            Move move = db.Moves.Find(id);
             if (move == null)
             {
                 return HttpNotFound();
@@ -118,8 +109,19 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            apiChess.ApiMovesByIdDelete(id);
+            Move move = db.Moves.Find(id);
+            db.Moves.Remove(move);
+            db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

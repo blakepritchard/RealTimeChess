@@ -8,7 +8,10 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
     public class ChessPiece
     {
         public int ChessPieceId { get; set; }
+
         public int MatchPlayerId { get; set; }
+        //public MatchPlayer MatchPlayer { get; set; }
+
         public int ChessPieceTypeId { get; set; }
         public ChessPieceType ChessPieceType { get; set; }
 
