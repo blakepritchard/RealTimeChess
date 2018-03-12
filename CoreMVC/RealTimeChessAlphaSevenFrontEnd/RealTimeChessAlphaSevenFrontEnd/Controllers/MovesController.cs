@@ -68,10 +68,30 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
                 //db.Moves.Add(move);
                 //db.SaveChanges();
                 apiChess.ApiMovesPost(move);
-                return RedirectToAction("Index");
+                return RedirectToAction("Game");
             }
 
-            return View(move);
+            // return View(move);
+            return RedirectToAction("Game");
+        }
+
+        // POST: Moves/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        // [ValidateAntiForgeryToken]
+        public ActionResult Begin([Bind(Include = "MoveId,ChessPieceId,AlgebraicChessNotation,GameClockBeginMove,GameClockEndMove,PositionBeginX,PositionBeginY,PositionEndX,PositionEndY,PositionCurrentX,PositionCurrentY,Distance,Velocity,TravelTime,Heading,HeadingSin,HeadingCos,IsDeleted,Created,Updated,Deleted")] Move move)
+        {
+            if (ModelState.IsValid)
+            {
+                //db.Moves.Add(move);
+                //db.SaveChanges();
+                apiChess.ApiMovesBeginMovePost((int)move.ChessPieceId, (int)move.PositionEndX, (int)move.PositionEndY);
+                return RedirectToAction("Game");
+            }
+
+            // return View(move);
+            return RedirectToAction("Game");
         }
 
         // GET: Moves/Edit/5

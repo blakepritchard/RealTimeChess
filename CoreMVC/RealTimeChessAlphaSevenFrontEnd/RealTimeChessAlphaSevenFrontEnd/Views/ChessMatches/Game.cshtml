@@ -83,7 +83,7 @@
     })
 
     function PostMove() {
-        var strUrl = "@Url.Action("Create", "Moves")";    // "localhost:50001/Moves/Create/";
+        var strUrl = "@Url.Action("Begin", "Moves")";    // "localhost:50001/Moves/Begin/";
 
         var nChessPieceId = objSelectedChessPiece.ChessPieceId;
         var strJsonMove = JSON.stringify({
@@ -109,7 +109,7 @@
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     //some errror, some show err msg to user and log the error
-                    alert(xhr.responseText);
+                    console.log(data);
                 }
             });
         }

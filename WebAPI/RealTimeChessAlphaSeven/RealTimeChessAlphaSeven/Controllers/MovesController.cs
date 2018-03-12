@@ -96,7 +96,6 @@ namespace RealTimeChessAlphaSeven.Controllers
             {
                 return BadRequest(ModelState);
             }
-
             _context.Moves.Add(move);
             await _context.SaveChangesAsync();
 
@@ -117,9 +116,9 @@ namespace RealTimeChessAlphaSeven.Controllers
 
             Move move = new Move(PieceId, DestinationX, DestinationY, ChessMatch.ChessPieceVelocity);
             _context.Moves.Add(move);
-
-            await _context.SaveChangesAsync();
             move.Begin(_context);
+            _context.SaveChanges();
+
 
             return CreatedAtAction("GetMove", new { id = move.MoveId }, move);
         }

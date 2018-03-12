@@ -9,10 +9,10 @@ C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\Rea
 C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\bin\Debug\netcoreapp2.0\RealTimeChessAlphaSeven.runtimeconfig.dev.json
 C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\bin\Debug\netcoreapp2.0\RealTimeChessAlphaSeven.dll
 C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\bin\Debug\netcoreapp2.0\RealTimeChessAlphaSeven.pdb
-C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Debug\netcoreapp2.0\RealTimeChessAlphaSeven.csprojResolveAssemblyReference.cache
 C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Debug\netcoreapp2.0\RealTimeChessAlphaSeven.csproj.CoreCompileInputs.cache
 C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
 C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Debug\netcoreapp2.0\RealTimeChessAlphaSeven.AssemblyInfoInputs.cache
 C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Debug\netcoreapp2.0\RealTimeChessAlphaSeven.AssemblyInfo.cs
 C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Debug\netcoreapp2.0\RealTimeChessAlphaSeven.dll
 C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Debug\netcoreapp2.0\RealTimeChessAlphaSeven.pdb
+C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Debug\netcoreapp2.0\RealTimeChessAlphaSeven.csprojResolveAssemblyReference.cache

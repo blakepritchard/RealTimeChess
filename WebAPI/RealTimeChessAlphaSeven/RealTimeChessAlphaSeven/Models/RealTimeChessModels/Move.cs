@@ -47,6 +47,7 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
         {
             IsDeleted = false;
             Created = DateTime.Now;
+            Velocity = 1;
             AlgebraicChessNotation = "";
         }
 
@@ -60,9 +61,9 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
             Created = DateTime.Now;
         }
 
-        async public void Begin(RealTimeChessDbContext dbContext)
+        public void Begin(RealTimeChessDbContext dbContext)
         {
-            ChessPiece piece = await dbContext.ChessPiece.SingleOrDefaultAsync(chessPiece => chessPiece.ChessPieceId == ChessPieceId);
+            ChessPiece piece = dbContext.ChessPiece.SingleOrDefault(chessPiece => chessPiece.ChessPieceId == ChessPieceId);
             PositionBeginX = piece.LocationX;
             PositionBeginY = piece.LocationY;
 
@@ -77,6 +78,8 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
             GameClockBeginMove = DateTime.Now;
             GameClockEndMove = GameClockBeginMove + TravelTime;
 
+            piece.LocationX = PositionEndX;
+            piece.LocationY = PositionEndY;
 
         }
 
