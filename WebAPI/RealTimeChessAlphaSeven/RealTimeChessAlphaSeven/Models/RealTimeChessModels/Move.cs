@@ -47,6 +47,7 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
         {
             IsDeleted = false;
             Created = DateTime.Now;
+            AlgebraicChessNotation = "";
         }
 
         public Move(int nChessPieceId, int nDestinationX, int nDestinationY, double dVelocity )

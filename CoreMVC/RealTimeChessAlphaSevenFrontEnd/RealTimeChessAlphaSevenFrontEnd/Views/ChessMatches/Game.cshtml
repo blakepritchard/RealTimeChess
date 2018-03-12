@@ -1,4 +1,6 @@
 ﻿@model RealTimeChessAlphaSevenFrontEnd.Models.ChessMatch
+@Html.AntiForgeryToken()
+
 
 
 <title>Chess Match Game View</title>
@@ -48,15 +50,16 @@
     var radiusPiece = canvas.width / 20;
     var isDragging = false;
     var mouseDragStart, mouseDragEnd, chessMoveStart, chessMoveEnd;
+    var objSelectedChessPiece = null;
 
     canvas.addEventListener('mousedown', function (event) {
         isDragging = true;
         mouseDragStart = getMousePosition(event);
         chessMoveStart = getMouseGameLocation(event);
-        var pieceSelected = selectChessPiece(chessMoveStart.x, chessMoveStart.y);
+        objSelectedChessPiece = selectChessPiece(chessMoveStart.x, chessMoveStart.y);
 
         highlightCell(chessMoveStart.x, chessMoveStart.y);
-        drawPiece(pieceSelected, strMatchPlayerColor);
+        drawPiece(objSelectedChessPiece, strMatchPlayerColor);
 
         //context.moveTo(mouseDragStart.x, mouseDragStart.y);
         //context.beginPath();
@@ -71,13 +74,52 @@
     canvas.addEventListener('mouseup', function (event) {
         isDragging = false;
         chessMoveEnd = getMouseGameLocation(event);
-        
+
         console.log("Moved To Game Location:" + chessMoveEnd.x + "." + chessMoveEnd.y)
         context.lineTo(mouseDragEnd.x, mouseDragEnd.y);
         context.stroke();
 
-        var moveNew = Move.Create();
+        var moveNew = PostMove();
     })
+
+    function PostMove() {
+        var strUrl = "@Url.Action("Create", "Moves")";    // "localhost:50001/Moves/Create/";
+
+        var nChessPieceId = objSelectedChessPiece.ChessPieceId;
+        var strJsonMove = JSON.stringify({
+            chessPieceId: nChessPieceId,
+            gameClockBeginMove: "@DateTime.Now",
+            positionBeginX: chessMoveStart.x,
+            positionBeginY: chessMoveStart.y,
+            positionEndX: chessMoveEnd.x,
+            positionEndY: chessMoveEnd.y,
+            created: "@DateTime.Now"
+        });
+
+        try {
+            $.ajax({
+                method: "POST",
+                url: strUrl,
+                contentType: "application/json; charset=utf-8",
+                dataType: "text json",
+                data: strJsonMove,
+                success: function (data) {
+                    //call is successfully completed and we got result in data
+                    console.log(data);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    //some errror, some show err msg to user and log the error
+                    alert(xhr.responseText);
+                }
+            });
+        }
+        catch (e) {
+            console.log(e);
+        }
+
+    
+
+    }
 
 
     // Functions..........................................................

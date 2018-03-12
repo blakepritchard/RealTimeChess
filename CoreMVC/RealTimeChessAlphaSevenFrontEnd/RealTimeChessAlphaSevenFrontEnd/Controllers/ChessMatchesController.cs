@@ -19,8 +19,7 @@ namespace RealTimeChessAlphaSevenFrontEnd.RealTimeChess_API.Models
         private Uri baseUri;
         private static BasicAuthenticationCredentials authCredsBasic;
         private RealTimeChessAPI apiChess;
-        private Configuration rootWebConfig1;
-        private KeyValueConfigurationElement configRealTimeChessUri;
+
 
         public ChessMatchesController()
         {
