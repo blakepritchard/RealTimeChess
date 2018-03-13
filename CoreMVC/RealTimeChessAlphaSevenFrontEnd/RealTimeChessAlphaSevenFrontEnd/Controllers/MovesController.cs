@@ -86,12 +86,16 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
             {
                 //db.Moves.Add(move);
                 //db.SaveChanges();
-                apiChess.ApiMovesBeginMovePost((int)move.ChessPieceId, (int)move.PositionEndX, (int)move.PositionEndY);
-                return RedirectToAction("Game");
-            }
 
+                apiChess.ApiMovesBeginMovePost((int)move.ChessPieceId, (int)move.PositionEndX, (int)move.PositionEndY);
+            }
+            var result = new { Success = "True", Message = "Moved" };
+            return Json(result, JsonRequestBehavior.AllowGet);
             // return View(move);
-            return RedirectToAction("Game");
+            // return new EmptyResult();
+            // var strUrl = Request.UrlReferrer.ToString();
+            // return Redirect(strUrl);
+            // return RedirectToAction("Game", "ChessMatches", new {Id=3, MatchPlayerId=1 });
         }
 
         // GET: Moves/Edit/5

@@ -106,10 +106,11 @@
                 success: function (data) {
                     //call is successfully completed and we got result in data
                     console.log(data);
+                    window.location.reload()
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     //some errror, some show err msg to user and log the error
-                    console.log(data);
+                    console.log(xhr);
                 }
             });
         }
@@ -263,7 +264,7 @@
     }
 
     drawGame();
-
+    // loop = setInterval(drawGame, 2000);
 
 
 
