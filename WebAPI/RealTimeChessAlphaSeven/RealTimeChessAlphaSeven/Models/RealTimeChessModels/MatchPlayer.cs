@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -20,7 +21,7 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
 
         public PlayerType PlayerType { get; set; }
         public int PlayerTypeId { get; set; }
-
+        public string WebClientUrl { get; set; }
         public List<ChessPiece> ChessPieces { get; set; }
         // public List<Move> Moves { get; set; }
 
@@ -28,6 +29,8 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
         public DateTime Created { get; set; }
         public DateTime Updated { get; set; }
         public DateTime? Deleted { get; set; }
+    
+
 
         public bool SetUpChessPieces(RealTimeChessDbContext context, int nNumPlayers, int nBoardWidth, int nBoardHeight)
         {
@@ -60,7 +63,18 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
 
         }
 
-
+        public void PostOpponentMove(Move moveOpponent)
+        {
+            var client = new HttpClient();
+            try
+            {
+                client.PostAsJsonAsync<Move>("http://"+ WebClientUrl + "/Moves/OpponentPost", moveOpponent);
+            }
+            catch(Exception e)
+            {
+                string err = e.Message;
+            }
+        }
 
         public void SetRoyalRow(RealTimeChessDbContext context, int nRankNumber, int nBoardWidth)
         {

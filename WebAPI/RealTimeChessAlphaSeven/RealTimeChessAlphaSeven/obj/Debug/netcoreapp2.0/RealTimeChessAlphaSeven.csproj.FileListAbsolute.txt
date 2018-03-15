@@ -15,4 +15,3 @@ C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\Rea
 C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Debug\netcoreapp2.0\RealTimeChessAlphaSeven.AssemblyInfo.cs
 C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Debug\netcoreapp2.0\RealTimeChessAlphaSeven.dll
 C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Debug\netcoreapp2.0\RealTimeChessAlphaSeven.pdb
-C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Debug\netcoreapp2.0\RealTimeChessAlphaSeven.csprojResolveAssemblyReference.cache

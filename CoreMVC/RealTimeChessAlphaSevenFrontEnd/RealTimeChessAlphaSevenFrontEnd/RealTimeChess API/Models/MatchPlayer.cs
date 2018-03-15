@@ -21,13 +21,14 @@ namespace RealTimeChessAlphaSevenFrontEnd.Models
         /// <summary>
         /// Initializes a new instance of the MatchPlayer class.
         /// </summary>
-        public MatchPlayer(int? matchPlayerId = default(int?), int? chessMatchId = default(int?), int? playerId = default(int?), PlayerType playerType = default(PlayerType), int? playerTypeId = default(int?), IList<ChessPiece> chessPieces = default(IList<ChessPiece>), bool? isDeleted = default(bool?), DateTime? created = default(DateTime?), DateTime? updated = default(DateTime?), DateTime? deleted = default(DateTime?))
+        public MatchPlayer(int? matchPlayerId = default(int?), int? chessMatchId = default(int?), int? playerId = default(int?), PlayerType playerType = default(PlayerType), int? playerTypeId = default(int?), string webClientUrl = default(string), IList<ChessPiece> chessPieces = default(IList<ChessPiece>), bool? isDeleted = default(bool?), DateTime? created = default(DateTime?), DateTime? updated = default(DateTime?), DateTime? deleted = default(DateTime?))
         {
             MatchPlayerId = matchPlayerId;
             ChessMatchId = chessMatchId;
             PlayerId = playerId;
             PlayerType = playerType;
             PlayerTypeId = playerTypeId;
+            WebClientUrl = webClientUrl;
             ChessPieces = chessPieces;
             IsDeleted = isDeleted;
             Created = created;
@@ -59,6 +60,11 @@ namespace RealTimeChessAlphaSevenFrontEnd.Models
         /// </summary>
         [JsonProperty(PropertyName = "playerTypeId")]
         public int? PlayerTypeId { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "webClientUrl")]
+        public string WebClientUrl { get; set; }
 
         /// <summary>
         /// </summary>

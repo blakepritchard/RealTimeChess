@@ -21,11 +21,12 @@ namespace RealTimeChessAlphaSevenFrontEnd.Models
         /// <summary>
         /// Initializes a new instance of the Move class.
         /// </summary>
-        public Move(object moveTimer = default(object), int? moveId = default(int?), int? chessPieceId = default(int?), string algebraicChessNotation = default(string), DateTime? gameClockBeginMove = default(DateTime?), DateTime? gameClockEndMove = default(DateTime?), int? positionBeginX = default(int?), int? positionBeginY = default(int?), int? positionEndX = default(int?), int? positionEndY = default(int?), double? positionCurrentX = default(double?), double? positionCurrentY = default(double?), double? distance = default(double?), double? velocity = default(double?), string travelTime = default(string), double? heading = default(double?), double? headingSin = default(double?), double? headingCos = default(double?), bool? isDeleted = default(bool?), DateTime? created = default(DateTime?), DateTime? updated = default(DateTime?), DateTime? deleted = default(DateTime?))
+        public Move(object moveTimer = default(object), int? moveId = default(int?), int? chessPieceId = default(int?), ChessPiece chessPiece = default(ChessPiece), string algebraicChessNotation = default(string), DateTime? gameClockBeginMove = default(DateTime?), DateTime? gameClockEndMove = default(DateTime?), int? positionBeginX = default(int?), int? positionBeginY = default(int?), int? positionEndX = default(int?), int? positionEndY = default(int?), double? positionCurrentX = default(double?), double? positionCurrentY = default(double?), double? distance = default(double?), double? velocity = default(double?), string travelTime = default(string), double? heading = default(double?), double? headingSin = default(double?), double? headingCos = default(double?), bool? isDeleted = default(bool?), DateTime? created = default(DateTime?), DateTime? updated = default(DateTime?), DateTime? deleted = default(DateTime?))
         {
             MoveTimer = moveTimer;
             MoveId = moveId;
             ChessPieceId = chessPieceId;
+            ChessPiece = chessPiece;
             AlgebraicChessNotation = algebraicChessNotation;
             GameClockBeginMove = gameClockBeginMove;
             GameClockEndMove = gameClockEndMove;
@@ -61,6 +62,11 @@ namespace RealTimeChessAlphaSevenFrontEnd.Models
         /// </summary>
         [JsonProperty(PropertyName = "chessPieceId")]
         public int? ChessPieceId { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "chessPiece")]
+        public ChessPiece ChessPiece { get; set; }
 
         /// <summary>
         /// </summary>

@@ -13,6 +13,7 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
         public int MoveId { get; set; }
 
         public int ChessPieceId { get; set; }
+        //public ChessPiece ChessPiece { get; set; }
 
         public string AlgebraicChessNotation { get; set; }
         public DateTime GameClockBeginMove { get; set; }
@@ -81,8 +82,26 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
             piece.LocationX = PositionEndX;
             piece.LocationY = PositionEndY;
 
+            NotifyOpponents(dbContext);
+
         }
 
+
+        public void NotifyOpponents(RealTimeChessDbContext dbContext)
+        {
+            ChessPiece piece = dbContext.ChessPiece.Single(chessPiece => chessPiece.ChessPieceId == ChessPieceId);
+            MatchPlayer player = dbContext.MatchPlayers.SingleOrDefault(matchPlayer => matchPlayer.MatchPlayerId == piece.MatchPlayerId);
+            //ChessMatch match = dbContext.Matches.SingleOrDefault(chessMatch => chessMatch.ChessMatchId == player.ChessMatchId);
+            ChessMatch match = dbContext.Matches.Include(chessMatch => chessMatch.MatchPlayers).Single<ChessMatch>(chessMatch => chessMatch.ChessMatchId == player.ChessMatchId);
+
+            foreach (MatchPlayer opponent in match.MatchPlayers)
+            {
+                if (opponent.MatchPlayerId != piece.MatchPlayerId)
+                {
+                    opponent.PostOpponentMove(this);
+                }
+            }
+        }
 
     }
 
