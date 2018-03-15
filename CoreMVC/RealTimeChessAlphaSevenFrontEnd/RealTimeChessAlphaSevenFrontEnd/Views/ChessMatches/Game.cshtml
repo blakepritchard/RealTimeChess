@@ -32,7 +32,7 @@
 
     var lstPieces = @Html.Raw(Json.Encode(Model.MatchPlayers.SingleOrDefault(mp => mp.MatchPlayerId == (int)ViewData["MatchPlayerId"]).ChessPieces));
     var strMatchPlayerColor = objMatchPlayer.PlayerType.PlayerTypeName;
-
+    var dtLastOpponentMoveUpdate = "@DateTime.MinValue";
 
     var canvas = document.getElementById('canvas'),
         context = canvas.getContext('2d'),
@@ -118,15 +118,53 @@
             console.log(e);
         }
 
-    
+
 
     }
 
 
-    // Functions..........................................................
-    function drawPointer() {
-    }
 
+    function GetOpponentMoves() {
+        var strUrl = "@Url.Action("OpponentGet", "Moves")";
+
+        // var nChessPieceId = objSelectedChessPiece.ChessPieceId;
+        var strJsonOpponentMove = JSON.stringify(
+            {
+                MatchPlayerId: nMatchPlayerId,
+                LastUpdateTime: dtLastOpponentMoveUpdate
+            }
+        );
+
+        try {
+            $.ajax({
+                method: "POST",
+                url: strUrl,
+                contentType: "application/json; charset=utf-8",
+                dataType: "text json",
+                data: strJsonOpponentMove,
+                success: function (data) {
+                    //call is successfully completed and we got result in data
+                    console.log(data);
+                    // var response = JSON.parse(data);
+                    if (data.RequiresUpdate == "True")
+                    {
+                        window.location.reload()
+                    }
+
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    //some errror, some show err msg to user and log the error
+                    console.log(xhr);
+                }
+            });
+        }
+        catch (e) {
+            console.log(e);
+        }
+
+
+        dtLastOpponentMoveUpdate = Date().toLocaleString();
+    }
 
     function clear() {
         context.clearRect(0, 0, canvas.width, canvas.height);
@@ -261,11 +299,12 @@
         // Initialization................................................
         drawBackground();
         drawPieces();
-        
+
     }
 
     drawGame();
-    // loop = setInterval(drawGame, 5000);
+    loop = setInterval(GetOpponentMoves, 5000);
+
 
 
 

@@ -14,7 +14,7 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
 {
     public class MovesController : Controller
     {
-        //private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
         private Uri baseUri;
         private static BasicAuthenticationCredentials authCredsBasic;
         private RealTimeChessAPI apiChess;
@@ -91,11 +91,43 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
             }
             var result = new { Success = "True", Message = "Moved" };
             return Json(result, JsonRequestBehavior.AllowGet);
-            // return View(move);
-            // return new EmptyResult();
-            // var strUrl = Request.UrlReferrer.ToString();
-            // return Redirect(strUrl);
-            // return RedirectToAction("Game", "ChessMatches", new {Id=3, MatchPlayerId=1 });
+
+        }
+
+        // POST: Moves/Opponent
+        // Inbound Notification From BackEnd that an Opponent has moved a ChessPiece
+        [HttpPost]
+        // [ValidateAntiForgeryToken]
+        public ActionResult OpponentPost([Bind(Include = "MoveId,ChessPieceId,AlgebraicChessNotation,GameClockBeginMove,GameClockEndMove,PositionBeginX,PositionBeginY,PositionEndX,PositionEndY,PositionCurrentX,PositionCurrentY,Distance,Velocity,TravelTime,Heading,HeadingSin,HeadingCos,IsDeleted,Created,Updated,Deleted")] Move move)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Moves.Add(move);
+                db.SaveChanges();
+            }
+            //HttpStatusCodeResult result = new HttpStatusCodeResult(201);
+            //return result;
+
+            return new EmptyResult();
+        }
+        // GET: Moves/Details/5
+        public ActionResult OpponentGet(int MatchPlayerId, DateTime LastUpdateTime)
+        {
+            if (LastUpdateTime == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            List<Move> moves = db.Moves.Where<Move>(m => m.Created >= LastUpdateTime).ToList<Move>();
+            //Move move = apiChess.ApiMovesByIdGet((int)id);
+            if (moves != null && moves.Count > 0)
+            {
+                return Json(new { RequiresUpdate = "True", OpponentMoveCount = moves.Count }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(new { RequiresUpdate = "False", OpponentMoveCount = 0 }, JsonRequestBehavior.AllowGet);
+            }
         }
 
         // GET: Moves/Edit/5
