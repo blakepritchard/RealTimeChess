@@ -1,0 +1,178 @@
+﻿@model RealTimeChessAlphaSevenFrontEnd.Models.Move
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Move</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ChessPieceId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChessPieceId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlgebraicChessNotation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlgebraicChessNotation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GameClockBeginMove)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameClockBeginMove)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GameClockEndMove)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameClockEndMove)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PositionBeginX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PositionBeginX)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PositionBeginY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PositionBeginY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PositionEndX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PositionEndX)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PositionEndY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PositionEndY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PositionCurrentX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PositionCurrentX)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PositionCurrentY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PositionCurrentY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Distance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Distance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Velocity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Velocity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TravelTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TravelTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Heading)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Heading)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HeadingSin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HeadingSin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HeadingCos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HeadingCos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDeleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Updated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Updated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Deleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Deleted)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MoveId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

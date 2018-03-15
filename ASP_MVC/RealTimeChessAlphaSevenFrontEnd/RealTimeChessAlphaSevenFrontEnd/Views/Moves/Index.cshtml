@@ -1,0 +1,147 @@
+﻿@model IEnumerable<RealTimeChessAlphaSevenFrontEnd.Models.Move>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ChessPieceId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AlgebraicChessNotation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameClockBeginMove)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameClockEndMove)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PositionBeginX)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PositionBeginY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PositionEndX)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PositionEndY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PositionCurrentX)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PositionCurrentY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Distance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Velocity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TravelTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Heading)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HeadingSin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HeadingCos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Updated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Deleted)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChessPieceId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AlgebraicChessNotation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameClockBeginMove)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameClockEndMove)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PositionBeginX)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PositionBeginY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PositionEndX)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PositionEndY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PositionCurrentX)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PositionCurrentY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Distance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Velocity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TravelTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Heading)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HeadingSin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HeadingCos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsDeleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Deleted)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MoveId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MoveId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MoveId })
+        </td>
+    </tr>
+}
+
+</table>
