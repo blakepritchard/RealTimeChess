@@ -23,10 +23,6 @@ namespace RealTimeChessAlphaSevenFrontEnd.RealTimeChess_API.Models
 
         public ChessMatchesController()
         {
-            // rootWebConfig1 = WebConfigurationManager.OpenWebConfiguration(null);
-            // configRealTimeChessUri = rootWebConfig1.AppSettings.Settings["RealTimeChessUri"];            
-            // string strRealTimeChessUri = configRealTimeChessUri.Value;
-
             string strRealTimeChessUri = WebConfigurationManager.AppSettings["RealTimeChessUri"];
 
             baseUri = new Uri(strRealTimeChessUri);
@@ -55,6 +51,13 @@ namespace RealTimeChessAlphaSevenFrontEnd.RealTimeChess_API.Models
                 return HttpNotFound();
             }
             return View(chessMatch);
+        }
+
+        // GET: ChessMatches
+        public ActionResult Join()
+        {
+            List<ChessMatch> lstMatches = apiChess.ApiChessMatchesGet().ToList<ChessMatch>();
+            return View(lstMatches);
         }
 
         // GET: ChessMatches/Game/3

@@ -24,9 +24,7 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
 
         public MatchPlayersController()
         {
-            rootWebConfig1 = WebConfigurationManager.OpenWebConfiguration(null);
-            configRealTimeChessUri = rootWebConfig1.AppSettings.Settings["RealTimeChessUri"];
-            string strRealTimeChessUri = configRealTimeChessUri.Value;
+            string strRealTimeChessUri = WebConfigurationManager.AppSettings["RealTimeChessUri"];
 
             baseUri = new Uri(strRealTimeChessUri);
             authCredsBasic = new BasicAuthenticationCredentials();

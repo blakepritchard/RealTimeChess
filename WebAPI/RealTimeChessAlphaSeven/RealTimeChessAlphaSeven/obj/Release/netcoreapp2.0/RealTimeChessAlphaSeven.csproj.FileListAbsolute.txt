@@ -1,4 +1,3 @@
-C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Release\netcoreapp2.0\RealTimeChessAlphaSeven.csprojResolveAssemblyReference.cache
 C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Release\netcoreapp2.0\RealTimeChessAlphaSeven.csproj.CoreCompileInputs.cache
 C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Release\netcoreapp2.0\UserSecretsAssemblyInfo.cs
 C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Release\netcoreapp2.0\RealTimeChessAlphaSeven.AssemblyInfoInputs.cache
@@ -10,3 +9,4 @@ C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\Rea
 C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\bin\Release\netcoreapp2.0\RealTimeChessAlphaSeven.pdb
 C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Release\netcoreapp2.0\RealTimeChessAlphaSeven.dll
 C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Release\netcoreapp2.0\RealTimeChessAlphaSeven.pdb
+C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Release\netcoreapp2.0\RealTimeChessAlphaSeven.csprojResolveAssemblyReference.cache

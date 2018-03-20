@@ -29,6 +29,13 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
             return View(lstPlayers);
         }
 
+        // GET: Players/Select
+        public ActionResult SelectPlayer()
+        {
+            List<Player> lstPlayers = apiChess.ApiPlayersGet().ToList<Player>();
+            return View(lstPlayers);
+        }
+
         // GET: Players/Details/5
         public ActionResult Details(int? id)
         {

@@ -1,0 +1,87 @@
+﻿@model IEnumerable<RealTimeChessAlphaSevenFrontEnd.Models.ChessMatch>
+
+@{
+    ViewBag.Title = "Join";
+}
+
+<h2>Join</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NumPlayers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MatchStartTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MatchEndTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsSetup)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HasStarted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Updated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Deleted)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumPlayers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MatchStartTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MatchEndTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsSetup)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HasStarted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsDeleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Deleted)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ChessMatchId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ChessMatchId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ChessMatchId })
+        </td>
+    </tr>
+}
+
+</table>

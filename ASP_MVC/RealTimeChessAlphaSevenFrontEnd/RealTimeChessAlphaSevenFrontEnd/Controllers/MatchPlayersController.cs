@@ -24,9 +24,7 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
 
         public MatchPlayersController()
         {
-            rootWebConfig1 = WebConfigurationManager.OpenWebConfiguration(null);
-            configRealTimeChessUri = rootWebConfig1.AppSettings.Settings["RealTimeChessUri"];
-            string strRealTimeChessUri = configRealTimeChessUri.Value;
+            string strRealTimeChessUri = WebConfigurationManager.AppSettings["RealTimeChessUri"];
 
             baseUri = new Uri(strRealTimeChessUri);
             authCredsBasic = new BasicAuthenticationCredentials();
@@ -70,6 +68,18 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
         {
             apiChess.ApiMatchPlayersPost(matchPlayer);
             return View(matchPlayer);
+        }
+
+        // POST: MatchPlayers/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(int ChessMatchId, int PlayerId)
+        {
+            ViewData["ChessMatchId"] = ChessMatchId;
+            ViewData["PlayerId"] = PlayerId;
+            return View();
         }
 
         // GET: MatchPlayers/Edit/5
