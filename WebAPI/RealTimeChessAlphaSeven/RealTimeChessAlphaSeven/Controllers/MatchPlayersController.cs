@@ -20,12 +20,35 @@ namespace RealTimeChessAlphaSeven.Controllers
             _context = context;
         }
 
+        /*
         // GET: api/MatchPlayers
         [HttpGet]
         public IEnumerable<MatchPlayer> GetMatchPlayers()
         {
             return _context.MatchPlayers;
         }
+
+
+        // GET: api/MatchPlayers
+        [HttpGet]
+        public async Task<IActionResult> GetMatchPlayer([FromQuery] int PlayerId, [FromQuery] int ChessMatchId)
+        {
+            MatchPlayer matchPlayer = null;
+            if (PlayerId != null && ChessMatchId != null)
+            {
+                matchPlayer = await _context.MatchPlayers.SingleOrDefaultAsync(m => m.PlayerId == PlayerId && m.ChessMatchId == ChessMatchId);
+            }
+
+            if (matchPlayer == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(matchPlayer);
+
+        }
+        */
+
 
         // GET: api/MatchPlayers/5
         [HttpGet("{id}")]
@@ -38,6 +61,37 @@ namespace RealTimeChessAlphaSeven.Controllers
             }
 
             var matchPlayer = await _context.MatchPlayers.SingleOrDefaultAsync(m => m.MatchPlayerId == id);
+
+            if (matchPlayer == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(matchPlayer);
+        }
+
+
+        
+        // GET: api/MatchPlayers/5
+        [HttpGet]
+        [ProducesResponseType(typeof(MatchPlayer), 200)]
+        public async Task<IActionResult> GetMatchPlayer([FromQuery] int? PlayerId, [FromQuery] int? ChessMatchId)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            MatchPlayer matchPlayer = null;
+
+            if (PlayerId == null && ChessMatchId==null)
+            {
+                return Ok(_context.MatchPlayers);
+            }
+            else
+            {
+                matchPlayer = await _context.MatchPlayers.SingleOrDefaultAsync(m => m.PlayerId == PlayerId && m.ChessMatchId == ChessMatchId);
+            }
 
             if (matchPlayer == null)
             {

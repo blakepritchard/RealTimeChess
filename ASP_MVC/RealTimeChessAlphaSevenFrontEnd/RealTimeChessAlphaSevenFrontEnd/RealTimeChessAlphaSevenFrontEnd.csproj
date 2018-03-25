@@ -317,6 +317,7 @@
     <Content Include="Views\ChessMatches\Clock.cshtml" />
     <Content Include="Views\Players\SelectPlayer.cshtml" />
     <Content Include="Views\ChessMatches\SelectMatch.cshtml" />
+    <Content Include="Views\MatchPlayers\SelectColor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -75,8 +75,9 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(int ChessMatchId, int PlayerId)
+        public ActionResult SelectColor(int ChessMatchId, int PlayerId)
         {
+
             ViewData["ChessMatchId"] = ChessMatchId;
             ViewData["PlayerId"] = PlayerId;
             return View();
