@@ -211,10 +211,10 @@ C:\Users\Blake\source\repos\git\RealTimeChess\ASP_MVC\RealTimeChessAlphaSevenFro
 C:\Users\Blake\source\repos\git\RealTimeChess\ASP_MVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Blake\source\repos\git\RealTimeChess\ASP_MVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Blake\source\repos\git\RealTimeChess\ASP_MVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\bin\Microsoft.AI.Web.xml
-C:\Users\Blake\source\repos\git\RealTimeChess\ASP_MVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\obj\Debug\RealTimeChessAlphaSevenFrontEnd.csprojResolveAssemblyReference.cache
 C:\Users\Blake\source\repos\git\RealTimeChess\ASP_MVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\obj\Debug\RealTimeChessAlphaSevenFrontEnd.Migrations.InitialCreate.resources
 C:\Users\Blake\source\repos\git\RealTimeChess\ASP_MVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\obj\Debug\RealTimeChessAlphaSevenFrontEnd.csproj.GenerateResource.cache
 C:\Users\Blake\source\repos\git\RealTimeChess\ASP_MVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\obj\Debug\RealTimeChessAlphaSevenFrontEnd.csproj.CoreCompileInputs.cache
 C:\Users\Blake\source\repos\git\RealTimeChess\ASP_MVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\obj\Debug\RealTimeChessAlphaSevenFrontEnd.csproj.CopyComplete
 C:\Users\Blake\source\repos\git\RealTimeChess\ASP_MVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\obj\Debug\RealTimeChessAlphaSevenFrontEnd.dll
 C:\Users\Blake\source\repos\git\RealTimeChess\ASP_MVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\obj\Debug\RealTimeChessAlphaSevenFrontEnd.pdb
+C:\Users\Blake\source\repos\git\RealTimeChess\ASP_MVC\RealTimeChessAlphaSevenFrontEnd\RealTimeChessAlphaSevenFrontEnd\obj\Debug\RealTimeChessAlphaSevenFrontEnd.csprojResolveAssemblyReference.cache

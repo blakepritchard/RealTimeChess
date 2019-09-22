@@ -77,9 +77,15 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SelectColor(int ChessMatchId, int PlayerId)
         {
-
-            ViewData["ChessMatchId"] = ChessMatchId;
             ViewData["PlayerId"] = PlayerId;
+            ViewData["ChessMatchId"] = ChessMatchId;
+            List<MatchPlayer> lstMatches = apiChess.ApiMatchPlayersGet(PlayerId, ChessMatchId).ToList<MatchPlayer>();
+
+            if(1 == lstMatches.Count)
+            {
+                ViewData["PlayerTypeId"] = lstMatches.First<MatchPlayer>().PlayerTypeId;
+            }
+
             return View();
         }
 

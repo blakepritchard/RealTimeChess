@@ -649,24 +649,6 @@ namespace RealTimeChessAlphaSevenFrontEnd
         /// </param>
         Task<HttpOperationResponse> ManageGenerateRecoveryCodesPostWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<IList<MatchPlayer>>> ApiMatchPlayersGetWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <param name='matchPlayer'>
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        Task<HttpOperationResponse<object>> ApiMatchPlayersPostWithHttpMessagesAsync(MatchPlayer matchPlayer = default(MatchPlayer), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-
         /// <param name='id'>
         /// </param>
         /// <param name='customHeaders'>
@@ -698,6 +680,28 @@ namespace RealTimeChessAlphaSevenFrontEnd
         /// The cancellation token.
         /// </param>
         Task<HttpOperationResponse<object>> ApiMatchPlayersByIdDeleteWithHttpMessagesAsync(int id, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <param name='playerId'>
+        /// </param>
+        /// <param name='chessMatchId'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<IList<MatchPlayer>>> ApiMatchPlayersGetWithHttpMessagesAsync(int? playerId = default(int?), int? chessMatchId = default(int?), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <param name='matchPlayer'>
+        /// </param>
+        /// <param name='customHeaders'>
+        /// The headers that will be added to request.
+        /// </param>
+        /// <param name='cancellationToken'>
+        /// The cancellation token.
+        /// </param>
+        Task<HttpOperationResponse<object>> ApiMatchPlayersPostWithHttpMessagesAsync(MatchPlayer matchPlayer = default(MatchPlayer), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

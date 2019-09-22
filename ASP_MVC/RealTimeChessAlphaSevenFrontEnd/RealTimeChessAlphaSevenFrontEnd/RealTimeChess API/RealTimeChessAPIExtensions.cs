@@ -1462,54 +1462,6 @@ namespace RealTimeChessAlphaSevenFrontEnd
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            public static IList<MatchPlayer> ApiMatchPlayersGet(this IRealTimeChessAPI operations)
-            {
-                return Task.Factory.StartNew(s => ((IRealTimeChessAPI)s).ApiMatchPlayersGetAsync(), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
-
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<IList<MatchPlayer>> ApiMatchPlayersGetAsync(this IRealTimeChessAPI operations, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.ApiMatchPlayersGetWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='matchPlayer'>
-            /// </param>
-            public static object ApiMatchPlayersPost(this IRealTimeChessAPI operations, MatchPlayer matchPlayer = default(MatchPlayer))
-            {
-                return Task.Factory.StartNew(s => ((IRealTimeChessAPI)s).ApiMatchPlayersPostAsync(matchPlayer), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
-            }
-
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='matchPlayer'>
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<object> ApiMatchPlayersPostAsync(this IRealTimeChessAPI operations, MatchPlayer matchPlayer = default(MatchPlayer), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.ApiMatchPlayersPostWithHttpMessagesAsync(matchPlayer, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
             /// <param name='id'>
             /// </param>
             public static MatchPlayer ApiMatchPlayersByIdGet(this IRealTimeChessAPI operations, int id)
@@ -1584,6 +1536,62 @@ namespace RealTimeChessAlphaSevenFrontEnd
             public static async Task<object> ApiMatchPlayersByIdDeleteAsync(this IRealTimeChessAPI operations, int id, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ApiMatchPlayersByIdDeleteWithHttpMessagesAsync(id, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='playerId'>
+            /// </param>
+            /// <param name='chessMatchId'>
+            /// </param>
+            public static IList<MatchPlayer> ApiMatchPlayersGet(this IRealTimeChessAPI operations, int? playerId = default(int?), int? chessMatchId = default(int?))
+            {
+                return Task.Factory.StartNew(s => ((IRealTimeChessAPI)s).ApiMatchPlayersGetAsync(playerId, chessMatchId), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='playerId'>
+            /// </param>
+            /// <param name='chessMatchId'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<IList<MatchPlayer>> ApiMatchPlayersGetAsync(this IRealTimeChessAPI operations, int? playerId = default(int?), int? chessMatchId = default(int?), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ApiMatchPlayersGetWithHttpMessagesAsync(playerId, chessMatchId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='matchPlayer'>
+            /// </param>
+            public static object ApiMatchPlayersPost(this IRealTimeChessAPI operations, MatchPlayer matchPlayer = default(MatchPlayer))
+            {
+                return Task.Factory.StartNew(s => ((IRealTimeChessAPI)s).ApiMatchPlayersPostAsync(matchPlayer), operations, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.Default).Unwrap().GetAwaiter().GetResult();
+            }
+
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='matchPlayer'>
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<object> ApiMatchPlayersPostAsync(this IRealTimeChessAPI operations, MatchPlayer matchPlayer = default(MatchPlayer), CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.ApiMatchPlayersPostWithHttpMessagesAsync(matchPlayer, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

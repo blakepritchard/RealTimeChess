@@ -74,7 +74,7 @@ namespace RealTimeChessAlphaSeven.Controllers
         
         // GET: api/MatchPlayers/5
         [HttpGet]
-        [ProducesResponseType(typeof(MatchPlayer), 200)]
+        [ProducesResponseType(typeof(IEnumerable<MatchPlayer>), 200)]
         public async Task<IActionResult> GetMatchPlayer([FromQuery] int? PlayerId, [FromQuery] int? ChessMatchId)
         {
             if (!ModelState.IsValid)
