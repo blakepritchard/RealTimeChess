@@ -16,7 +16,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "RealTimeChessAlphaSeven": {
+    "TexasRealTimeChess": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

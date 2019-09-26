@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
-using RealTimeChessAlphaSeven.Models.RealTimeChessModels;
+using TexasRealTimeChess.Models.RealTimeChessModels;
 using Microsoft.AspNetCore.Builder;
 
-namespace RealTimeChessAlphaSeven.Migrations
+namespace TexasRealTimeChess.Migrations
 {
     public partial class SeedPlayerTypes : Migration
     {

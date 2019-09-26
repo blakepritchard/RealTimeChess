@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using RealTimeChessAlphaSeven.Models.RealTimeChessModels;
+using TexasRealTimeChess.Models.RealTimeChessModels;
 
-namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
+namespace TexasRealTimeChess.Models.RealTimeChessModels
 {
     public class RealTimeChessDbContext : DbContext
     {
@@ -14,8 +14,8 @@ namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
         public DbSet<PlayerType> PlayerTypes { get; set; }
         public DbSet<Move> Moves { get; set; }
         public DbSet<MatchPlayer> MatchPlayers { get; set; }
-        public DbSet<RealTimeChessAlphaSeven.Models.RealTimeChessModels.ChessPieceType> ChessPieceType { get; set; }
-        public DbSet<RealTimeChessAlphaSeven.Models.RealTimeChessModels.ChessPiece> ChessPiece { get; set; }
+        public DbSet<TexasRealTimeChess.Models.RealTimeChessModels.ChessPieceType> ChessPieceType { get; set; }
+        public DbSet<TexasRealTimeChess.Models.RealTimeChessModels.ChessPiece> ChessPiece { get; set; }
 
 
         public RealTimeChessDbContext() : base()

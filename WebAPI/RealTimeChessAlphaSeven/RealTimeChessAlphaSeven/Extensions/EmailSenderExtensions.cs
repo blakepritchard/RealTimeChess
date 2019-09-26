@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
-using RealTimeChessAlphaSeven.Services;
+using TexasRealTimeChess.Services;
 
-namespace RealTimeChessAlphaSeven.Services
+namespace TexasRealTimeChess.Services
 {
     public static class EmailSenderExtensions
     {

@@ -10,11 +10,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using RealTimeChessAlphaSeven.Models;
-using RealTimeChessAlphaSeven.Models.ManageViewModels;
-using RealTimeChessAlphaSeven.Services;
+using TexasRealTimeChess.Models;
+using TexasRealTimeChess.Models.ManageViewModels;
+using TexasRealTimeChess.Services;
 
-namespace RealTimeChessAlphaSeven.Controllers
+namespace TexasRealTimeChess.Controllers
 {
     [Authorize]
     [Route("[controller]/[action]")]
@@ -522,7 +522,7 @@ namespace RealTimeChessAlphaSeven.Controllers
         {
             return string.Format(
                 AuthenticatorUriFormat,
-                _urlEncoder.Encode("RealTimeChessAlphaSeven"),
+                _urlEncoder.Encode("TexasRealTimeChess"),
                 _urlEncoder.Encode(email),
                 unformattedKey);
         }

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace RealTimeChessAlphaSeven.Migrations
+namespace TexasRealTimeChess.Migrations
 {
     public partial class ChessMoveParametersOptional : Migration
     {

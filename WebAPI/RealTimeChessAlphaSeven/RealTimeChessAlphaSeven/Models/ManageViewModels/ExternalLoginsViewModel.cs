@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 
-namespace RealTimeChessAlphaSeven.Models.ManageViewModels
+namespace TexasRealTimeChess.Models.ManageViewModels
 {
     public class ExternalLoginsViewModel
     {

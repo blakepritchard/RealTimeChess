@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using RealTimeChessAlphaSeven.Controllers;
+using TexasRealTimeChess.Controllers;
 
 namespace Microsoft.AspNetCore.Mvc
 {

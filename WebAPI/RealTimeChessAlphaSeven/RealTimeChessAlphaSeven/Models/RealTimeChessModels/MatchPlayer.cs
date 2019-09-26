@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
+namespace TexasRealTimeChess.Models.RealTimeChessModels
 {
     public class MatchPlayer
     {

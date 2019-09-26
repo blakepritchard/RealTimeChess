@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace RealTimeChessAlphaSeven.Models.ManageViewModels
+namespace TexasRealTimeChess.Models.ManageViewModels
 {
     public class EnableAuthenticatorViewModel
     {

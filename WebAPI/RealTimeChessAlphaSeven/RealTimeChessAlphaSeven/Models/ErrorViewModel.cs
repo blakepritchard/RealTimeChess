@@ -1,6 +1,6 @@
 using System;
 
-namespace RealTimeChessAlphaSeven.Models
+namespace TexasRealTimeChess.Models
 {
     public class ErrorViewModel
     {

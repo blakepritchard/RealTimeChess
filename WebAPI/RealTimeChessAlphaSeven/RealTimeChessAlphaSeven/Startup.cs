@@ -8,15 +8,15 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RealTimeChessAlphaSeven.Data;
-using RealTimeChessAlphaSeven.Models;
-using RealTimeChessAlphaSeven.Services;
-using RealTimeChessAlphaSeven.Models.RealTimeChessModels;
+using TexasRealTimeChess.Data;
+using TexasRealTimeChess.Models;
+using TexasRealTimeChess.Services;
+using TexasRealTimeChess.Models.RealTimeChessModels;
 using Swashbuckle.AspNetCore.Swagger;
 using System.IO;
 using Microsoft.Extensions.PlatformAbstractions;
 
-namespace RealTimeChessAlphaSeven
+namespace TexasRealTimeChess
 {
     /// <summary>
     /// Startup
@@ -40,7 +40,7 @@ namespace RealTimeChessAlphaSeven
         {
             //services.AddDbContext<ApplicationDbContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            var connection = @"Server=APOLLO;Database=RealTimeChessAlphaSeven;Trusted_Connection=True;ConnectRetryCount=0";
+            var connection = @"Server=APOLLO;Database=TexasRealTimeChess;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<RealTimeChessDbContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
 

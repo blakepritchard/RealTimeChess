@@ -1,0 +1,12 @@
+C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\bin\Debug\netcoreapp2.0\TexasRealTimeChess.xml
+C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\bin\Debug\netcoreapp2.0\TexasRealTimeChess.deps.json
+C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\bin\Debug\netcoreapp2.0\TexasRealTimeChess.runtimeconfig.json
+C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\bin\Debug\netcoreapp2.0\TexasRealTimeChess.runtimeconfig.dev.json
+C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\bin\Debug\netcoreapp2.0\TexasRealTimeChess.dll
+C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\bin\Debug\netcoreapp2.0\TexasRealTimeChess.pdb
+C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Debug\netcoreapp2.0\TexasRealTimeChess.csproj.CoreCompileInputs.cache
+C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Debug\netcoreapp2.0\TexasRealTimeChess.AssemblyInfoInputs.cache
+C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Debug\netcoreapp2.0\TexasRealTimeChess.AssemblyInfo.cs
+C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Debug\netcoreapp2.0\TexasRealTimeChess.dll
+C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Debug\netcoreapp2.0\TexasRealTimeChess.pdb

@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
-using RealTimeChessAlphaSeven.Models.RealTimeChessModels;
+using TexasRealTimeChess.Models.RealTimeChessModels;
 using System;
 
-namespace RealTimeChessAlphaSeven.Migrations
+namespace TexasRealTimeChess.Migrations
 {
     [DbContext(typeof(RealTimeChessDbContext))]
     [Migration("20180311200044_ChessMoveParametersOptional")]
@@ -21,7 +21,7 @@ namespace RealTimeChessAlphaSeven.Migrations
                 .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("RealTimeChessAlphaSeven.Models.RealTimeChessModels.ChessMatch", b =>
+            modelBuilder.Entity("TexasRealTimeChess.Models.RealTimeChessModels.ChessMatch", b =>
                 {
                     b.Property<int>("ChessMatchId")
                         .ValueGeneratedOnAdd();
@@ -52,7 +52,7 @@ namespace RealTimeChessAlphaSeven.Migrations
                     b.ToTable("tblChessMatches");
                 });
 
-            modelBuilder.Entity("RealTimeChessAlphaSeven.Models.RealTimeChessModels.ChessPiece", b =>
+            modelBuilder.Entity("TexasRealTimeChess.Models.RealTimeChessModels.ChessPiece", b =>
                 {
                     b.Property<int>("ChessPieceId")
                         .ValueGeneratedOnAdd();
@@ -79,7 +79,7 @@ namespace RealTimeChessAlphaSeven.Migrations
                     b.ToTable("tblChessPieces");
                 });
 
-            modelBuilder.Entity("RealTimeChessAlphaSeven.Models.RealTimeChessModels.ChessPieceType", b =>
+            modelBuilder.Entity("TexasRealTimeChess.Models.RealTimeChessModels.ChessPieceType", b =>
                 {
                     b.Property<int>("ChessPieceTypeId")
                         .ValueGeneratedOnAdd();
@@ -98,7 +98,7 @@ namespace RealTimeChessAlphaSeven.Migrations
                     b.ToTable("tblChessPieceTypes");
                 });
 
-            modelBuilder.Entity("RealTimeChessAlphaSeven.Models.RealTimeChessModels.MatchPlayer", b =>
+            modelBuilder.Entity("TexasRealTimeChess.Models.RealTimeChessModels.MatchPlayer", b =>
                 {
                     b.Property<int>("MatchPlayerId")
                         .ValueGeneratedOnAdd();
@@ -129,7 +129,7 @@ namespace RealTimeChessAlphaSeven.Migrations
                     b.ToTable("tblMatchPlayers");
                 });
 
-            modelBuilder.Entity("RealTimeChessAlphaSeven.Models.RealTimeChessModels.Move", b =>
+            modelBuilder.Entity("TexasRealTimeChess.Models.RealTimeChessModels.Move", b =>
                 {
                     b.Property<int>("MoveId")
                         .ValueGeneratedOnAdd();
@@ -182,7 +182,7 @@ namespace RealTimeChessAlphaSeven.Migrations
                     b.ToTable("tblMoves");
                 });
 
-            modelBuilder.Entity("RealTimeChessAlphaSeven.Models.RealTimeChessModels.Player", b =>
+            modelBuilder.Entity("TexasRealTimeChess.Models.RealTimeChessModels.Player", b =>
                 {
                     b.Property<int>("PlayerId")
                         .ValueGeneratedOnAdd();
@@ -213,7 +213,7 @@ namespace RealTimeChessAlphaSeven.Migrations
                     b.ToTable("tblPlayers");
                 });
 
-            modelBuilder.Entity("RealTimeChessAlphaSeven.Models.RealTimeChessModels.PlayerType", b =>
+            modelBuilder.Entity("TexasRealTimeChess.Models.RealTimeChessModels.PlayerType", b =>
                 {
                     b.Property<int>("PlayerTypeId")
                         .ValueGeneratedOnAdd();
@@ -228,40 +228,40 @@ namespace RealTimeChessAlphaSeven.Migrations
                     b.ToTable("tblPlayerTypes");
                 });
 
-            modelBuilder.Entity("RealTimeChessAlphaSeven.Models.RealTimeChessModels.ChessPiece", b =>
+            modelBuilder.Entity("TexasRealTimeChess.Models.RealTimeChessModels.ChessPiece", b =>
                 {
-                    b.HasOne("RealTimeChessAlphaSeven.Models.RealTimeChessModels.ChessPieceType", "ChessPieceType")
+                    b.HasOne("TexasRealTimeChess.Models.RealTimeChessModels.ChessPieceType", "ChessPieceType")
                         .WithMany()
                         .HasForeignKey("ChessPieceTypeId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("RealTimeChessAlphaSeven.Models.RealTimeChessModels.MatchPlayer")
+                    b.HasOne("TexasRealTimeChess.Models.RealTimeChessModels.MatchPlayer")
                         .WithMany("ChessPieces")
                         .HasForeignKey("MatchPlayerId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("RealTimeChessAlphaSeven.Models.RealTimeChessModels.MatchPlayer", b =>
+            modelBuilder.Entity("TexasRealTimeChess.Models.RealTimeChessModels.MatchPlayer", b =>
                 {
-                    b.HasOne("RealTimeChessAlphaSeven.Models.RealTimeChessModels.ChessMatch")
+                    b.HasOne("TexasRealTimeChess.Models.RealTimeChessModels.ChessMatch")
                         .WithMany("MatchPlayers")
                         .HasForeignKey("ChessMatchId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("RealTimeChessAlphaSeven.Models.RealTimeChessModels.Player")
+                    b.HasOne("TexasRealTimeChess.Models.RealTimeChessModels.Player")
                         .WithMany("MatchPlayers")
                         .HasForeignKey("PlayerId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("RealTimeChessAlphaSeven.Models.RealTimeChessModels.PlayerType", "PlayerType")
+                    b.HasOne("TexasRealTimeChess.Models.RealTimeChessModels.PlayerType", "PlayerType")
                         .WithMany()
                         .HasForeignKey("PlayerTypeId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("RealTimeChessAlphaSeven.Models.RealTimeChessModels.Move", b =>
+            modelBuilder.Entity("TexasRealTimeChess.Models.RealTimeChessModels.Move", b =>
                 {
-                    b.HasOne("RealTimeChessAlphaSeven.Models.RealTimeChessModels.ChessPiece")
+                    b.HasOne("TexasRealTimeChess.Models.RealTimeChessModels.ChessPiece")
                         .WithMany("Moves")
                         .HasForeignKey("ChessPieceId")
                         .OnDelete(DeleteBehavior.Cascade);

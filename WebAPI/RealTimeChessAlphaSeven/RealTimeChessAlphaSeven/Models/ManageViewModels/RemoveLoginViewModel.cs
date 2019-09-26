@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RealTimeChessAlphaSeven.Models.ManageViewModels
+namespace TexasRealTimeChess.Models.ManageViewModels
 {
     public class RemoveLoginViewModel
     {

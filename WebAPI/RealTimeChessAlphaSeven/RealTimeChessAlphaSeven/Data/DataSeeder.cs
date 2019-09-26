@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using RealTimeChessAlphaSeven.Models.RealTimeChessModels;
+using TexasRealTimeChess.Models.RealTimeChessModels;
 
-namespace RealTimeChessAlphaSeven.Data
+namespace TexasRealTimeChess.Data
 {
     public static class DataSeeder
     {

@@ -10,11 +10,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using RealTimeChessAlphaSeven.Models;
-using RealTimeChessAlphaSeven.Models.AccountViewModels;
-using RealTimeChessAlphaSeven.Services;
+using TexasRealTimeChess.Models;
+using TexasRealTimeChess.Models.AccountViewModels;
+using TexasRealTimeChess.Services;
 
-namespace RealTimeChessAlphaSeven.Controllers
+namespace TexasRealTimeChess.Controllers
 {
     [Authorize]
     [Route("[controller]/[action]")]

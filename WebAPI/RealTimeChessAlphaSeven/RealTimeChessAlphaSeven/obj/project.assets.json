@@ -13600,9 +13600,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Blake\\source\\repos\\git\\RealTimeChess\\WebAPI\\RealTimeChessAlphaSeven\\RealTimeChessAlphaSeven\\RealTimeChessAlphaSeven.csproj",
-      "projectName": "RealTimeChessAlphaSeven",
-      "projectPath": "C:\\Users\\Blake\\source\\repos\\git\\RealTimeChess\\WebAPI\\RealTimeChessAlphaSeven\\RealTimeChessAlphaSeven\\RealTimeChessAlphaSeven.csproj",
+      "projectUniqueName": "C:\\Users\\Blake\\source\\repos\\git\\RealTimeChess\\WebAPI\\RealTimeChessAlphaSeven\\RealTimeChessAlphaSeven\\TexasRealTimeChess.csproj",
+      "projectName": "TexasRealTimeChess",
+      "projectPath": "C:\\Users\\Blake\\source\\repos\\git\\RealTimeChess\\WebAPI\\RealTimeChessAlphaSeven\\RealTimeChessAlphaSeven\\TexasRealTimeChess.csproj",
       "packagesPath": "C:\\Users\\Blake\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Blake\\source\\repos\\git\\RealTimeChess\\WebAPI\\RealTimeChessAlphaSeven\\RealTimeChessAlphaSeven\\obj\\",
       "projectStyle": "PackageReference",

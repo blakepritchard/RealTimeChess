@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using RealTimeChessAlphaSeven.Models.RealTimeChessModels;
+using TexasRealTimeChess.Models.RealTimeChessModels;
 using Swashbuckle.AspNetCore;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace RealTimeChessAlphaSeven.Controllers
+namespace TexasRealTimeChess.Controllers
 {
     [Produces("application/json")]
     [Route("api/Players")]

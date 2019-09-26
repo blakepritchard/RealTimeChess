@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
-using RealTimeChessAlphaSeven.Models.RealTimeChessModels;
+using TexasRealTimeChess.Models.RealTimeChessModels;
 
-namespace RealTimeChessAlphaSeven.Controllers
+namespace TexasRealTimeChess.Controllers
 {
     [Produces("application/json")]
     [Route("api/ChessMatches")]

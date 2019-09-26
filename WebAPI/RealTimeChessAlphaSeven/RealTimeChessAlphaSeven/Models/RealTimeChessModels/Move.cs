@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace RealTimeChessAlphaSeven.Models.RealTimeChessModels
+namespace TexasRealTimeChess.Models.RealTimeChessModels
 {
     public class Move
     {

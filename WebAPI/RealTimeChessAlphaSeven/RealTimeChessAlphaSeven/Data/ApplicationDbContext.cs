@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using RealTimeChessAlphaSeven.Models;
+using TexasRealTimeChess.Models;
 
-namespace RealTimeChessAlphaSeven.Data
+namespace TexasRealTimeChess.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
