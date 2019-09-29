@@ -11,6 +11,6 @@
     <WebStackScaffolding_DbContextTypeFullName>RealTimeChessAlphaSeven.Models.RealTimeChessModels.RealTimeChessDbContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_ViewDialogWidth>600</WebStackScaffolding_ViewDialogWidth>
-    <NameOfLastUsedPublishProfile>TexasRealTimeChess - Web Deploy1</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>TexasRealTimeChess - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>

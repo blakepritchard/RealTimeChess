@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1rWjnjN+0UuhFCnrTigOMgAAAAACAAAAAAAQZgAAAAEAACAAAADKXPWGOnDt42cuYtvsrt7o0Lqm00ebxqn28Wn3XLDeaQAAAAAOgAAAAAIAACAAAACop4lupgUg4y+11q/lIY1AdKBwWc8Uzi7R05k+pZMUo4AAAADL592bYp2dXDIFYYD1v6lLkLF30ehdZdlQUcRLLNW7I8NBVKucJ+94AjsWI8whvKGlarV/BjbS3sNQ0a7DYscp4THn03ZUFMRnFV/Opd2eUYEBpCNdeRe6A2pVl58G4qdYvz6ngZxD4Cn8Tfx3Yu5dkoxJwRnKEYAJeYSutaT2RUAAAACkDEiAtxmGBa82nxHwxKvkhApxf5WMMSktJAGmOw+HVybku2ZgEvkjwfkyKfbnyzGhcYAbe/F97uGSR2Z90aPF</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=tcp:airplane2.database.windows.net,1433%3bInitial Catalog=TexasRealTimeChess%3bPersist Security Info=False%3bUser ID=blakepritchard%3bPassword=Bl%40k3sSQLS3rv3r%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="TexasRealTimeChess.Data.ApplicationDbContext">
+      <Value>Server=tcp:airplane2.database.windows.net,1433%3bInitial Catalog=TexasRealTimeChess%3bPersist Security Info=False%3bUser ID=blakepritchard%3bPassword=Bl%40k3sSQLS3rv3r%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </EFMigrations>
+    <EFMigrations Include="TexasRealTimeChess.Models.RealTimeChessModels.RealTimeChessDbContext">
+      <Value>Server=tcp:airplane2.database.windows.net,1433%3bInitial Catalog=TexasRealTimeChess%3bPersist Security Info=False%3bUser ID=blakepritchard%3bPassword=Bl%40k3sSQLS3rv3r%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

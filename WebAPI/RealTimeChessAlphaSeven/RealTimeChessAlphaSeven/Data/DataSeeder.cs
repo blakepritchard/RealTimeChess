@@ -23,9 +23,9 @@ namespace TexasRealTimeChess.Data
             ptBlue.PlayerTypeName = "Blue";
 
             ptWhite.TurnOrder = 1;
-            ptBlack.TurnOrder = 1;
-            ptRed.TurnOrder = 1;
-            ptBlue.TurnOrder = 1;
+            ptBlack.TurnOrder = 2;
+            ptRed.TurnOrder = 3;
+            ptBlue.TurnOrder = 4;
         }
 
     }

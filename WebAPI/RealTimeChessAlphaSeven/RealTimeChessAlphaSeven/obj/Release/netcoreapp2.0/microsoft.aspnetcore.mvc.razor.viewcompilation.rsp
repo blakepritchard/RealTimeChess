@@ -1,6 +1,6 @@
 C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven
 --output-path=obj\Release\netcoreapp2.0\
---application-name=RealTimeChessAlphaSeven
+--application-name=TexasRealTimeChess
 --content-root=C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven
 --file=C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\Views\Account\AccessDenied.cshtml
 --file=C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\Views\Account\ConfirmEmail.cshtml

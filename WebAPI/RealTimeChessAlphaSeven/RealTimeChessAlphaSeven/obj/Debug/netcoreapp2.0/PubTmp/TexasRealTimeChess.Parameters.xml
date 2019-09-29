@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="TexasRealTimeChess" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Blake\\source\\repos\\git\\RealTimeChess\\WebAPI\\RealTimeChessAlphaSeven\\RealTimeChessAlphaSeven\\obj\\Debug\\netcoreapp2\.0\\PubTmp\\Out\\$" />
+  </parameter>
+  <parameter name="TexasRealTimeChess.Data.ApplicationDbContext" description="" value="Server=tcp:airplane2.database.windows.net,1433;Initial Catalog=TexasRealTimeChess;Persist Security Info=False;User ID=blakepritchard;Password=Bl@k3sSQLS3rv3r;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="dbfullsql">
+    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^C:\\Users\\Blake\\source\\repos\\git\\RealTimeChess\\WebAPI\\RealTimeChessAlphaSeven\\RealTimeChessAlphaSeven\\obj\\Debug\\netcoreapp2\.0\\PubTmp\\EFSQLScripts\\TexasRealTimeChess\.Data\.ApplicationDbContext\.sql$" />
+  </parameter>
+  <parameter name="TexasRealTimeChess.Models.RealTimeChessModels.RealTimeChessDbContext" description="" value="Server=tcp:airplane2.database.windows.net,1433;Initial Catalog=TexasRealTimeChess;Persist Security Info=False;User ID=blakepritchard;Password=Bl@k3sSQLS3rv3r;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="dbfullsql">
+    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^C:\\Users\\Blake\\source\\repos\\git\\RealTimeChess\\WebAPI\\RealTimeChessAlphaSeven\\RealTimeChessAlphaSeven\\obj\\Debug\\netcoreapp2\.0\\PubTmp\\EFSQLScripts\\TexasRealTimeChess\.Models\.RealTimeChessModels\.RealTimeChessDbContext\.sql$" />
+  </parameter>
+</parameters>

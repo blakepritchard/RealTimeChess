@@ -40,7 +40,8 @@ namespace TexasRealTimeChess
         {
             //services.AddDbContext<ApplicationDbContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            var connection = @"Server=APOLLO;Database=TexasRealTimeChess;Trusted_Connection=True;ConnectRetryCount=0";
+            // var connection = @"Server=APOLLO;Database=TexasRealTimeChess;Trusted_Connection=True;ConnectRetryCount=0";
+            var connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<RealTimeChessDbContext>(options => options.UseSqlServer(connection));
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
 
