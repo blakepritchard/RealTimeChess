@@ -225,7 +225,7 @@ namespace RealTimeChessAlphaSevenFrontEnd
         /// </summary>
         private void Initialize()
         {
-            this.BaseUri = new Uri("http://localhost");
+            this.BaseUri = new Uri("https://texasrealtimechess.azurewebsites.net"); //  ("http://localhost");
             SerializationSettings = new JsonSerializerSettings
             {
                 Formatting = Formatting.Indented,

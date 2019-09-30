@@ -17,7 +17,7 @@ namespace RealTimeChessAlphaSevenFrontEnd.Controllers
 
         public PlayersController()
         {
-            baseUri = new Uri("https://localhost:44373/");
+            baseUri = new Uri("https://texasrealtimechess.azurewebsites.net");   // ("https://localhost:44373/");
             authCredsBasic = new BasicAuthenticationCredentials();
             apiChess = new RealTimeChessAPI(baseUri, authCredsBasic);
         }
