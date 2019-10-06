@@ -1,0 +1,311 @@
+﻿@model RealTimeChessAlphaSevenFrontEnd.Models.ChessMatch
+@Html.AntiForgeryToken()
+
+
+
+<title>Chess Match Game View</title>
+<style>
+    body {
+        background: #dddddd;
+    }
+
+    #canvas {
+        position: absolute;
+        left: 0px;
+        top: 20px;
+        margin: 20px;
+        background: #ffffff;
+        border: thin inset rgba(100,150,230,0.5);
+        cursor: pointer;
+    }
+</style>
+
+<div id='readout'></div>
+<canvas id='canvas' width='600' height='600'> Canvas not supported </canvas>
+
+<!-- <script src="~/Scripts/realtimechess-0.1.0.js"></script> -->
+<script type="text/javascript">
+
+    var nMatchPlayerId =  @ViewData["MatchPlayerId"];
+    var lstPlayers = @Html.Raw(Json.Serialize(Model.MatchPlayers));
+    var objMatchPlayer = @Html.Raw(Json.Serialize(Model.MatchPlayers.SingleOrDefault(mp => mp.MatchPlayerId == (int)ViewData["MatchPlayerId"])));
+
+    var lstPieces = @Html.Raw(Json.Serialize(Model.MatchPlayers.SingleOrDefault(mp => mp.MatchPlayerId == (int)ViewData["MatchPlayerId"]).ChessPieces));
+    var strMatchPlayerColor = objMatchPlayer.PlayerType.PlayerTypeName;
+    var dtLastOpponentMoveUpdate = "@DateTime.MinValue";
+
+    var canvas = document.getElementById('canvas'),
+        context = canvas.getContext('2d'),
+        nFontHeight = 15,
+
+        nCellCountX = 8,
+        nCellCountY = 8,
+
+        nMarginX = 0,
+        nMarginY = 0,
+
+        nCellSizeX = (canvas.width - (2 * nMarginX)) / nCellCountX,
+        nCellSizeY = (canvas.height - (2 * nMarginY)) / nCellCountY;
+
+    var radiusPiece = canvas.width / 20;
+    var isDragging = false;
+    var mouseDragStart, mouseDragEnd, chessMoveStart, chessMoveEnd;
+    var objSelectedChessPiece = null;
+
+    canvas.addEventListener('mousedown', function (event) {
+        isDragging = true;
+        mouseDragStart = getMousePosition(event);
+        chessMoveStart = getMouseGameLocation(event);
+        objSelectedChessPiece = selectChessPiece(chessMoveStart.x, chessMoveStart.y);
+
+        highlightCell(chessMoveStart.x, chessMoveStart.y);
+        drawPiece(objSelectedChessPiece, strMatchPlayerColor);
+
+        //context.moveTo(mouseDragStart.x, mouseDragStart.y);
+        //context.beginPath();
+    })
+
+    canvas.addEventListener('mousemove', function (event) {
+        if (isDragging){
+            mouseDragEnd = getMousePosition(event);
+        }
+    })
+
+    canvas.addEventListener('mouseup', function (event) {
+        isDragging = false;
+        chessMoveEnd = getMouseGameLocation(event);
+
+        console.log("Moved To Game Location:" + chessMoveEnd.x + "." + chessMoveEnd.y)
+        context.lineTo(mouseDragEnd.x, mouseDragEnd.y);
+        context.stroke();
+
+        var moveNew = PostMove();
+    })
+
+    function PostMove() {
+        var strUrl = "@Url.Action("Begin", "Moves")";    // "localhost:50001/Moves/Begin/";
+
+        var nChessPieceId = objSelectedChessPiece.ChessPieceId;
+        var strJsonMove = JSON.stringify({
+            chessPieceId: nChessPieceId,
+            gameClockBeginMove: "@DateTime.Now",
+            positionBeginX: chessMoveStart.x,
+            positionBeginY: chessMoveStart.y,
+            positionEndX: chessMoveEnd.x,
+            positionEndY: chessMoveEnd.y,
+            created: "@DateTime.Now"
+        });
+
+        try {
+            $.ajax({
+                method: "POST",
+                url: strUrl,
+                contentType: "application/json; charset=utf-8",
+                dataType: "text json",
+                data: strJsonMove,
+                success: function (data) {
+                    //call is successfully completed and we got result in data
+                    console.log(data);
+                    window.location.reload()
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    //some errror, some show err msg to user and log the error
+                    console.log(xhr);
+                }
+            });
+        }
+        catch (e) {
+            console.log(e);
+        }
+
+
+
+    }
+
+
+
+    function GetOpponentMoves() {
+        var strUrl = "@Url.Action("OpponentGet", "Moves")";
+
+        // var nChessPieceId = objSelectedChessPiece.ChessPieceId;
+        var strJsonOpponentMove = JSON.stringify(
+            {
+                MatchPlayerId: nMatchPlayerId,
+                LastUpdateTime: dtLastOpponentMoveUpdate
+            }
+        );
+
+        try {
+            $.ajax({
+                method: "POST",
+                url: strUrl,
+                contentType: "application/json; charset=utf-8",
+                dataType: "text json",
+                data: strJsonOpponentMove,
+                success: function (data) {
+                    //call is successfully completed and we got result in data
+                    console.log(data);
+                    // var response = JSON.parse(data);
+                    if (data.RequiresUpdate == "True")
+                    {
+                        window.location.reload()
+                    }
+
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    //some errror, some show err msg to user and log the error
+                    console.log(xhr);
+                }
+            });
+        }
+        catch (e) {
+            console.log(e);
+        }
+
+
+        dtLastOpponentMoveUpdate = Date().toLocaleString();
+    }
+
+    function clear() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+
+    function getMousePosition(event) {
+        var rect = canvas.getBoundingClientRect();
+        return {
+            x: event.clientX - rect.left,
+            y: event.clientY - rect.top
+        }
+    }
+
+
+    function getMouseGameLocation(event) {
+        var coordinates = getMousePosition(event);
+        return {
+            x: Math.floor(coordinates.x / nCellSizeX) + 1,
+            y: Math.floor(coordinates.y / nCellSizeY) + 1
+        }
+    }
+
+
+    function drawCircle(centerX, centerY, radius, color) {
+        context.strokeStyle = color;
+        context.beginPath();
+        context.arc(centerX, centerY, radius, 0, Math.PI * 2, true);
+        context.stroke();
+    }
+
+    function selectChessPiece(nLocationX, nLocationY) {
+        var pieceSelected = findPieceAtLocation(nLocationX, nLocationY);
+        if (null != pieceSelected) {
+            var typeSelected = pieceSelected.ChessPieceType.ChessPieceTypeName;
+            console.log("MatchPlayerId=" + nMatchPlayerId + " Selected a: " + typeSelected);
+        }
+        else {
+            console.log("MatchPlayerId=" + nMatchPlayerId + " Could Not Find ChessPiece at Location" + nLocationX + "." + nLocationY);
+        }
+        return pieceSelected;
+    }
+
+
+    // Brute Force Search.
+    // There Must Be A Better Way
+    function findPieceAtLocation(nLocationX, nLocationY) {
+        var pieceSelected = null;
+        for (var i = 0; i < lstPieces.length; i++) {
+            chessPiece = lstPieces[i];
+            if (chessPiece.LocationX == nLocationX && chessPiece.LocationY == nLocationY) {
+                pieceSelected = chessPiece;
+            }
+        }
+        return pieceSelected;
+    }
+
+
+    function highlightCell(nCellPositionX, nCellPositionY) {
+        context.fillStyle = "lightgreen";
+        context.beginPath();
+        //console.log("Drawing Rectangle, PosX:" + nCellPositionX + ", PosY:" + nCellPositionY);
+        context.rect(((nCellPositionX -1)* nCellSizeX), ((nCellPositionY - 1) * nCellSizeY), nCellSizeX, nCellSizeY);
+        context.fill();
+    }
+
+
+    function drawBackground() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        context.lineWidth = "1";
+        context.strokeStyle = "black";
+
+        //console.log("Cell Size Y=" + nCellSizeY);
+        //console.log("Cell Size X=" + nCellSizeX);
+
+        var bCellColor = false
+        var nCellPositionY = nMarginY;
+        for (var y = 0; y < nCellCountY; y++) {
+            //console.log("PositionY=" + nCellPositionY);
+
+            var nCellPositionX = nMarginX;
+            for (var x = 0; x < nCellCountX; x++) {
+                context.fillStyle = (true === bCellColor) ? "gray" : "darkgray";
+
+                //console.log("PositionX=" + nCellPositionX);
+
+                context.beginPath();
+                //console.log("Drawing Rectangle, PosX:" + nCellPositionX + ", PosY:" + nCellPositionY);
+                context.rect(nCellPositionX, nCellPositionY, nCellSizeX, nCellSizeY);
+
+                context.fill();
+                //context.stroke();
+
+                nCellPositionX += nCellSizeX;
+                bCellColor = !bCellColor;
+            }
+            nCellPositionY += nCellSizeY;
+            bCellColor = !bCellColor;
+        }
+    }
+
+
+    function drawPieces() {
+        for (var p = 0; p < lstPlayers.length; p++) {
+            player = lstPlayers[p];
+            strColor = player.PlayerType.PlayerTypeName;
+
+            for (var i = 0; i < player.ChessPieces.length; i++) {
+                piece = player.ChessPieces[i];
+
+                if (false == piece.IsCaptured) {
+                    drawPiece(piece, strColor);
+                }
+            }
+        }
+    }
+
+
+    function drawPiece(objChessPiece, strColor) {
+        var centerX = ((objChessPiece.LocationX * nCellSizeX) - (nCellSizeX / 2));
+        var centerY = ((objChessPiece.LocationY * nCellSizeY) - (nCellSizeY / 2));
+
+        drawCircle(centerX, centerY, radiusPiece, strColor);
+
+        context.fillStyle = "black";
+        context.fillText(objChessPiece.ChessPieceType.ChessPieceTypeName, centerX, centerY);
+    }
+
+
+    function drawGame() {
+        // Initialization................................................
+        drawBackground();
+        drawPieces();
+
+    }
+
+    drawGame();
+    loop = setInterval(GetOpponentMoves, 5000);
+
+
+
+
+</script>

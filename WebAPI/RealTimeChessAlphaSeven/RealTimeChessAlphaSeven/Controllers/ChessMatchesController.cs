@@ -171,6 +171,31 @@ namespace TexasRealTimeChess.Controllers
         }
 
 
+        [HttpGet]
+        public async Task<ActionResult> Game(int Id, int? MatchPlayerId)
+        {
+            if (Id == null)
+            {
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            //ChessMatch chessMatch = db.ChessMatches.Find(id);
+            //ChessMatch chessMatch = (ChessMatch)apiChess.ApiChessMatchesByIdGet(Id);
+
+            ChessMatch matchActive = await _context.Matches
+                                .Include(chessMatch => chessMatch.MatchPlayers)
+                                    .ThenInclude(matchPlayer => matchPlayer.ChessPieces)
+                                        .ThenInclude(chessPiece => chessPiece.ChessPieceType)
+                                 .Include(chessMatch => chessMatch.MatchPlayers)
+                                    .ThenInclude(matchPlayer => matchPlayer.PlayerType)
+                                .SingleOrDefaultAsync(m => m.ChessMatchId == Id);
+            if (matchActive == null)
+            {
+                return NotFound();
+            }
+
+            ViewData["MatchPlayerId"] = MatchPlayerId;
+            return View(matchActive);
+        }
 
     }
 }

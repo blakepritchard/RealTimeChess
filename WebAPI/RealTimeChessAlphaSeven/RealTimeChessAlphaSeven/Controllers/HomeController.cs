@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TexasRealTimeChess.Models;
+using TexasRealTimeChess.Models.RealTimeChessModels;
 
 namespace TexasRealTimeChess.Controllers
 {
@@ -33,5 +34,7 @@ namespace TexasRealTimeChess.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+       
     }
 }
