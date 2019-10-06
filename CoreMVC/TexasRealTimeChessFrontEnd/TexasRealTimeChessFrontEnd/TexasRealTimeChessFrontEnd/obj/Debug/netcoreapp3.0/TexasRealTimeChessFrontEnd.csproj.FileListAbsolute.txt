@@ -1,7 +1,0 @@
-C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\TexasRealTimeChessFrontEnd\TexasRealTimeChessFrontEnd\TexasRealTimeChessFrontEnd\obj\Debug\netcoreapp3.0\staticwebassets\TexasRealTimeChessFrontEnd.StaticWebAssets.Manifest.cache
-C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\TexasRealTimeChessFrontEnd\TexasRealTimeChessFrontEnd\TexasRealTimeChessFrontEnd\obj\Debug\netcoreapp3.0\staticwebassets\TexasRealTimeChessFrontEnd.StaticWebAssets.xml
-C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\TexasRealTimeChessFrontEnd\TexasRealTimeChessFrontEnd\TexasRealTimeChessFrontEnd\obj\Debug\netcoreapp3.0\TexasRealTimeChessFrontEnd.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\TexasRealTimeChessFrontEnd\TexasRealTimeChessFrontEnd\TexasRealTimeChessFrontEnd\obj\Debug\netcoreapp3.0\TexasRealTimeChessFrontEnd.RazorAssemblyInfo.cache
-C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\TexasRealTimeChessFrontEnd\TexasRealTimeChessFrontEnd\TexasRealTimeChessFrontEnd\obj\Debug\netcoreapp3.0\TexasRealTimeChessFrontEnd.RazorAssemblyInfo.cs
-C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\TexasRealTimeChessFrontEnd\TexasRealTimeChessFrontEnd\TexasRealTimeChessFrontEnd\obj\Debug\netcoreapp3.0\TexasRealTimeChessFrontEnd.AssemblyInfoInputs.cache
-C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\TexasRealTimeChessFrontEnd\TexasRealTimeChessFrontEnd\TexasRealTimeChessFrontEnd\obj\Debug\netcoreapp3.0\TexasRealTimeChessFrontEnd.AssemblyInfo.cs
