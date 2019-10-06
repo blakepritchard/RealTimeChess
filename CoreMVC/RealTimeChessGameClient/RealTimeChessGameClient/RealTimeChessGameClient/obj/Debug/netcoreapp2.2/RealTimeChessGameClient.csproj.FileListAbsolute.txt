@@ -1,0 +1,2 @@
+C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\RealTimeChessGameClient\RealTimeChessGameClient\RealTimeChessGameClient\obj\Debug\netcoreapp2.2\RealTimeChessGameClient.AssemblyInfoInputs.cache
+C:\Users\Blake\source\repos\git\RealTimeChess\CoreMVC\RealTimeChessGameClient\RealTimeChessGameClient\RealTimeChessGameClient\obj\Debug\netcoreapp2.2\RealTimeChessGameClient.AssemblyInfo.cs
