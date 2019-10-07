@@ -11,7 +11,7 @@
     <PackageReference Include="AngularJS" Version="1.6.6" />
     <PackageReference Include="AngularJS.Animate" Version="1.6.8" />
     <PackageReference Include="AngularJS.Core" Version="1.6.8" />
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
   </ItemGroup>
 
   <ItemGroup>
