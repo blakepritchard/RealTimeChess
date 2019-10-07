@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<sitemanifest>
-  <IisApp path="C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Release\netcoreapp2.0\PubTmp\Out\" />
-  <dbfullsql path="C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Release\netcoreapp2.0\PubTmp\EFSQLScripts\TexasRealTimeChess.Data.ApplicationDbContext.sql" />
-  <dbfullsql path="C:\Users\Blake\source\repos\git\RealTimeChess\WebAPI\RealTimeChessAlphaSeven\RealTimeChessAlphaSeven\obj\Release\netcoreapp2.0\PubTmp\EFSQLScripts\TexasRealTimeChess.Models.RealTimeChessModels.RealTimeChessDbContext.sql" />
-</sitemanifest>

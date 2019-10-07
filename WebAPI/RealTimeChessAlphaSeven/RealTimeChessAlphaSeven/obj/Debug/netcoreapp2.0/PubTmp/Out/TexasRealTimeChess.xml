@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TexasRealTimeChess</name>
+    </assembly>
+    <members>
+        <member name="M:TexasRealTimeChess.Controllers.PlayersController.#ctor(TexasRealTimeChess.Models.RealTimeChessModels.RealTimeChessDbContext)">
+            <summary>
+            Creates a PlayerController.
+            </summary>
+        </member>
+        <member name="M:TexasRealTimeChess.Controllers.PlayersController.GetPlayers">
+            <response code="200">Players returned OK</response>
+        </member>
+        <member name="M:TexasRealTimeChess.Controllers.PlayersController.GetPlayer(System.Int32)">
+            <response code="200">Players returned OK</response>
+        </member>
+        <member name="M:TexasRealTimeChess.Controllers.PlayersController.PutPlayer(System.Int32,TexasRealTimeChess.Models.RealTimeChessModels.Player)">
+            <response code="204">Players Updated OK</response>
+        </member>
+        <member name="M:TexasRealTimeChess.Controllers.PlayersController.PostPlayer(TexasRealTimeChess.Models.RealTimeChessModels.Player)">
+            <response code="201">201 OK</response>
+        </member>
+        <member name="M:TexasRealTimeChess.Controllers.PlayersController.DeletePlayer(System.Int32)">
+            <response code="200">Player Deleted OK</response>
+        </member>
+        <member name="T:TexasRealTimeChess.Startup">
+            <summary>
+            Startup
+            </summary>
+        </member>
+        <member name="M:TexasRealTimeChess.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Creates a Startup Class
+            </summary>
+        </member>
+        <member name="M:TexasRealTimeChess.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+        </member>
+        <member name="M:TexasRealTimeChess.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+        </member>
+    </members>
+</doc>

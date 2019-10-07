@@ -170,16 +170,14 @@ namespace TexasRealTimeChess.Controllers
             return Ok(chessMatch);
         }
 
-
-        [HttpGet]
-        public async Task<ActionResult> Game(int Id, int? MatchPlayerId)
+        /*
+        [HttpGet("{id}/Game")]
+        public async Task<ActionResult> Game(int id, int? MatchPlayerId)
         {
-            if (Id == null)
+            if (id == null)
             {
-                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return BadRequest(ModelState);
             }
-            //ChessMatch chessMatch = db.ChessMatches.Find(id);
-            //ChessMatch chessMatch = (ChessMatch)apiChess.ApiChessMatchesByIdGet(Id);
 
             ChessMatch matchActive = await _context.Matches
                                 .Include(chessMatch => chessMatch.MatchPlayers)
@@ -187,7 +185,7 @@ namespace TexasRealTimeChess.Controllers
                                         .ThenInclude(chessPiece => chessPiece.ChessPieceType)
                                  .Include(chessMatch => chessMatch.MatchPlayers)
                                     .ThenInclude(matchPlayer => matchPlayer.PlayerType)
-                                .SingleOrDefaultAsync(m => m.ChessMatchId == Id);
+                                .SingleOrDefaultAsync(m => m.ChessMatchId == id);
             if (matchActive == null)
             {
                 return NotFound();
@@ -196,6 +194,7 @@ namespace TexasRealTimeChess.Controllers
             ViewData["MatchPlayerId"] = MatchPlayerId;
             return View(matchActive);
         }
+        */
 
     }
 }
